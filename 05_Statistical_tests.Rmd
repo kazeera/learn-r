@@ -1,0 +1,296 @@
+---
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+---
+# Statistical Tests
+Objective: 
+* To perform most commonly used statistical tests using functions in R   
+
+This tutorial was based on: http://r-statistics.co/Statistical-Tests-in-R.html 
+
+We will cover: 
+* ggplot2 refresher
+* list structure 
+* most commonly used statistical tests (functions)   
+- Check for normal distribution (Shapiro Test) 
+- One Sample t-Test (parametric) and Wilcoxon Signed Rank Test (non-parametric) 
+- Two Sample t-Test and Wilcoxon Rank Sum Test 
+- ANOVA   
+* how to add p-values to ggplot2 using ggpubr package   
+
+
+First, load the "iris" dataset that comes with R.
+```{r}
+# Make the data appear in environment # you can still use it without doing this step
+data("iris")
+# Look at the first 6 rows
+head(iris)
+# Look at the structure of a data frame (column names and data types)
+str(iris) 
+# # Learn more about the data 
+# ? iris 
+```
+
+Review - ggplot2 tutorial:  
+  
+Practice 4.1. ggplot2 
+  Initialize a ggplot of the flower Species on the x-axis and the Sepal.Length on the y-axis for the iris dataset.
+  Make this a boxplot, where the boxes are colored by species. 
+  Color boxes using an RColorBrewer palette called "Dark2". 
+  Add geom_points with size of points set to 1. 
+  Use theme_bw(). 
+  Add a title "Sepal Length of Iris Species". 
+  Assign this to a variable called g. 
+  Plot g.
+```{r}
+# Load required libraries
+library(ggplot2) # library to make plots
+library(RColorBrewer) #library to pick colors
+# Initialize plot
+g <- ggplot(iris, aes(x=Species, y=Sepal.Length))+ #
+# Add layers using +
+  geom_boxplot(aes(color = Species), outlier.fill = NA)+ #make a boxplot, color by species, remove outliers; 
+  scale_color_brewer(palette = "Dark2")+ #set colors
+  geom_point(size=1)+ #add points, NOTE: replots all values including outliers
+  ggtitle(label = "Sepal Length of Iris Species")+ #add title
+  theme_bw() #set theme to black and white
+g
+# NOTE: you would say "fill" instead of "color" to fill boxes in in aes() and use scale_fill_brewer() instead of scale_color_brewer()
+# Save plot using ggsave()
+```
+
+## Lists
+- A list is an ordered collection of objects, which can be vectors, matrices, data frames, etc. 
+- In other words, a list can contain all kinds of R objects.
+- List elements have a name, index, and value, and can be accessed by $ or [[]]
+      e.g. [["name"]] or [[1]] or $name  
+- Many functions return lists (e.g. ggplot, statistical tests) - look at environment for overview
+```{r}
+# Elements in a list have names and value
+# Element value can be any type and structure of data, including vectors and data frames
+
+# Create a list
+# Note: this example features arbritrary values
+my_analysis <- list(
+  input_data = iris, #dataframe 
+  columns.of.interest = c("Sepal.Length", "Petal.Width"), #character vector
+  test = "t.test",  #character
+  p.value = "0.0032" #numeric
+)
+
+# Print list 
+my_analysis
+# Names of elements in the list
+names(my_analysis)
+# Number of elements in the list
+length(my_analysis)
+
+## Access the list
+# select element by its name or its index
+# Select by name (1/2)
+my_analysis$p.value
+# Select by name (2/2)
+my_analysis[["p.value"]]
+# Select by index
+my_analysis[[4]]
+
+# select the first ([1]) element of my_analysis[[2]]
+my_analysis[["columns.of.interest"]][1] # equivalent to: my_analysis$columns.of.interest[1] or my_analysis[[2]][1] 
+
+# Add to list #or modify using assignment
+my_analysis[["is.significant"]] <- TRUE
+```
+
+## Statistical Significance
+- We define our significance level (usually p < 0.05)
+- When p < 0.05, we reject our null hypothesis and accept the alternative hypothesis mentioned in your R code's output
+- Note: To get more examples, use function example(); Usage: example(t.test)
+
+## Checks for Normality
+- Normal distribution (also called Gaussian) is a type of distribution where
+        - continuous data follows a bell-shaped curve
+        - the central peak represents the mean 
+        - the probabilities for values away from mean taper off equally in both directions  
+- use parametric tests on normally distributed data  
+- test using Shapiro Test or Q-Q plots (quantile-quantile plots)
+
+### Shapiro Test  
+- To test if a sample follows a normal distribution  
+  
+Null hypothesis: the data are normally distributed  
+* p > 0.05 #normally distributed
+* p < 0.05 #not normally distributed
+```{r}
+# Shapiro-Wilk normality test for Petal.Length
+shapiro.test(iris$Petal.Length) # => p < 0.05 # not normally distributed
+# Shapiro-Wilk normality test for Petal.Width 
+shapiro.test(iris$Petal.Width) 
+```
+
+## One-Sample Tests
+Null hypothesis: sample mean is equal to estimate/mu
+* p < 0.05 #means are different
+
+**One Sample t-test  **
+
+- parametric test used to test if the mean of a sample from a normal distribution could reasonably be a specific value  
+```{r}
+t.test(x = iris$Petal.Length, mu=4) # testing if mean of x could be
+# Note: in example, I'm using data that's not normally distributed
+```
+- note that the 95% confidence interval range includes the value 4 within its range. So, it is ok to say the mean of x is 10
+
+**One Sample Wilcoxon Signed Rank Test**
+
+- alternative to t-Test when data is not normally distributed
+```{r}
+# run test
+wilcox.test(iris$Petal.Length, mu=20, conf.int = TRUE)
+```
+
+Note: statisical testing prints result to console, but can also be saved in a list object.
+```{r}
+# Store the output in the "result" variable
+result <- t.test(x = iris$Petal.Length, mu=4)
+# Extract from list - Get the p-value
+result$p.value #alternatively, result[["p.value"]]
+```
+
+## Two-Sample Tests
+Null hypothesis: there is no difference in means of x and y
+* p < 0.05 #means are different
+
+Two Sample t-Test and Wilcoxon Rank Sum Test
+- compare the mean of 2 samples using t.test() and wilcox.test()
+```{r}
+# two sample t-test
+t.test(x = iris$Petal.Length, y = iris$Petal.Width)    
+
+# two sample wilcoxin test
+wilcox.test(x = iris$Petal.Length, y = iris$Petal.Width)
+```
+
+- Use paired = TRUE for 1-to-1 comparison of observations
+- x and y should have the sample length
+```{r}
+# t.test(x, y, paired = TRUE) # when observations are paired, use 'paired' argument.
+# wilcox.test(x, y, paired = TRUE) # both x and y are assumed to have similar shapes
+```
+
+
+## ANOVA 
+- One-way analysis of variance (ANOVA), also known as one-factor ANOVA, is an extension of independent two-samples t-test for comparing means in a situation where there are more than two groups
+- parametric test
+- Computes the common variance, the variance between sample means, and the F-statistic with these two values
+- Read more: http://www.sthda.com/english/wiki/one-way-anova-test-in-r 
+
+- In the iris dataset, there are 3 species (the factor), so we could compare Petal.Width across the groups
+- use aov() to compute ANOVA and anova() of that output to summarize model
+```{r}
+# Compute the analysis of variance
+# The first argument is a formula: name_of_variable ~ factor
+anova_model <- aov(Petal.Width ~ Species, data = iris)
+# Summary of the analysis
+anova_summ <- anova(anova_model)
+anova_summ
+# Get p-value 
+anova_summ$`Pr(>F)`
+```
+
+**Tukey multiple pairwise-comparisons**
+
+The ANOVA test tells us that the means between at least one pair is significant. 
+To see which one(s) is significant, we can do post-hoc Tukey HSD (Tukey Honest Significant Differences) for performing multiple pairwise-comparison between the means of groups.
+
+The function TukeyHSD() takes the fitted ANOVA as an argument. The output is a table with all pairwise combinations in your factor.
+```{r}
+TukeyHSD(anova_model)
+```
+
+Alternatively, we could also perform multiple t-tests and adjust p-values by different methods
+```{r}
+pairwise.t.test(x = iris$Petal.Width, g = iris$Species, p.adjust.method = "fdr")
+pairwise.wilcox.test(x = iris$Petal.Width, g = iris$Species, p.adjust.method = "fdr")
+```
+If you have an object with p-values, you can also perform p.adjust(), read more about the p-adjust function: https://stat.ethz.ch/R-manual/R-devel/library/stats/html/p.adjust.html
+
+## Adding p-values to ggplot
+- using ggpubr package
+- ggpubr R package for an easy ggplot2-based data visualization
+```{r}
+# # Install the latest version from GitHub as follow (recommended):
+
+# install.packages("devtools")
+# devtools::install_github("kassambara/ggpubr")
+
+# # Or, install from CRAN as follow:
+# install.packages("ggpubr")
+# Load ggpubr as follow:
+library("ggpubr")
+
+# Get the ggplot object made at the beginning of this tutorial
+g
+
+# Get the unique values in Species
+levels(iris$Species) # unique(iris$Species)
+
+# Make a list of Species comparisons
+comparisons <- list(c("setosa","versicolor"), c("setosa", "virginica"), c("versicolor", "virginica"))
+
+# Alternative code for line above: no "hard-coding"
+# elements <- levels(iris$Species) 
+# comparisons <- gtools::combinations(n=length(elements),r=2,v=elements, repeats.allowed=F)
+# comparisons <- split(comparisons, seq(nrow(comparisons)))
+
+# Add stats_compare_means() from ggpubr to your ggplot
+g + 
+  stat_compare_means(method="t.test", comparisons = comparisons)
+
+```
+
+**Other tests **
+- Read more from this tutorial here: http://r-statistics.co/Statistical-Tests-in-R.html
+5. Kolmogorov And Smirnov Test
+6. Fisher's F-Test
+7. Chi Squared Test
+5. Kolmogorov And Smirnov Test
+
+- Which test should I use?
+https://stats.idre.ucla.edu/other/mult-pkg/whatstat/ 
+
+## Practice
+The "women" data set in R gives the average heights and weights for American women aged 30 to 39.
+* Significance level is p<0.05.  
+a) Print the first 10 rows to the console. (Hint: use the "n" argument in head() function)   
+b) What is the data type of the height column? (Hint: use str() or class())  
+c) Are the height and weight variables normally distributed? (Hint: use Shapiro's test for each)  
+d) Should we use t-test or wilcoxin test on this data? Why?  
+e) Compare the heights to an estimated mean of 66.2 using a one-sample t-test. Is there a significant difference in means?  
+f) Compare the first 6 weights recorded (ie. 1 to 6) to the next 6 (ie. 7 to 12) using a t-test. Is there a significant difference in means?  
+  
+Solution
+```{r}
+# Load data (you can still use it without this step)
+data("women")
+# a) Print using head()
+head(women, n = 10)
+
+# b) Use class() to get data type 
+class(women$height) # ANSWER: numeric
+
+# c) use Shapiro's test to test for normality. If p > 0.05, normally distributed
+shapiro.test(women$height) # p-value = 0.7545
+shapiro.test(women$weight) # p-value = 0.6986
+# ANSWER: Yes, since p > 0.05 for both variables, the data is normally distributed
+
+# d) ANSWER: We could use t-tests because parametric statistical tests is used on normally distributed data.
+
+# e) use t.test(), where mu = 66.2
+t.test(women$height, mu = 66.2) # p-value = 0.3163
+# ANSWER: No, since p > 0.05, there is no significant difference, so the mean of heights is close to 66.2.
+
+# f) use t.test() with x,y (two samples)
+t.test(x = women$weight[1:6], y = women$weight[7:12]) # p-value 0.0003556
+# ANSWER: Yes, since p < 0.05, there is a significant difference  
+```

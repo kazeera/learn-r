@@ -1,0 +1,304 @@
+---
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+---
+# Repetitive Jobs
+Objective: To learn about tools to prevent copying and pasting the same code to replicate instructions
+
+We will cover:  
+- how to use functions (review)
+- make your own function(){}
+- loops 
+- vectorization - apply family (apply(), lapply())
+
+## Functions
+Recall: A quick note on functions
+
+- Functions are a group of statements that together perform a specific task
+- Functions have a name, e.g. setwd, getwd
+- We can "call" functions (also called commands in this context) in R for convenience (so we don't have to rewrite the code)
+  
+- Use ? or help() command To find information for a particular function  
+```{r}
+?print
+help(print)
+```
+
+- Functions have the format: function_name( arguments )
+- "Arguments" are required or optional parameters used by the function to accomplish the action
+- Functions can "return" a value (or not)
+```{r}
+# Type a comma and press tab to see arguments (function parameters) in RStudio
+print(x = "Hello world")
+print(x = 33.9431249, digits = 4)
+```
+
+**How to define a function:**
+
+   name_of_function <- function(list_of_arguments){
+                          # code to do what function wants
+                      }
+
+- arguments/args: names of variables you will use in your function (seperated by commas, within parantheses)
+- return value: the value that is returned by a function (optional) - use return()
+
+**Make a function using function()**
+
+Make a function that adds 2 values, x and y
+```{r}
+add <- function(x, y) { #arguments within parantheses
+  x.y.sum <- x + y    # body of function within {}
+  return(x.y.sum)     # return value specified in return()
+}
+```
+
+Call your function the same way you use any other.
+```{r}
+add(4,5) #returns 9; if not saved to a variable, it will print
+# add(4) # Error in add(4) : argument "y" is missing, with no default
+```
+
+Automatic Returns - In R, it is not necessary to include the return statement. R automatically returns whichever variable is on the last line of the body of the function.
+
+**Default arguments**
+Set defaults if not specified by user. 
+```{r}
+# Define a function
+add <- function(x, y=0) { # x is required argument, but if y is not specified, it is 0
+  x.y.sum <- x + y    
+  return(x.y.sum)    
+}
+# Use function
+add(4,5)
+add(4)
+```
+
+Define a function lb.to.kg that converts weights from pounds (lb) to kilogram (kg):
+```{r}
+# for an approximate result, divide the mass value by 2.205
+lb.to.kg <- function(wt_lb) { #argument within parantheses
+  wt_kg <- wt_lb/2.205      # body of function within {}
+  wt_kg <- round(wt_kg, digits = 3)
+  return(wt_kg)           # return value specified in return()
+}
+
+# Let's try running our function. Calling our own function is no different from calling any other function:
+lb.to.kg(32)
+lb.to.kg(212)
+```
+
+Summary:
+- Define a function using name <- function(args...) { body... }
+- Call a function using name(values.. )
+
+- taste of how larger programs are built: we define basic operations, then combine them in ever-larger chunks to get the effect we want. 
+
+## Loops
+
+Based on following tutorial:  https://swcarpentry.github.io/r-novice-inflammation/03-loops-R/index.html 
+
+Suppose we want to print each word in a sentence. One way is to use six print statements:
+```{r}
+# Make a character vector
+sentence1 <-  c("Try", "printing", "this")
+
+# Make a function to print each value in sentence vector
+print_sentence <- function(sentence) {
+  print(sentence[1])
+  print(sentence[2])
+  print(sentence[3])
+}
+# Call function
+print_sentence(sentence1)
+```
+
+However this function won't work as intended (doesn't scale and fragile) if there are more than 3 values in sentence argument.
+```{r}
+# Make another sentence vector
+sentence2 <- c("Let", "the", "computer", "do", "the", "work")
+# Call function
+print_sentence(sentence2)
+```
+
+Or if the sentence is shorter, NAs (missing values) are introduced.
+```{r}
+# Make another sentence vector
+sentence3 <- c("Try", "this")
+# Call function
+print_sentence(sentence3)
+```
+
+Loop 
+- All modern programming languages provide special constructs that allow for the repetition of instructions or blocks of instructions.
+
+- There are 3 main types of loops in R: for, while, repeat
+- You can add break; and next; to skip a iteration if it does not passed a test (ie. condition) 
+
+Read more: https://www.datacamp.com/community/tutorials/tutorial-on-loops-in-r
+
+**The 'for' loop construct**
+
+
+    for (variable in collection) {
+      # do things with variable
+    }
+
+Eg. make a for loop
+```{r}
+# Make a for loop to print out each element in sentence1
+for (word in sentence1){ # word will take on the value of "sentence1" element by element until there are no elements left
+  # print the current word
+  print(word)
+}
+```
+
+Add a condition
+```{r}
+# Make a for loop to print out each element in sentence1
+for (word in sentence1){ # word will take on the value of "sentence1" element by element until there are no elements left
+  # Skip current iteration if the current word is equal to  "printing"
+  if(word == "printing"){
+    next;
+  }
+  # print the current word
+  print(word)
+}
+```
+Eg. make a while loop
+```{r}
+# Intialize an index counter 
+i <- 1 
+
+# Make a while loop to print out each element in sentence1
+# Note: length() is the number of elements in a vector or list
+while (i <= length(sentence1)){ # i will test this condition and run the code within {} until it is FALSE
+  # Define word variable by indexing sentence1
+  word <- sentence1[i]
+  # print the current word
+  print(word)
+  # Update counter by 1 - i.e. move to the next index - must do this or you'll end up with an infinite loop!
+  i <- i+1
+}
+```
+
+Applications: 
+- processing/analyzing multiple files (look at linked tutorial)
+- plotting graphs from columns in same dataframe
+```{r}
+# eg. Use a for loop to apply same preprocessing steps to multiple csv files
+for (filename in list.files(pattern="csv")){ 
+  # Read csv file into a variable called df
+  df <- read.csv(filename)
+  
+  if(is.null(df)){
+    next;
+  }
+  
+  # downstream processing df
+}
+```
+
+## Vectorization
+- Alternative to looping 
+- Vectorization is a feature of R that allows you to apply an operation to data/vectors at the same time
+- This makes code more readable
+- most functions in R perform vectorization intrinsically, such as colSums(), rowMeans(), and even basic arithmetic operations (e.g +, -, *)
+
+e.g. Power of vectorization: Add 2 to all values
+```{r}
+# Define a numeric vector called values
+values <- c(3,5,6,10)
+
+# In many programming languages you may have to run a loop to do this
+for(value in values){
+  new_value <- value + 2
+  print(new_value)
+}
+
+# But R lets you add 2 to all values at once - this is called vectorization
+values + 2
+```
+
+## Intro to apply 
+- apply family functions utilize the concept of vectorization
+- functions: apply(), sapply(), lapply(), mapply(), rapply(), tapply(), vapply()
+- within these commands, you may apply a function or operation to the values 
+- put name of function into FUN (no parantheses) or make your own
+
+
+- most frequently used are:
+
+1) lapply ("list" apply)
+- applies a function on 1D data - list or vector
+- returns a list
+- note: use unlist() to convert the resulting list to vector
+```{r}
+# e.g. print vector elements
+lapply(sentence1, FUN = print)
+# e.g. add 2 to each element by making your own function
+lapply(values, FUN = function(value){
+  value + 2
+})
+```
+
+2) apply
+- apply a function to 2D data - matrix or data frame
+- specify if function should be apply on rows or columns (using MARGIN argument: 1 = row, 2 = column)
+```{r}
+# Read input table
+df <- read.delim(file = "07-Casey-mamm-mouse-proteome-sample.txt", row.names = 1)
+
+# Get standard deviation of columns
+apply(df, MARGIN = 2, FUN = sd)
+
+# Transform data to z-scores (which account for sd of each row)
+z_scores <- apply(df, MARGIN = 1, FUN = function(x){ # in this function, x is a numeric vector of each row
+  (x-mean(x))/sd(x)
+})
+# Look at first 6 rows and 6 columns
+z_scores[1:6, 1:6]
+# Note apply() has transposed our original matrix; re-transpose using t()
+z_scores <- t(z_scores)
+```
+
+
+## Practice
+Converting cm to in
+a) Define a function called "cm_to_in". This function takes in a numeric variable and converts it from centimeters to inches by dividing the length value by 2.54. Round to 2 significant digits using round(). Return the result. 
+b) Test your function on any number.
+c) Make a numeric vector of 5 different values called "cm_measurements".
+d) In a loop, 
+- convert the cm vector to inches using your function in a) and save to variable called "in_inches"
+- print "in_inches" to console using print()
+e) Use the lapply() function to apply your function to each element.
+f) Pass your vector into your function. What's the result? This is called vectorization.
+
+Solution
+```{r}
+# a) make a function
+cm_to_in <- function(value){
+  # Divide value by 2.54
+  result <- value/2.54
+  # Round to 2 digits
+  result <- round(result, digits = 2)
+  return(result)
+}
+# b) pass in single numeric value to function
+cm_to_in(45)
+# c) make a numeric vector
+cm_measurements <- c(35,63,53,67,32)
+# d)  make for loop
+for(in_cm in cm_measurements){
+  # Save output of function to variable
+  in_inches <- cm_to_in(in_cm)
+  # Print
+  print(in_inches)
+}
+# e) use lapply() on vector
+lapply(cm_measurements, FUN = cm_to_in)
+# f) pass in whole vector to function
+cm_to_in(cm_measurements)
+```
+
+

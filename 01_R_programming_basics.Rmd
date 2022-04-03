@@ -1,0 +1,234 @@
+---
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+---
+# R Programming Basics
+Objective: Explore the syntax and basic features of R.  
+* package and function overview  
+* variable declaration  
+* basic data types (numeric, logical, character)  
+* operators (arithmetic, logical, relational)  
+
+**Other resources to learn R:**\n  
+* Course-like: [link](https://swcarpentry.github.io/r-novice-inflammation/)  
+* Comprehensive tutorial pages: [link](http://www.sthda.com/english/)  
+* Refresher slides: [link](https://support.scinet.utoronto.ca/education/go.php/306/content.php/cid/831/)  
+
+**Features of R**\n
+* R is an _interpreted language_, which means it runs code line by line and can be used interactively.  
+* R has **libraries** (also called packages) which contain functions and datasets for you to use in your code. Sources of packages: base (already included in R), CRAN (install using install.packages()), BioConductor ( [link](https://www.bioconductor.org/install/) for bioinformatics).  
+* We use RStudio to work interactively and make scripts, but we can use any code editor and the default R console.
+```{r}
+# use a base R function to print "Hello world" on the console 
+print("Hello world")
+```
+> Note: "Hello, world" is often the first program/command written by people learning to code (see [link](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program))  
+  
+  
+**A quick note on functions:**\n
+- Functions are a group of statements that together perform a specific task
+- Functions have a name, e.g. setwd, getwd
+- We can "call" functions (also called commands in this context) in R for convenience (so we don't have to rewrite the code)
+  
+- Functions have the format: function_name(arguments)
+- "Arguments" are required or optional parameters used by the function to accomplish the action
+- Functions can return a "value" (or not)
+- Use ? or help() command To find information for a particular function  
+```{r}
+# ?print
+# help(print)
+
+# Type a comma and press tab to see arguments (function parameters) in RStudio
+print(x = "Hello world")
+print(x = 33.9431249, digits = 4)
+```
+
+
+A large part was based on this tutorial: http://www.sthda.com/english/wiki/easy-r-programming-basics#basic-arithmetic-operations  
+
+## Variable Declaration  
+**Assignment operator**\n
+<- is the assignment operator. It assigns values on the right to objects on the left.  
+
+**Variables**\n
+= a named place to store data that reserves a spot your memory. You need to declare variables before using them.  
+
+Rules for naming variables in R  
+- can consist of letters, numbers and the dot or underline characters (e.g. rna2, rna_2, .rna_1)  
+- case sensitive (e.g. rna_counts != RNA_counts)  
+- cannot start with a number or "." followed by a number (e.g. .2rna is invalid)  
+- should not be a reserved word (type ?reserved to see list in R)  
+  
+In the example below, x is called a "variable" or "object" in R. Once you've assigned a value to a variable, it appears in your environment (i.e. workspace).
+```{r}
+# Run the line of code below so the value of x is 3
+x <- 3
+# The function ls() returns the list of objects in your current environment
+ls()
+# To remove a variable, use the function rm()
+rm(x) # equivalent
+```
+## Basic Data Types  
+Variables have a data type depending on what value you give to it.  
+* numeric - integer (e.g. 1L, 2L) and double (has decimal - e.g. 1.1, 422.33)  
+* character (e.g. "hi", "2")  - Note: a string = more than 1 characters
+* logical (TRUE or FALSE)
+```{r}
+# Numeric object: How old are you?
+my_age <- 28
+# Character  object: What's your name?
+my_name <- "Sanjay"
+# logical object: Are you a scientist?
+# (yes/no) <=> (TRUE/FALSE)
+is_scientist <- TRUE
+```
+It's possible to use the function class() to see what type a variable is:
+```{r}
+class(my_age)
+class(my_name)
+typeof(my_age)
+```
+You can also use the functions is.numeric(), is.character(), is.logical() to check whether a variable is numeric, character or logical, respectively. For instance:  
+```{r}
+is.numeric(my_age)
+is.numeric(my_name)
+```
+If you want to change the type of a variable to another one, use the as.* functions, including: as.numeric(), as.character(), as.logical(), etc.  
+```{r}
+class(my_age)
+my_age <- as.character(my_age)
+class(my_age)
+```
+## Operators
+**Arithmetic operators (urany and binary)**\n
+* + and - (unary operators)
+* + (addition)
+* - (subtraction)
+* (multiplication)  
+* / (division)  
+* ^ (exponentiation)
+```{r}
+# Unary minus
+num <- 12
+# Addition
+3 + num
+# Substraction
+7 - num
+# Multiplication
+3 * 7
+# Divison
+num/3
+# Exponentiation
+3^5
+# Modulos: returns the remainder of the division of 8/3
+10 %% 3
+
+# Basic arithmetic functions
+log2(num) # logarithms base 2 of x
+log10(num) # logaritms base 10 of x
+exp(num) # Exponential of x
+b <- 2
+log(x = num, base = b) # custom base
+# trig functions
+sin(b); cos(b); tan(b) #; is used to seperate code on the same line
+
+# Store expression in variable
+result <- 3 + 7
+log2(result)
+```
+Tip: combine variables and your text using sprintf() or paste()/paste0().  
+paste() concatenates a bunch of characters/strings together.   
+sprintf() employs C-style string formatting commands by including format specifiers (which start with the % character) within the string.  
+```{r}
+# Declare your variables
+my_name <- "Kazeera"
+my_age <- round(23.7, digits = 0)
+# Example: Say "My name is ___ and my age is ___" 
+paste("My name is ", my_name, " and I am ", my_age, " years old.", sep="")
+sprintf("My name is %s and I am %s years old.", my_name, my_age) # use %f for numbers and %s for strings
+```
+**Logical operators**\n
+- return TRUE or FALSE, important for later on when we learn about control structures  
+
+- Relational operators used to compare between values  
+* < for less than  
+* \\> for greater than  
+* <= for less than or equal to  
+* \\>= for greater than or equal to  
+* == for equal to each other  
+* != not equal to each other
+```{r}
+# Guess the value of each operation
+x <- 3
+5 < x
+x < 2
+x <- 2
+x <= 2
+x != 3
+``` 
+- Boolean operators used as conjunctions to perform Boolean operations  
+* !	Logical NOT  # convert  
+* &	Element-wise logical AND  # will be false if at least one element is false  
+* |	Element-wise logical OR  # will be true if at least one element is true
+```{r}
+# Assign logical values to variables
+im_tall <- TRUE
+im_short <- F
+im_nice <- TRUE
+# NOT
+!im_tall # I'm NOT tall = FALSE
+# AND 
+im_nice & im_short
+im_nice & im_tall
+# OR
+im_nice | im_short
+# combine using parentheses (not square brackets or braces) 
+# like BEDMAS - perform what's in () brackets first
+(im_nice | im_short) & im_tall
+```
+  
+  \n
+  \n
+  \n
+  
+1 R Programming Basics
+
+Quiz 1 link: https://forms.gle/HWTH5TR7ThCSD79k9 
+
+## Practice
+** Note: feel free to use fake values for the following problem.  
+Body Mass Index (BMI) can be used to screen for weight categories that may lead to health problems. The formula is BMI = $\frac{weight\left(kg\right)}{height\left(m\right)^2}$. BMI ranges are underweight (under 18.5 kg/m2), normal weight (18.5 to 25), overweight (25 to 30), and obese (over 30).  
+a) Define a variable and assign the value of your weight to it. (Note: kg = lb/2.205)  
+b) Define a variable and assign the value of your height to it. (Note: m = inches/39.37)  
+c) Calculate your BMI. Assign the value to a variable.  
+d) Print it with 3 significant digits.  
+e) In 2013, a new formula for BMI that accounts for the distortions of the traditional BMI formula for shorter and taller individuals was proposed by Nick Trefethen, Professor of numerical analysis at Oxford University. (source: [link]( https://people.maths.ox.ac.uk/trefethen/bmi.html)).
+The new formula is BMI = 1.3*weight(kg)/height(m)^2.5. What is your BMI now?  
+f) Print the statement "My BMI is ___." to the console.  
+g) Use a relational operator to check whether your BMI is not underweight? 
+h) Use relational operators AND logical operators to check whether your BMI is in the "normal" range.  
+
+Solution
+```{r}
+# 1.1 BMI practice solution
+# a)
+my_weight <- 65 #kg
+# b)
+my_height <- 1.80 #m
+# c) 
+my_BMI <- my_weight/my_height^2
+my_BMI
+# d) 
+print(my_BMI, digits = 3) 
+# e)
+my_new_BMI <- 1.3*my_weight/my_height^2.5
+# f)
+statement <- sprintf("My BMI is %s.", round(my_BMI,digits = 1)) #round to 1 decimal place
+print(statement)
+# g)
+my_BMI >= 18.5 # am i not underweight? T/F
+# h)
+# usually we'd do 18.5 <= my_BMI <= 25 but you can't have multiple relational operators on the same line of code without Boolean ones
+my_BMI >= 18.5 & my_BMI <= 25
+```

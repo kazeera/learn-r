@@ -1,0 +1,348 @@
+---
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+---
+# Data Structures
+
+Objective: Learn how to work with vectors and data frames in R.
+- vector creation using c()
+- Positive and negative indexing using [] 
+- Vector functions (mean, sd, sort, max, min, etc)  
+- Dataframe (), how to access data [rows, cols], subset, and important functions
+** Note: info about list(), factor(), and matrix() are included in this tutorial but we will not cover these structures together 
+
+Data structure: 
+- organization, management, and storage format for data
+- enables efficient access and modification
+  
+Based on this tutorial: http://www.sthda.com/english/wiki/easy-r-programming-basics#basic-arithmetic-operations  
+  
+## Vectors
+- A vector in R is a combination of multiple values of the same data type (numeric, character or logical) in the same object/variable  
+- each value is called an element  
+- also called "array"  
+- created using the function c() (for concatenate)
+- We can give a name to the elements of a vector using the function names()  
+```{r}
+# Store cell types in a character vector 
+cell.types <- c("neutrophil", "NK", "macrophage", "B-cell") # create
+cell.types # print
+
+# Store the expression level in a numeric vector (arbitrary)
+expr_lvls <- c(78,20,53,0)
+expr_lvls
+
+# Store whether it is from the myeloid lineage
+is_myeloid <- c(T, F, T, F)
+is_myeloid
+
+# Name expresson levels by cell type
+names(expr_lvls) <- cell.types
+expr_lvls
+# conversely, can create named vector as follows:
+expr_lvls <- c(neutrophil = 78, NK = 20, 
+               macrophage = 53, B_cell = 0)
+unname(expr_lvls) #unname 
+# combine vectors
+c(expr_lvls, cell.types) #converts mixed data types to the same one based on data type hierarchies, character > numeric > logical
+```
+Case of missing values  
+- Missing information are represented by NA.
+```{r}
+expr_lvls <- c(neutrophil = 78, NK = 20, macrophage = 53, B_cell = NA)
+is.na(expr_lvls) # note: an example of vectorization where you can apply a function to a vector as if it were just one value
+```
+Other ways to create vectors:  
+* using : operator  
+* using seq() function (create a sequence)  
+```{r}
+# Make a numeric vector using :
+1:4 
+
+# Specify first and last element using seq()
+seq(from = 1.2, to = 3, by=0.2)   # specify step size
+seq(1, 5, length.out=4)    # specify length of the vector
+```
+**Access elements of a vector**
+
+- Elements of a vector can be accessed using vector indexing  
+- the vector used for indexing can be logical, integer or character vector  
+  
+**Using integer vector as index**
+
+- Vector index in R starts from 1 (unlike most programming languages where index start from 0)  
+- We can use a vector of integers as index to access specific elements  
+- We can use negative integers to return all elements except that those specified  
+```{r}
+x <- 11:20
+x[3]  
+x[c(2, 4)]     # access 2nd and 4th element
+x[-1]          # access all but 1st element
+# x[c(2, -4)]    # ERROR: cannot mix positive and negative integers
+x[c(2.4, 3.54)]    # real numbers are truncated to integers
+```
+NOTE: I am not saving my output into a variable so it does not modify the original "x" variable  
+   
+**Using logical vector as index**
+- When we use a logical vector for indexing, the position where the logical vector is TRUE is returned  
+```{r}
+intensity_lvl <- c(322, 39, 234, 890)
+intensity_lvl[c(TRUE, FALSE, FALSE, TRUE)] #length of logical vector must match length of vector
+THRESHOLD <- 300
+intensity_lvl[intensity_lvl < THRESHOLD]  # filtering vectors based on conditions
+intensity_lvl[intensity_lvl > 0]
+```
+**Using character vector as index**
+- This type of indexing is useful when dealing with named vectors   
+```{r}
+expr_lvls <- c(neutrophil = 78, NK = 20, macrophage = 53, B_cell = NA)
+expr_lvls["neutrophil"]
+expr_lvls[c("neutrophil", "NK")]
+```
+**Modify and delete vectors**
+- access specific elements and modify them using the assignment operator  
+- perform arithmetic and logical operations on the vector  
+- delete using NULL keyword  
+```{r}
+x <- 1:4
+# modify the first element 
+x[1] <- 15
+x
+# arithmetic operator
+x + 2
+x/x
+# logical operator
+!c(T,F)
+# delete vector 
+x <- NULL
+x[1]
+```
+**Vector functions**
+
+- Some useful functions are:  
+```{r}
+x <- seq(10, 100, by = 10)
+max(x) # Get the maximum value of x
+min(x) # Get the minimum value of x
+range(x) # Get the range of x (min, max) 
+length(x) # Get the number of elements in x
+sum(x) # Get the total of the elements in x
+prod(x) # Get the product of the elements in x
+mean(x) # The mean value of the elements in x - sum(x)/length(x)
+sd(x) # Standard deviation of x
+var(x) # Variance of x
+sort(x) # Sort the element of x in ascending order
+```
+Note: if you want to exclude NAs, most of these functions have a na.rm argument.  
+
+## Data Frames
+- Data frames is a table (matrix-like 2D object) where columns can have different vector types (numeric, character, logical)
+- Arguably the most useful data structure in R  
+- Create a data frame using data.frame(), specifying columns 
+
+**Some important functions** 
+
+* dim(), nrow() and ncol() - return the dimensions, number of rows and columns  
+* summary(), str() - give you information like stats, dimensions, data types, etc in your data frame
+* rownames() - retrieve or set row names of a matrix-like object  
+* colnames() - retrieve or set column names of a matrix-like object  
+* cbind() - combine R objects by columns  
+* rbind() - combine R objects by rows  
+* t() - transpose the matrix (columns become rows and vice-versa)  
+* rowSums() and colSums() functions: Compute the total of each row and the total of each column (when data frame is numeric) 
+```{r}
+cells_df <- data.frame(
+  Name = cell.types,
+  Expression = expr_lvls,
+  myeloid_lineage = is_myeloid,
+  Intensity1 = c(258, NA, 185, 290),
+  stringsAsFactors = F # set this to F for now, think of factors levels of for vectors
+)
+cells_df
+# Check if it's a data frame
+is.data.frame(cells_df)
+# Get dimensions
+dim(cells_df)
+# Get column names
+colnames(cells_df)
+# Rename rows
+rownames(cells_df) <- paste("Cell", 1:nrow(cells_df), sep =".")
+cells_df
+# Add column/row # NOTE AGAIN: if I don't save my code into a variable, it does not modify the original dataframe
+cbind(cells_df, Intensity2 = c(3315, 458, 5643, 100)) 
+rbind(cells_df, Cell.5 = c("mast cell", NA, T, 452))
+```
+**Access and subset a data frame**
+
+- Access columns and rows by indexing by name and by location  
+* Format is dataframe[row,column]  # think of your rows and columns as vectors  
+
+- Access columns by dollar sign $  
+```{r}
+# Access the data in 'name' column
+cells_df[,1] # index by location
+cells_df[,"Name"] # index by name of column
+cells_df$Name # access using $
+# Access the data for Cell 2 
+cells_df["Cell.2",]
+```
+- Subset using logical expressions, positive indexing (specifiy which columns/rows to keep), and negative indexing to exclude columns/rows
+- Subset using the subset() function
+- If you subset using vectors with more than one element, it returns a dataframe, if not it will return a vector
+- Modify the same way as vectors (specify which rows/columns value to access and use assignment to assign new values)  
+```{r}
+# Subset by selecting first 3 rows (both lines of code do the same thing)
+cells_df[c(1,2,3), ] 
+cells_df[1:3, ]
+
+# Subset by using character vector
+parameters <- c("Expression", "Intensity1")
+cells_df2 <- cells_df[,parameters]
+log2(cells_df2) # perform functions depending on data type
+# log2(cells_df) #ERROR: log2 only works when all columns numeric
+
+# Subset by selecting the rows that meet the condition (both lines of code do the same thing)
+cells_df[cells_df$Expression >= 25, ]
+subset(cells_df, subset = Expression >= 25)
+
+# Reassign all NA to 0
+cells_df[is.na(cells_df)] <- 0
+
+# Can add and remove columns using $
+cells_df$Intensity2 <- c(3315, 458, 5643, 100) # add column, alternative to cbind()
+cells_df
+cells_df$Intensity2 <- NULL # remove column
+```
+
+## Practice
+You are gathering information about your family members (alternatively, your friends or coworkers).  
+a) Make a vector of their names.  
+b) Who is the first person you wrote down? (i.e. Get the first element)
+c) Make a vector of their ages (in same order as part a)).  
+d) Make a vector if they're a kid or not (TRUE/FALSE).  
+e) Make a data frame of your family members with column names: Name, Age, Is_Kid.
+f) Sort their names by alphabetical order. The output should be saved to a data frame variable. (Look this up if you don't know how to!)  
+g) Subset your data frame so only rows of the members that are children shows (do not save as variable).
+h) Subset your data frame so only rows of the members that are older than 20 years old show (do not save as variable).  
+i) Add 1 to the ages of all your members in one line of code.  
+j) Remove the Is_Kid column.  
+   
+   
+Solution: 
+```{r}
+# a) Make a vector using c() 
+names <- c("Tinky Winky", "Dipsy", "Laa Laa", "Po")
+# b) Use positive indexing
+names[1]
+# c) Make a vector using c()
+ages <- c(21, 10, 10, 2)
+# d) Make a logical vector using c()
+is_kid <- c(F,T,T,T)
+# e) Make a data frame using data.frame()
+family <- data.frame(Name = names, Age = ages, Is_Kid = is_kid)
+family
+# f) https://www.r-bloggers.com/r-sorting-a-data-frame-by-the-contents-of-a-column/
+sorted_family <- family[order(family$Name),]   
+# g) Logical vector or subset()
+sorted_family[sorted_family$Is_Kid,]
+subset(sorted_family, subset = Is_Kid)
+# h) subset using logical vector
+sorted_family[sorted_family$Age > 20,]
+subset(sorted_family, subset = Age > 20)
+# i) modify the Age column only
+sorted_family$Age <- sorted_family$Age + 1
+# j) Using negative indexing or assigning column to NULL
+sorted_family$Is_Kid <- NULL
+# Or sorted_family <- sorted_family[, - which (colnames(sorted_family) == "Is_Kid")]
+```
+
+## Lists
+- A list is another data structure
+- It is an ordered collection of objects, which can be vectors, matrices, data frames, etc. In other words, a list can contain all kind of R objects.
+- List elements can be accessed by $Name_of_Element or [[index_of_element]]
+```{r}
+# Create a list
+# Elements can be any type and structure, including vectors and data frames
+my_family <- list(
+  mother = "Veronique", 
+  father = "Michel",
+  sisters = c("Alicia", "Monica"),
+  sister_age = c(12, 22)
+  )
+# Print
+my_family
+# Names of elements in the list
+names(my_family)
+# Number of elements in the list
+length(my_family)
+# Subset a list - select element by its name or its index
+# Select by name (1/2)
+my_family$father
+# Select by name (2/2)
+my_family[["father"]]
+# Select a specific element of a component
+# select the first ([1]) element of my_family[[3]]
+my_family[["sisters"]][1] 
+# Add to list 
+my_family$brother <- "Toby"
+```
+## Factors 
+- Factor variables represent categories or groups in your data. The function factor() can be used to create a factor variable.
+- R orders factor levels alphabetically, so if you want to redefine the order, do it in the factor() function call
+```{r}
+# Create a factor variable
+friend_groups <- factor(c(1, 2, 1, 2))
+friend_groups
+# Get group names (or levels)
+levels(friend_groups)
+# Change levels
+levels(friend_groups) <- c("best_friend", "not_best_friend")
+friend_groups
+# Change the order of levels
+friend_groups <- factor(friend_groups, 
+                      levels = c("not_best_friend", "best_friend"))
+# Print
+friend_groups
+# Check if friend_groups is a factor
+is.factor(friend_groups)
+# Convert a character_vector as a factor
+as.factor(c("A", "B", "D"))
+```
+## Matrices
+- A matrix is a table containing multiple rows and columns of vectors with the same type, which can be either numeric, character or logical.
+- To create easily a matrix, use the function cbind() or rbind() and perform similar functions to data frames
+- Convert to data frame using as.data.frame()
+```{r}
+# Numeric vectors
+col1 <- c(5, 6, 7, 8, 9)
+col2 <- c(2, 4, 5, 9, 8)
+col3 <- c(7, 3, 4, 8, 7)
+# Combine the vectors by column
+my_data <- cbind(col1, col2, col3)
+my_data
+# Change rownames
+rownames(my_data) <- c("row1", "row2", "row3", "row4", "row5")
+# Transpose
+t(my_data)
+# Dimensions
+ncol(my_data) # Number of columns
+nrow(my_data) # Number of rows
+dim(my_data) # Number of rows and columns
+# Subset by positive indexing
+my_data[2:4, ] # Select row number 2 to 4
+my_data[c(2,4), ] # rows 2 and 4 but not 3
+my_data[, "col2"] # Select by column 2's name "col2"
+# Exclude rows/columns by negative indexing
+my_data[, -1] # Exclude column 1
+# Perform simple operations on matrice
+log2(my_data)
+my_data*3 
+
+```
+- You may also construct a matrix using the matrix() function
+```{r}
+mdat <- matrix(data = c(1,2,3, 11,12,13), 
+           nrow = 2, byrow = TRUE,
+           dimnames = list(c("row1", "row2"), c("C.1", "C.2", "C.3")))
+```

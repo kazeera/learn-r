@@ -1,0 +1,11 @@
+h1:statistical-tests Statistical Tests
+h2:lists Lists
+h2:statistical-significance Statistical Significance
+h2:checks-for-normality Checks for Normality
+h3:shapiro-test Shapiro Test
+h2:one-sample-tests One-Sample Tests
+h2:two-sample-tests Two-Sample Tests
+h2:anova ANOVA
+h2:adding-p-values-to-ggplot Adding p-values to ggplot
+h2:practice Practice
+

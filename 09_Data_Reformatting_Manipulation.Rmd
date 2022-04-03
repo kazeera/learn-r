@@ -1,0 +1,302 @@
+---
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+---
+# Dataframe Manipulation
+Objective: To reformat data frames using tidyr and learn how to pipe using magrittr
+
+
+Quick Review of vectors and data frames
+```{r}
+# Store data/parameters in objects in R by assigning it to a variable using: variable_Name <- value
+
+# Make a "character" vector called person using function c()
+people <- c("Tinky", "Dipsy", "Lala", "Po")
+# Assign names to vector using a character vector of same length
+names(people) <- c("purple", "green", "yellow", "red")
+# Note () brackets reserved for functions
+
+# Access data in vectors using [] 
+people[c(1,3)] #use indexing 1st and 3rd elements
+people[1:3] #1st, 2nd and 3rd person
+people[-2] #negative indexing to get all values except the 2nd
+people[c(T,T,F,F)] #use logical vector to get 1st and 2nd elements
+people[c("purple", "yellow")] #use character vector to get 1st and 3rd elements *for named vectors
+
+# Make a dataframe or table called "df" to store vectors of different data types
+# Assign column names for each variable using = 
+df <- data.frame(Person=people, 
+                 Height=seq(from=180, to=120, length.out = 4))
+
+# Access data in df using [rows_of_interest, cols_of_interest]
+df[1,] #1st row
+df[,1] #1st column
+df[,c(T,F)] #1st column
+df[,"Person"] #1st column
+df$Person #1st column
+
+# Modify variables in dataframe by re-assignment
+df$Height <- df$Height + 2 #add 2 to all heights
+```
+
+**Today's tutorial:**
+
+Original tutorials: 
+- tidyr: http://www.sthda.com/english/wiki/tidyr-crucial-step-reshaping-data-with-r-for-easier-analyses
+- magrittr pipe: https://www.datacamp.com/community/tutorials/pipe-r-tutorial
+- dplyr pipe: https://uoftcoders.github.io/studyGroup/lessons/r/intro/lesson/
+
+
+## Reshape Data 
+- using tidyr package
+- ways to manipulate dataframes to facilitate organization and improve readability of code
+
+Useful functions:  
+  gather(): gather (collapse) columns into rows
+  spread(): spread rows into columns
+  separate(): separate one column into multiple using "delimiter"
+  unite(): unite multiple columns into one using "delimiter"
+
+```{r}
+# # Install package
+# install.packages("tidyr")
+# Load package into environment to use
+library("tidyr")
+```
+
+### Data
+- Take a subset of built-in "USArrests" data sets (state x violent crimes)
+```{r}
+head(USArrests)
+# Create a new data frame with just 4 of the observations and remove 4th column
+df <- USArrests[c(5,12,32,43), -4]
+# Add a column to beginning of data frame with state names = row names
+df <- cbind(state = rownames(df), df)
+# Remove row names
+rownames(df) <- NULL
+```             
+
+**gather()**: collapse columns into rows
+
+- collapses multiple columns into key-value pairs
+- converts data format "wide" to long
+- alternative of melt() function [in reshape2 package]
+- useful in ggplot, applying a function (ex. p_adjust() to multiple samples at once)
+
+gather(data, key, value, ...)
+
+Arguments: 
+data = data frame 
+key, value = Names of key and value columns to create in output
+value = Specification of columns to gather. Allowed values are:
+    variable names
+    if you want to select all variables between a and e, use a:e
+    if you want to exclude a column name y use -y
+    for more options, see: dplyr::select()
+
+Examples of usage:
+Gather all columns except the column state (-)
+```{r}
+gather(df, key = "arrest_variable", #this new column will be your column names
+       value = "arrest_rate", #values
+       -state)
+```
+
+Gather only Murder and Assault columns
+```{r}
+gather(df, key = "arrest_variable", 
+       value = "arrest_rate", 
+       Murder, Assault)
+
+```
+Note that, the two columns Murder and Assault have been collapsed and the remaining columns (state, UrbanPop and Rape) have been duplicated.
+
+Gather all variables between Murder and UrbanPop
+```{r}
+df2 <- gather(df,
+              key = "arrest_variable",
+              value = "arrest_rate",
+              Murder:UrbanPop)
+```
+
+**spread()**: spread two columns into multiple columns
+
+- spread() does the opposite of gather(). It takes two columns (key and value) and spreads into multiple columns
+- produces a wide data format from a long one 
+- alternative of the function cast() [in reshape2 package]
+
+spread(data, key, value)
+
+Arguments: 
+- key = name of the column whose values will be used as column headings.
+- value = name of the column whose values will populate the cells.
+
+```{r}
+# Spread df to turn back to the original data
+spread(df2, 
+       key = "arrest_variable", 
+       value = "arrest_rate")
+```      
+
+**unite()**: Unite multiple columns into one
+
+- takes multiple columns and paste them together into one.
+
+unite(data, col, ..., sep = "_")
+
+Arguments: 
+    col = The new (unquoted) name of column to add.
+    sep = Separator to use between values
+```{r}
+# unites the columns Murder and Assault
+df4 <- unite(df, 
+             col = "Murder_Assault",
+             Murder, Assault,
+             sep = "_")
+df4
+```
+
+**separate()**: separate one column into multiple
+
+- seperate() does the opposite of unite()
+- takes values inside a single character column and separates them into multiple columns
+
+separate(data, col, into, sep = "[^[:alnum:]]+")
+
+Arguments: 
+    col = Unquoted column names
+    into = Character vector with names of new columns to be created
+    sep = Separator between columns:
+          If character, is interpreted as a regular expression  
+          If numeric, interpreted as positions to split at  
+```{r}
+# Separate the column Murder_Assault [in df4] into two columns Murder and Assault:
+separate(df4,
+         col = "Murder_Assault",
+         into = c("Murder", "Assault"),
+         sep = "_")
+```
+
+Alternative forms: gather_(), spread_(), unite_()
+- useful when making your own functions
+```{r}
+# Make variable names (ie. would be arguments in your functions)
+col_names <-  c("Murder", "Assault")
+key_column <- "arrest_variable"
+value_column <- "arrest_rate"
+
+# opposite functions:
+# alt to gather() - wide to long format
+df2 <- gather_(df,
+               key_col = key_column,
+               value_col = value_column,
+               gather_cols = col_names) # define columns to gather
+# alt to spread() - long to wide format
+spread_(df2, 
+       key = "arrest_variable",
+       value = "arrest_rate")
+
+# opposite functions:
+# alt to unite() - unite many columns into one
+df4 <- unite_(df,
+              col = "Murder_Assault",
+              from = c("Murder", "Assault"),
+              sep = "_")
+# alt to seperate() - seperate one column into multiple
+separate_(df4,
+           col = "Murder_Assault",
+           into = c("Murder", "Assault"),
+           sep = "_")
+```
+
+## Pipe operator 
+- in R it is... %>%
+- pipes are used to chain multiple operations
+- similar to how the Bash shell | pipe works
+- forward-pipe operator is %>% (in magrittr and dplyr packages)
+```{r}
+# install.packages("magittr")
+library(magrittr)
+```
+
+- x %>% f is equivalent to f(x).
+- Read more: https://www.datacamp.com/community/tutorials/pipe-r-tutorial
+
+- advantages: decrease development time and to improve readability and maintainability of code
+
+Example 1
+```{r}
+# First, df is passed to gather() function
+# Next, the output of gather() is passed to some functions for transformations.. 
+# Then, we convert to its original data format by unite() function
+new_df <- 
+  df %>% 
+  # convert to long format
+  gather(key = "arrest_variable",
+         value = "arrest_rate",
+         Murder:UrbanPop) %>%
+  # Apply some transaformations here
+  #..
+  # return to original wide format
+  unite(col = "attribute_estimate",
+        "arrest_variable", "arrest_rate")
+
+# note: we don't keep mentioning the "df" object because that is the data being passed on 
+```
+
+Example 2:
+```{r}
+# Manipulate data, but combine operations using pipe
+new_df <- 
+  df %>%
+  subset(Assault > 200) %>% 
+  transform(AttemptedMurder = Murder %>% multiply_by(0.4251)) %>% 
+  print %>% 
+  plot
+
+
+# # Explanation ----
+# new_df <- # final output will be assigned to this variable
+#   df %>% # pass in original data frame.. 
+#   subset(Assault > 200) %>% # subset so Assault column > 200
+#   transform(AttemptedMurder = Murder %>% multiply_by(0.4251)) %>% # add a new column 
+#   print %>% # print to console
+#   boxplot # visualize and save plot 
+```
+
+
+## Practice
+The built-in R dataset "ChickWeight" provides experimental data on the effect of diet on early growth of chicks.
+
+a) Look at the structure of the data (str()). How many rows are there?
+b) This data is presented in a "long" format. Spread the counts data across columns in "wide" format specified by the key "Time" and value "weight". Save output a variable "df".
+c) Since the new columns are the timepoints of the experiment ("0:21"), unite these back into a single column called "Timepoint". Save in a variable called df2.
+d) Do b) and c) in a single line of code using a pipe operator. That is, make df2 without producing df.
+
+
+Solution
+```{r}
+# # a) use str()
+# str(ChickWeight)
+# # To find number of rows, look at how many observations there are (obs.)
+# # or use nrow() or dim()
+# nrow(ChickWeight)
+# dim(ChickWeight)
+# # ANSWER: 578
+# 
+# # b) use spread()
+# library(tidyr)
+# df <- spread(ChickWeight, key = "Time", value = "weight")
+# 
+# # c) unite
+# # time_cols <- colnames(df)[3:ncol(df)]
+# df2 <- unite(df, col="Timepoint", c("0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "21"), sep = "_") 
+# 
+# # d) use %>% from dplyr
+# library(magrittr)
+# df2 <- ChickWeight %>%
+#         spread(key = "Time", value = "weight") %>%
+#         unite(col="Timepoint", c("0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "21"), sep = "_")
+
+```

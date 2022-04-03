@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>11 Search and Conditions | R Tutorials</title>
+  <meta name="description" content="R tutorials for beginners!" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="11 Search and Conditions | R Tutorials" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/cover.png" />
+  <meta property="og:description" content="R tutorials for beginners!" />
+  <meta name="github-repo" content="kazeera/r-seesions" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="11 Search and Conditions | R Tutorials" />
+  
+  <meta name="twitter:description" content="R tutorials for beginners!" />
+  <meta name="twitter:image" content="/cover.png" />
+
+<meta name="author" content="Kazeera Aliar" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dataframe-manipulation.html"/>
+<link rel="next" href="repetitive-jobs.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.4.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="install-r.html"><a href="install-r.html"><i class="fa fa-check"></i><b>2</b> Install R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="install-r.html"><a href="install-r.html#download-r"><i class="fa fa-check"></i><b>2.1</b> Download R</a></li>
+<li class="chapter" data-level="2.2" data-path="install-r.html"><a href="install-r.html#download-rstudio"><i class="fa fa-check"></i><b>2.2</b> Download RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="install-r.html"><a href="install-r.html#terms"><i class="fa fa-check"></i><b>2.3</b> Terms</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-programming-basics.html"><a href="r-programming-basics.html"><i class="fa fa-check"></i><b>3</b> R Programming Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-programming-basics.html"><a href="r-programming-basics.html#variable-declaration"><i class="fa fa-check"></i><b>3.1</b> Variable Declaration</a></li>
+<li class="chapter" data-level="3.2" data-path="r-programming-basics.html"><a href="r-programming-basics.html#basic-data-types"><i class="fa fa-check"></i><b>3.2</b> Basic Data Types</a></li>
+<li class="chapter" data-level="3.3" data-path="r-programming-basics.html"><a href="r-programming-basics.html#operators"><i class="fa fa-check"></i><b>3.3</b> Operators</a></li>
+<li class="chapter" data-level="3.4" data-path="r-programming-basics.html"><a href="r-programming-basics.html#practice"><i class="fa fa-check"></i><b>3.4</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.1</b> Vectors</a></li>
+<li class="chapter" data-level="4.2" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>4.2</b> Data Frames</a></li>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html#practice-1"><i class="fa fa-check"></i><b>4.3</b> Practice</a></li>
+<li class="chapter" data-level="4.4" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.4</b> Lists</a></li>
+<li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
+<li class="chapter" data-level="4.6" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.6</b> Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="importexport.html"><a href="importexport.html"><i class="fa fa-check"></i><b>5</b> Import/Export</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="importexport.html"><a href="importexport.html#export-tables"><i class="fa fa-check"></i><b>5.1</b> Export Tables</a></li>
+<li class="chapter" data-level="5.2" data-path="importexport.html"><a href="importexport.html#import-tables"><i class="fa fa-check"></i><b>5.2</b> Import Tables</a></li>
+<li class="chapter" data-level="5.3" data-path="importexport.html"><a href="importexport.html#graphing-with-base-r"><i class="fa fa-check"></i><b>5.3</b> Graphing with base R</a></li>
+<li class="chapter" data-level="5.4" data-path="importexport.html"><a href="importexport.html#practice-2"><i class="fa fa-check"></i><b>5.4</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphing-with-ggplot2.html"><a href="graphing-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Graphing with ggplot2</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="graphing-with-ggplot2.html"><a href="graphing-with-ggplot2.html#what-is-ggplot2"><i class="fa fa-check"></i><b>6.1</b> What is ggplot2?</a></li>
+<li class="chapter" data-level="6.2" data-path="graphing-with-ggplot2.html"><a href="graphing-with-ggplot2.html#factors-1"><i class="fa fa-check"></i><b>6.2</b> Factors</a></li>
+<li class="chapter" data-level="6.3" data-path="graphing-with-ggplot2.html"><a href="graphing-with-ggplot2.html#r-colors"><i class="fa fa-check"></i><b>6.3</b> R Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistical-tests.html"><a href="statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistical-tests.html"><a href="statistical-tests.html#lists-1"><i class="fa fa-check"></i><b>7.1</b> Lists</a></li>
+<li class="chapter" data-level="7.2" data-path="statistical-tests.html"><a href="statistical-tests.html#statistical-significance"><i class="fa fa-check"></i><b>7.2</b> Statistical Significance</a></li>
+<li class="chapter" data-level="7.3" data-path="statistical-tests.html"><a href="statistical-tests.html#checks-for-normality"><i class="fa fa-check"></i><b>7.3</b> Checks for Normality</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="statistical-tests.html"><a href="statistical-tests.html#shapiro-test"><i class="fa fa-check"></i><b>7.3.1</b> Shapiro Test</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="statistical-tests.html"><a href="statistical-tests.html#one-sample-tests"><i class="fa fa-check"></i><b>7.4</b> One-Sample Tests</a></li>
+<li class="chapter" data-level="7.5" data-path="statistical-tests.html"><a href="statistical-tests.html#two-sample-tests"><i class="fa fa-check"></i><b>7.5</b> Two-Sample Tests</a></li>
+<li class="chapter" data-level="7.6" data-path="statistical-tests.html"><a href="statistical-tests.html#anova"><i class="fa fa-check"></i><b>7.6</b> ANOVA</a></li>
+<li class="chapter" data-level="7.7" data-path="statistical-tests.html"><a href="statistical-tests.html#adding-p-values-to-ggplot"><i class="fa fa-check"></i><b>7.7</b> Adding p-values to ggplot</a></li>
+<li class="chapter" data-level="7.8" data-path="statistical-tests.html"><a href="statistical-tests.html#practice-3"><i class="fa fa-check"></i><b>7.8</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="correlation-analysis.html"><a href="correlation-analysis.html"><i class="fa fa-check"></i><b>8</b> Correlation Analysis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="correlation-analysis.html"><a href="correlation-analysis.html#correlation-methods"><i class="fa fa-check"></i><b>8.1</b> Correlation Methods</a></li>
+<li class="chapter" data-level="8.2" data-path="correlation-analysis.html"><a href="correlation-analysis.html#correlation-matrix"><i class="fa fa-check"></i><b>8.2</b> Correlation Matrix:</a></li>
+<li class="chapter" data-level="8.3" data-path="correlation-analysis.html"><a href="correlation-analysis.html#practice-correlation-analysis"><i class="fa fa-check"></i><b>8.3</b> Practice: Correlation analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="heatmaps.html"><a href="heatmaps.html"><i class="fa fa-check"></i><b>9</b> Heatmaps</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="heatmaps.html"><a href="heatmaps.html#data-preparation"><i class="fa fa-check"></i><b>9.1</b> Data preparation</a></li>
+<li class="chapter" data-level="9.2" data-path="heatmaps.html"><a href="heatmaps.html#pheatmap"><i class="fa fa-check"></i><b>9.2</b> pheatmap()</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="heatmaps.html"><a href="heatmaps.html#modify-row-and-column-names"><i class="fa fa-check"></i><b>9.2.1</b> Modify row and column names</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="heatmaps.html"><a href="heatmaps.html#scaling"><i class="fa fa-check"></i><b>9.3</b> Scaling</a></li>
+<li class="chapter" data-level="9.4" data-path="heatmaps.html"><a href="heatmaps.html#heatmap-colours"><i class="fa fa-check"></i><b>9.4</b> Heatmap Colours</a></li>
+<li class="chapter" data-level="9.5" data-path="heatmaps.html"><a href="heatmaps.html#clustering-methods"><i class="fa fa-check"></i><b>9.5</b> Clustering methods</a></li>
+<li class="chapter" data-level="9.6" data-path="heatmaps.html"><a href="heatmaps.html#create-annotations"><i class="fa fa-check"></i><b>9.6</b> Create annotations</a></li>
+<li class="chapter" data-level="9.7" data-path="heatmaps.html"><a href="heatmaps.html#practice-4"><i class="fa fa-check"></i><b>9.7</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html"><i class="fa fa-check"></i><b>10</b> Dataframe Manipulation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html#reshape-data"><i class="fa fa-check"></i><b>10.1</b> Reshape Data</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html#data"><i class="fa fa-check"></i><b>10.1.1</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html#pipe-operator"><i class="fa fa-check"></i><b>10.2</b> Pipe operator</a></li>
+<li class="chapter" data-level="10.3" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html#practice-5"><i class="fa fa-check"></i><b>10.3</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="search-and-conditions.html"><a href="search-and-conditions.html"><i class="fa fa-check"></i><b>11</b> Search and Conditions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="search-and-conditions.html"><a href="search-and-conditions.html#general-expressions"><i class="fa fa-check"></i><b>11.1</b> General Expressions</a></li>
+<li class="chapter" data-level="11.2" data-path="search-and-conditions.html"><a href="search-and-conditions.html#conditions"><i class="fa fa-check"></i><b>11.2</b> Conditions</a></li>
+<li class="chapter" data-level="11.3" data-path="search-and-conditions.html"><a href="search-and-conditions.html#any-and-all"><i class="fa fa-check"></i><b>11.3</b> any() and all()</a></li>
+<li class="chapter" data-level="11.4" data-path="search-and-conditions.html"><a href="search-and-conditions.html#operators-1"><i class="fa fa-check"></i><b>11.4</b> Operators</a></li>
+<li class="chapter" data-level="11.5" data-path="search-and-conditions.html"><a href="search-and-conditions.html#ifelse"><i class="fa fa-check"></i><b>11.5</b> ifelse()</a></li>
+<li class="chapter" data-level="11.6" data-path="search-and-conditions.html"><a href="search-and-conditions.html#practice-6"><i class="fa fa-check"></i><b>11.6</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html"><i class="fa fa-check"></i><b>12</b> Repetitive Jobs</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#functions"><i class="fa fa-check"></i><b>12.1</b> Functions</a></li>
+<li class="chapter" data-level="12.2" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#loops"><i class="fa fa-check"></i><b>12.2</b> Loops</a></li>
+<li class="chapter" data-level="12.3" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#vectorization"><i class="fa fa-check"></i><b>12.3</b> Vectorization</a></li>
+<li class="chapter" data-level="12.4" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#intro-to-apply"><i class="fa fa-check"></i><b>12.4</b> Intro to apply</a></li>
+<li class="chapter" data-level="12.5" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#practice-7"><i class="fa fa-check"></i><b>12.5</b> Practice</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorials</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="search-and-conditions" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Search and Conditions</h1>
+<p>Objective: To learn about control flow (decision making) structures in R, mainly if/else</p>
+<p>We will cover:<br />
+- grep and grepl
+- conditional operator (review)
+- if{}else{}
+- ifelse()</p>
+<p>Recall: logical is a basic data type in R. The values are either TRUE or FALSE. (short-form T or F)</p>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="search-and-conditions.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examples</span></span>
+<span id="cb533-2"><a href="search-and-conditions.html#cb533-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> T<span class="co"># logical value</span></span>
+<span id="cb533-3"><a href="search-and-conditions.html#cb533-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(x) <span class="co"># returns a logical</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="search-and-conditions.html#cb535-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F, T) <span class="co">#logical vector</span></span></code></pre></div>
+<div id="general-expressions" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> General Expressions</h2>
+<ul>
+<li><p>regular expressions can be used to see whether a pattern exists inside a character string or a vector of character strings</p></li>
+<li><p>functions:
+grepl() = returns a logical vector; TRUE when a pattern is found in the corresponding character string
+grep() = returns a numeric vector of indices of the character strings that contains the pattern</p></li>
+</ul>
+<p>Arguments:
+- pattern = regular expression you want to match for
+- x = character vector from which matches should be sought</p>
+<p>Read more: <a href="https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html" class="uri">https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html</a></p>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="search-and-conditions.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a character vector with emails</span></span>
+<span id="cb536-2"><a href="search-and-conditions.html#cb536-2" aria-hidden="true" tabindex="-1"></a>emails <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ka@gmail.com&quot;</span>, <span class="st">&quot;edu@who.int&quot;</span>, <span class="st">&quot;me@gmail.com&quot;</span>, <span class="st">&quot;invalid.edu&quot;</span>, <span class="st">&quot;jane@utoronto.ca&quot;</span>, <span class="st">&quot;jane@gmail.com&quot;</span>)</span>
+<span id="cb536-3"><a href="search-and-conditions.html#cb536-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for emails with &quot;gmail.com</span></span>
+<span id="cb536-4"><a href="search-and-conditions.html#cb536-4" aria-hidden="true" tabindex="-1"></a><span class="co"># use grep</span></span>
+<span id="cb536-5"><a href="search-and-conditions.html#cb536-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="at">pattern =</span> <span class="st">&quot;gmail.com&quot;</span>, <span class="at">x =</span> emails)</span></code></pre></div>
+<pre><code>## [1] 1 3 6</code></pre>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="search-and-conditions.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use grepl</span></span>
+<span id="cb538-2"><a href="search-and-conditions.html#cb538-2" aria-hidden="true" tabindex="-1"></a>is.gmail <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;gmail.com&quot;</span>, <span class="at">x =</span> emails)</span>
+<span id="cb538-3"><a href="search-and-conditions.html#cb538-3" aria-hidden="true" tabindex="-1"></a>is.gmail</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="search-and-conditions.html#cb540-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now you can index the emails vector</span></span>
+<span id="cb540-2"><a href="search-and-conditions.html#cb540-2" aria-hidden="true" tabindex="-1"></a>emails[is.gmail]</span></code></pre></div>
+<pre><code>## [1] &quot;ka@gmail.com&quot;   &quot;me@gmail.com&quot;   &quot;jane@gmail.com&quot;</code></pre>
+</div>
+<div id="conditions" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Conditions</h2>
+<ul>
+<li>Decision making is important in programming.</li>
+<li>Conditions are statements that are created by the programmer which evaluates actions in the code to check if it’s true or false.</li>
+</ul>
+<p><strong>if/else statements</strong></p>
+<ul>
+<li><p>This is achieved using the conditional if..else statement</p>
+<pre><code>if (test_expression) {
+  statement
+}</code></pre></li>
+</ul>
+<p>The condition, test_expression must return TRUE or FALSE. If it returns TRUE, the block of code (ie. statement) inside the curly brackets will be run.</p>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="search-and-conditions.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1</span></span>
+<span id="cb543-2"><a href="search-and-conditions.html#cb543-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb543-3"><a href="search-and-conditions.html#cb543-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
+<span id="cb543-4"><a href="search-and-conditions.html#cb543-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb543-5"><a href="search-and-conditions.html#cb543-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
+<span id="cb543-6"><a href="search-and-conditions.html#cb543-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;X is a negative number.&quot;</code></pre>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="search-and-conditions.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 2</span></span>
+<span id="cb545-2"><a href="search-and-conditions.html#cb545-2" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">400</span></span>
+<span id="cb545-3"><a href="search-and-conditions.html#cb545-3" aria-hidden="true" tabindex="-1"></a>do_log <span class="ot">&lt;-</span> T</span>
+<span id="cb545-4"><a href="search-and-conditions.html#cb545-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If do_log is TRUE, we log the values in the brackets</span></span>
+<span id="cb545-5"><a href="search-and-conditions.html#cb545-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(do_log){</span>
+<span id="cb545-6"><a href="search-and-conditions.html#cb545-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;do_log is TRUE&quot;</span>)</span>
+<span id="cb545-7"><a href="search-and-conditions.html#cb545-7" aria-hidden="true" tabindex="-1"></a>  values <span class="ot">&lt;-</span> <span class="fu">log</span>(values)</span>
+<span id="cb545-8"><a href="search-and-conditions.html#cb545-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;do_log is TRUE&quot;</code></pre>
+<p>You may pair the if{} statement with an else (optional).
+If the test expression for if is FALSE, the code within else{} will run.</p>
+<pre><code>if (test_expression) {
+  statement1
+} else {
+  statement2
+}</code></pre>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="search-and-conditions.html#cb548-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb548-2"><a href="search-and-conditions.html#cb548-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
+<span id="cb548-3"><a href="search-and-conditions.html#cb548-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb548-4"><a href="search-and-conditions.html#cb548-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
+<span id="cb548-5"><a href="search-and-conditions.html#cb548-5" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb548-6"><a href="search-and-conditions.html#cb548-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a positive number.&quot;</span>)</span>
+<span id="cb548-7"><a href="search-and-conditions.html#cb548-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;X is a negative number.&quot;</code></pre>
+<p>Note: you can also have an ifelse ladder
+- It allows you execute a block of code among more than 2 alternatives.</p>
+<pre><code>  if ( test_expression1) {
+    statement1
+  } else if ( test_expression2) {
+    statement2
+  } else if ( test_expression3) {
+    statement3
+  } else {
+    statement4
+  }</code></pre>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="search-and-conditions.html#cb551-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb551-2"><a href="search-and-conditions.html#cb551-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
+<span id="cb551-3"><a href="search-and-conditions.html#cb551-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb551-4"><a href="search-and-conditions.html#cb551-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
+<span id="cb551-5"><a href="search-and-conditions.html#cb551-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb551-6"><a href="search-and-conditions.html#cb551-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a positive number.&quot;</span>)</span>
+<span id="cb551-7"><a href="search-and-conditions.html#cb551-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb551-8"><a href="search-and-conditions.html#cb551-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is 0.&quot;</span>)</span>
+<span id="cb551-9"><a href="search-and-conditions.html#cb551-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;X is a positive number.&quot;</code></pre>
+</div>
+<div id="any-and-all" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> any() and all()</h2>
+<p>Check whether any or all of the elements of a vector are TRUE.</p>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="search-and-conditions.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="co"># continuing emails example...</span></span>
+<span id="cb553-2"><a href="search-and-conditions.html#cb553-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if any emails are gmail</span></span>
+<span id="cb553-3"><a href="search-and-conditions.html#cb553-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">any</span>(<span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
+<span id="cb553-4"><a href="search-and-conditions.html#cb553-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;There are gmail accounts in the emails vector.&quot;</span>)</span>
+<span id="cb553-5"><a href="search-and-conditions.html#cb553-5" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb553-6"><a href="search-and-conditions.html#cb553-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;There are no gmail accounts.&quot;</span>)</span>
+<span id="cb553-7"><a href="search-and-conditions.html#cb553-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;There are gmail accounts in the emails vector.&quot;</code></pre>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="search-and-conditions.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if all of the emails are gmail</span></span>
+<span id="cb555-2"><a href="search-and-conditions.html#cb555-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">all</span>(<span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
+<span id="cb555-3"><a href="search-and-conditions.html#cb555-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;All emails are gmail accounts.&quot;</span>)</span>
+<span id="cb555-4"><a href="search-and-conditions.html#cb555-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb555-5"><a href="search-and-conditions.html#cb555-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Not all emails are gmail accounts.&quot;</span>)</span>
+<span id="cb555-6"><a href="search-and-conditions.html#cb555-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Not all emails are gmail accounts.&quot;</code></pre>
+</div>
+<div id="operators-1" class="section level2" number="11.4">
+<h2><span class="header-section-number">11.4</span> Operators</h2>
+<p>Make test expressions using logical and boolean operators
+Recall from tutorial 1..</p>
+<p><strong>Logical operators</strong></p>
+<ul>
+<li><p>return TRUE or FALSE, important for later on when we learn about control structures</p></li>
+<li><p>Relational operators used to compare between values<br />
+</p></li>
+<li><p>&lt; for less than<br />
+</p></li>
+<li><p>\&gt; for greater than<br />
+</p></li>
+<li><p>&lt;= for less than or equal to<br />
+</p></li>
+<li><p>\&gt;= for greater than or equal to<br />
+</p></li>
+<li><p>== for equal to each other<br />
+</p></li>
+<li><p>!= not equal to each other</p></li>
+</ul>
+<p><strong>Boolean operators used as conjunctions for logical operations </strong></p>
+<ul>
+<li>! Logical NOT # convert<br />
+</li>
+<li>&amp; Element-wise logical AND # will be false if at least one element is false<br />
+</li>
+<li><div class="line-block">Element-wise logical OR # will be true if at least one element is true</div></li>
+</ul>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="search-and-conditions.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign logical values to variables</span></span>
+<span id="cb557-2"><a href="search-and-conditions.html#cb557-2" aria-hidden="true" tabindex="-1"></a>im_tall <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb557-3"><a href="search-and-conditions.html#cb557-3" aria-hidden="true" tabindex="-1"></a>im_short <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb557-4"><a href="search-and-conditions.html#cb557-4" aria-hidden="true" tabindex="-1"></a>im_nice <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb557-5"><a href="search-and-conditions.html#cb557-5" aria-hidden="true" tabindex="-1"></a><span class="co"># NOT</span></span>
+<span id="cb557-6"><a href="search-and-conditions.html#cb557-6" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>im_tall <span class="co"># I&#39;m NOT tall = FALSE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="search-and-conditions.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AND </span></span>
+<span id="cb559-2"><a href="search-and-conditions.html#cb559-2" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">&amp;</span> im_short</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="search-and-conditions.html#cb561-1" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">&amp;</span> im_tall</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="search-and-conditions.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb563-2"><a href="search-and-conditions.html#cb563-2" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">|</span> im_short</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="search-and-conditions.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="co"># combine using parentheses (not square brackets or braces) </span></span>
+<span id="cb565-2"><a href="search-and-conditions.html#cb565-2" aria-hidden="true" tabindex="-1"></a><span class="co"># like BEDMAS - perform what&#39;s in () brackets first</span></span>
+<span id="cb565-3"><a href="search-and-conditions.html#cb565-3" aria-hidden="true" tabindex="-1"></a>(im_nice <span class="sc">|</span> im_short) <span class="sc">&amp;</span> im_tall</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Combine Boolean operators with functions that return logical values.</p>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="search-and-conditions.html#cb567-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if any of the emails are not gmail using NOT !</span></span>
+<span id="cb567-2"><a href="search-and-conditions.html#cb567-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">any</span>(<span class="sc">!</span> <span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
+<span id="cb567-3"><a href="search-and-conditions.html#cb567-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Some or all emails are not gmail accounts.&quot;</span>)</span>
+<span id="cb567-4"><a href="search-and-conditions.html#cb567-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;Some or all emails are not gmail accounts.&quot;</code></pre>
+</div>
+<div id="ifelse" class="section level2" number="11.5">
+<h2><span class="header-section-number">11.5</span> ifelse()</h2>
+<p>Say you have an if/else statement where you’re assigning a value to a variable based on a condition.</p>
+<p>Example</p>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="search-and-conditions.html#cb569-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb569-2"><a href="search-and-conditions.html#cb569-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb569-3"><a href="search-and-conditions.html#cb569-3" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;negative&quot;</span></span>
+<span id="cb569-4"><a href="search-and-conditions.html#cb569-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb569-5"><a href="search-and-conditions.html#cb569-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;positive&quot;</span></span>
+<span id="cb569-6"><a href="search-and-conditions.html#cb569-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>You can use the ifelse() function in R to shorten this code.
+ifelse(test_expression, x, y)
+where if test_expression is T, x is returned if T, else y is returned
+Read more: <a href="https://www.datamentor.io/r-programming/ifelse-function/" class="uri">https://www.datamentor.io/r-programming/ifelse-function/</a></p>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="search-and-conditions.html#cb570-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">&quot;negative&quot;</span>, <span class="st">&quot;positive&quot;</span>)</span>
+<span id="cb570-2"><a href="search-and-conditions.html#cb570-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb570-3"><a href="search-and-conditions.html#cb570-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If x is between 10 and 30, return x, or else add 30 to x</span></span>
+<span id="cb570-4"><a href="search-and-conditions.html#cb570-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> x <span class="sc">&gt;</span> <span class="dv">10</span>, x, x<span class="sc">+</span><span class="dv">30</span>)</span></code></pre></div>
+</div>
+<div id="practice-6" class="section level2" number="11.6">
+<h2><span class="header-section-number">11.6</span> Practice</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Define a numeric variable, x, that belongs to any number you like.</li>
+<li>If x is less than 10, print “x is less than 10” to the console.</li>
+<li>Add an else part to your if statement. print “x is not less than 10” to the console.</li>
+<li>Define a vector of 5 numeric values, called v.</li>
+<li>Print the values in v that are greater than x to console.</li>
+</ol>
+<p>Solution</p>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="search-and-conditions.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) </span></span>
+<span id="cb571-2"><a href="search-and-conditions.html#cb571-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb571-3"><a href="search-and-conditions.html#cb571-3" aria-hidden="true" tabindex="-1"></a><span class="co"># b)</span></span>
+<span id="cb571-4"><a href="search-and-conditions.html#cb571-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
+<span id="cb571-5"><a href="search-and-conditions.html#cb571-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is less than 10&quot;</span>)</span>
+<span id="cb571-6"><a href="search-and-conditions.html#cb571-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;x is less than 10&quot;</code></pre>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="search-and-conditions.html#cb573-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c)</span></span>
+<span id="cb573-2"><a href="search-and-conditions.html#cb573-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
+<span id="cb573-3"><a href="search-and-conditions.html#cb573-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is less than 10&quot;</span>)</span>
+<span id="cb573-4"><a href="search-and-conditions.html#cb573-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb573-5"><a href="search-and-conditions.html#cb573-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is not less than 10&quot;</span>)</span>
+<span id="cb573-6"><a href="search-and-conditions.html#cb573-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;x is less than 10&quot;</code></pre>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="search-and-conditions.html#cb575-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d)</span></span>
+<span id="cb575-2"><a href="search-and-conditions.html#cb575-2" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">7</span> <span class="co"># or v &lt;- c(3,52,7,2,31)</span></span>
+<span id="cb575-3"><a href="search-and-conditions.html#cb575-3" aria-hidden="true" tabindex="-1"></a><span class="co"># e)</span></span>
+<span id="cb575-4"><a href="search-and-conditions.html#cb575-4" aria-hidden="true" tabindex="-1"></a>v[v<span class="sc">&gt;</span>x]</span></code></pre></div>
+<pre><code>## [1] 6 7</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dataframe-manipulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="repetitive-jobs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

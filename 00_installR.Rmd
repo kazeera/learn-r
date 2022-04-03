@@ -1,0 +1,47 @@
+---
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+---
+# Install R
+
+##	Download R 
+* Follow link on website for your operating system [link](https://cran.r-project.org/bin/)  
+* Select CRAN
+* Comprehensive R Archive Network (CRAN) is a collection of sites which carry identical material, consisting of the R distribution(s), the contributed extensions, documentation for R, and binaries.
+
+## Download RStudio
+* Download community/open-source version for free on website [link](https://rstudio.com/products/rstudio/download/#download)
+* RStudio is an integrated development environment (IDE) for R that provides an alternative interface to R
+* RStudio provides integrated support for editing and executing R code and documents.
+* Divided into 4 panes
+* Read more about RStudio [link](https://bookdown.org/ageraci/STAT160Companion/intro.html)
+* Write code interactively in console pane and make scripts in program pane
+*	Practice: the Workspace [link](https://www.statmethods.net/interface/workspace.html)
+
+
+## Terms
+* **Path** = the route to a file (file = file or folder)
+*	**Absolute path** = the route starts at home node 
+e.g. /home/Documents/myReport (mac) or C:\home\Documents\myReport (windows), C:\home\Documents\myReport\report.txt
+*	**Relative path** = refers to file that you can access if you start at current working directory
+e.g starting in the home folder: Documents/myReport
+*	Read more: What Is a Path? [link](https://docs.oracle.com/javase/tutorial/essential/io/path.html)
+* **Directory** = folder
+* **Working directory** = which folder are you/R currently working in? When you import or export files using a relative path, it will be relative to this working directory.
+* **Command** =  instruction given by a user telling a computer to do something. Commands are given to R / implemented using functions (code to execute instructions).
+*	Examples
+-	_getwd()_ # print your current working directory
+-	_setwd(a_path)_ # sets your working directory
+-	_q()_ # quit
+Type commands in RStudio in the program pane (also called console) starting at the ">".
+* **Script** = a list of commands that are executed by a certain program, saved as files with extension ".R". Save code in the scripting area and run chunks or all code.
+```{r, results='hide'}
+# Get working directory
+getwd()
+# Paths
+path = "Documents"  #relative path
+path = "C:/Users/YourName/Documents" #absolute path
+# # Set working directory
+# setwd(path) # equivalent to setwd( "C:/Users/YourName/Documents")
+```

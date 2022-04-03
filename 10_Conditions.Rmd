@@ -1,0 +1,240 @@
+---
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+---
+# Search and Conditions
+Objective: To learn about control flow (decision making) structures in R, mainly if/else  
+ 
+We will cover:  
+- grep and grepl
+- conditional operator (review)
+- if{}else{}
+- ifelse()
+
+Recall: logical is a basic data type in R. The values are either TRUE or FALSE. (short-form T or F)
+```{r}
+# Examples
+x <- T# logical value
+is.logical(x) # returns a logical
+x <- c(T, F, T) #logical vector
+```
+
+## General Expressions
+- regular expressions can be used to see whether a pattern exists inside a character string or a vector of character strings
+
+- functions:
+grepl() = returns a logical vector; TRUE when a pattern is found in the corresponding character string
+grep() = returns a numeric vector of indices of the character strings that contains the pattern
+
+Arguments:
+- pattern = regular expression you want to match for
+- x = character vector from which matches should be sought
+
+Read more: https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html
+```{r}
+# Define a character vector with emails
+emails <- c("ka@gmail.com", "edu@who.int", "me@gmail.com", "invalid.edu", "jane@utoronto.ca", "jane@gmail.com")
+# Search for emails with "gmail.com
+# use grep
+grep(pattern = "gmail.com", x = emails)
+# use grepl
+is.gmail <- grepl(pattern = "gmail.com", x = emails)
+is.gmail
+
+# now you can index the emails vector
+emails[is.gmail]
+```
+ 
+## Conditions
+- Decision making is important in programming. 
+- Conditions are statements that are created by the programmer which evaluates actions in the code to check if it's true or false. 
+
+**if/else statements**
+
+- This is achieved using the conditional if..else statement
+
+      if (test_expression) {
+        statement
+      }
+
+The condition, test_expression must return TRUE or FALSE. If it returns TRUE, the block of code (ie. statement) inside the curly brackets will be run. 
+
+```{r}
+# Example 1
+x <- -3
+# Read the following as: if x is less than 0, print "x is a negative number"
+if(x < 0){
+  print("X is a negative number.")
+}
+
+# Example 2
+values <- 1:400
+do_log <- T
+# If do_log is TRUE, we log the values in the brackets
+if(do_log){
+  print("do_log is TRUE")
+  values <- log(values)
+}
+```
+
+You may pair the if{} statement with an else (optional).
+If the test expression for if is FALSE, the code within else{} will run.
+
+    if (test_expression) {
+      statement1
+    } else {
+      statement2
+    }
+```{r}
+x <- -3
+# Read the following as: if x is less than 0, print "x is a negative number"
+if(x < 0){
+  print("X is a negative number.")
+}else{
+  print("X is a positive number.")
+}
+```
+Note: you can also have an ifelse ladder
+- It allows you execute a block of code among more than 2 alternatives.
+
+      if ( test_expression1) {
+        statement1
+      } else if ( test_expression2) {
+        statement2
+      } else if ( test_expression3) {
+        statement3
+      } else {
+        statement4
+      }
+
+```{r}
+x <- 4
+# Read the following as: if x is less than 0, print "x is a negative number"
+if(x < 0){
+  print("X is a negative number.")
+} else if (x > 0) {
+  print("X is a positive number.")
+} else {
+  print("X is 0.")
+}
+```
+
+## any() and all()
+Check whether any or all of the elements of a vector are TRUE.
+```{R}
+# continuing emails example...
+# Check if any emails are gmail
+if(any(grepl("gmail.com", emails))){
+  print("There are gmail accounts in the emails vector.")
+}else{
+  print("There are no gmail accounts.")
+}
+
+# check if all of the emails are gmail
+if(all(grepl("gmail.com", emails))){
+  print("All emails are gmail accounts.")
+}else{
+  print("Not all emails are gmail accounts.")
+}
+```
+
+
+## Operators
+Make test expressions using logical and boolean operators
+Recall from tutorial 1.. 
+
+**Logical operators**
+
+- return TRUE or FALSE, important for later on when we learn about control structures  
+
+- Relational operators used to compare between values  
+* < for less than  
+* \\> for greater than  
+* <= for less than or equal to  
+* \\>= for greater than or equal to  
+* == for equal to each other  
+* != not equal to each other
+
+**Boolean operators used as conjunctions for logical operations **
+
+* !	Logical NOT  # convert  
+* &	Element-wise logical AND  # will be false if at least one element is false  
+* |	Element-wise logical OR  # will be true if at least one element is true
+```{r}
+# Assign logical values to variables
+im_tall <- TRUE
+im_short <- FALSE
+im_nice <- TRUE
+# NOT
+!im_tall # I'm NOT tall = FALSE
+# AND 
+im_nice & im_short
+im_nice & im_tall
+# OR
+im_nice | im_short
+# combine using parentheses (not square brackets or braces) 
+# like BEDMAS - perform what's in () brackets first
+(im_nice | im_short) & im_tall
+```
+
+Combine Boolean operators with functions that return logical values.
+```{r}
+# check if any of the emails are not gmail using NOT !
+if(any(! grepl("gmail.com", emails))){
+  print("Some or all emails are not gmail accounts.")
+}
+```
+
+## ifelse()
+Say you have an if/else statement where you're assigning a value to a variable based on a condition.
+
+Example
+```{r}
+x <- 20
+if(x < 0){
+  result <- "negative"
+}else{
+  result <- "positive"
+}
+```
+
+You can use the ifelse() function in R to shorten this code.
+  ifelse(test_expression, x, y)
+  where if test_expression is T, x is returned if T, else y is returned
+Read more: https://www.datamentor.io/r-programming/ifelse-function/
+```{r}
+result <- ifelse(x < 0, "negative", "positive")
+
+# If x is between 10 and 30, return x, or else add 30 to x
+result <- ifelse(x < 30 & x > 10, x, x+30)
+```
+
+
+## Practice
+a) Define a numeric variable, x, that belongs to any number you like.
+b) If x is less than 10, print "x is less than 10" to the console. 
+c) Add an else part to your if statement. print "x is not less than 10" to the console.
+d) Define a vector of 5 numeric values, called v.
+e) Print the values in v that are greater than x to console. 
+
+Solution
+```{r}
+# a) 
+x <- 5
+# b)
+if(x < 10){
+  print("x is less than 10")
+}
+# c)
+if(x < 10){
+  print("x is less than 10")
+}else{
+  print("x is not less than 10")
+}
+# d)
+v <- 3:7 # or v <- c(3,52,7,2,31)
+# e)
+v[v>x]
+```
+
