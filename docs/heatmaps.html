@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9 Heatmaps | R Tutorials</title>
-  <meta name="description" content="R tutorials for beginners!" />
+  <title>9 Heatmaps | Learn R</title>
+  <meta name="description" content="Complete R tutorials for beginners!" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9 Heatmaps | R Tutorials" />
+  <meta property="og:title" content="9 Heatmaps | Learn R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/cover.png" />
-  <meta property="og:description" content="R tutorials for beginners!" />
+  <meta property="og:description" content="Complete R tutorials for beginners!" />
   <meta name="github-repo" content="kazeera/r-seesions" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9 Heatmaps | R Tutorials" />
+  <meta name="twitter:title" content="9 Heatmaps | Learn R" />
   
-  <meta name="twitter:description" content="R tutorials for beginners!" />
+  <meta name="twitter:description" content="Complete R tutorials for beginners!" />
   <meta name="twitter:image" content="/cover.png" />
 
 <meta name="author" content="Kazeera Aliar" />
@@ -139,12 +139,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="install-r.html"><a href="install-r.html"><i class="fa fa-check"></i><b>2</b> Install R</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="install-r.html"><a href="install-r.html#download-r"><i class="fa fa-check"></i><b>2.1</b> Download R</a></li>
-<li class="chapter" data-level="2.2" data-path="install-r.html"><a href="install-r.html#download-rstudio"><i class="fa fa-check"></i><b>2.2</b> Download RStudio</a></li>
-<li class="chapter" data-level="2.3" data-path="install-r.html"><a href="install-r.html#terms"><i class="fa fa-check"></i><b>2.3</b> Terms</a></li>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#install-r"><i class="fa fa-check"></i><b>2.1</b> Install R</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#install-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#terms"><i class="fa fa-check"></i><b>2.3</b> Terms</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-programming-basics.html"><a href="r-programming-basics.html"><i class="fa fa-check"></i><b>3</b> R Programming Basics</a>
 <ul>
@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorials</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Learn R</a>
           </h1>
         </div>
 
@@ -253,16 +253,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="heatmaps" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> Heatmaps</h1>
+<blockquote>
 <p>Objective: To learn how to draw heatmaps in R using the pheatmap package</p>
-<p>Summary:
-- Data preparation:
-- Numeric matrix/data frame as input
-- Log normalization
-- Making heatmaps (base R heatmap() function and pheatmap())
-- Customization using arguments
-- Scaling
-- Clustering
-- Adding annotations (columns and rows)</p>
+</blockquote>
+<p>We will cover:</p>
+<ul>
+<li>Data preparation:
+<ul>
+<li>Numeric matrix/data frame as input</li>
+<li>Log normalization</li>
+</ul></li>
+<li>Making heatmaps (base R heatmap() function and pheatmap())</li>
+<li>Customization using arguments
+<ul>
+<li>Scaling</li>
+<li>Clustering</li>
+<li>Adding annotations (columns and rows)</li>
+</ul></li>
+</ul>
 <p>This session is based upon this tutorial: datanovia.com/en/lessons/heatmap-in-r-static-and-interactive-visualization/</p>
 <p>What is a heatmap?
 - plot to simultaneously visualize clusters of samples and features (i.e. hierarchical clustering)
@@ -285,13 +293,13 @@ for hormone treatment,
 E = estrogen,
 EP = estrogen-progesterone</p>
 <p>Read the tab-delimited text file.</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="heatmaps.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read into data frame object using read.delim()</span></span>
-<span id="cb428-2"><a href="heatmaps.html#cb428-2" aria-hidden="true" tabindex="-1"></a>exp_df <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="at">file =</span> <span class="st">&quot;07-Casey-mamm-mouse-proteome-sample.txt&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
-<span id="cb428-3"><a href="heatmaps.html#cb428-3" aria-hidden="true" tabindex="-1"></a><span class="co"># See the dimensions (row x col)</span></span>
-<span id="cb428-4"><a href="heatmaps.html#cb428-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(exp_df)</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="heatmaps.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read into data frame object using read.delim()</span></span>
+<span id="cb433-2"><a href="heatmaps.html#cb433-2" aria-hidden="true" tabindex="-1"></a>exp_df <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="at">file =</span> <span class="st">&quot;07-Casey-mamm-mouse-proteome-sample.txt&quot;</span>, <span class="at">stringsAsFactors =</span> F)</span>
+<span id="cb433-3"><a href="heatmaps.html#cb433-3" aria-hidden="true" tabindex="-1"></a><span class="co"># See the dimensions (row x col)</span></span>
+<span id="cb433-4"><a href="heatmaps.html#cb433-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(exp_df)</span></code></pre></div>
 <pre><code>## [1] 304  13</code></pre>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="heatmaps.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See the first 6 rows</span></span>
-<span id="cb430-2"><a href="heatmaps.html#cb430-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exp_df)</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="heatmaps.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See the first 6 rows</span></span>
+<span id="cb435-2"><a href="heatmaps.html#cb435-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exp_df)</span></code></pre></div>
 <pre><code>##   mGeneSym   BC_E_1  BC_E_2  BC_EP_1  BC_EP_2   LP_E_1   LP_E_2  LP_EP_1
 ## 1   Abcb10        0       0        0        0  1557708  1013752  4221663
 ## 2    Abcg2        0       0  2163991  1048502 12987493  7697484  6474732
@@ -310,16 +318,16 @@ EP = estrogen-progesterone</p>
 <p>Most heat map function require that the data be in the form of a numeric matrix, where the rows and columns are genes and samples.<br />
 Recall: matrices are data tables, where all columns and rows have the same data type.</p>
 <p>Note: data frames are ok for pheatmap(), as long as all the columns are numeric (right now, our data is not all numeric).</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="heatmaps.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if an object is a matrix</span></span>
-<span id="cb432-2"><a href="heatmaps.html#cb432-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(exp_df)</span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="heatmaps.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if an object is a matrix</span></span>
+<span id="cb437-2"><a href="heatmaps.html#cb437-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.matrix</span>(exp_df)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="heatmaps.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename rows with feature (ie. gene name) and remove the feature column</span></span>
-<span id="cb434-2"><a href="heatmaps.html#cb434-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(exp_df) <span class="ot">&lt;-</span> exp_df<span class="sc">$</span>mGeneSym</span>
-<span id="cb434-3"><a href="heatmaps.html#cb434-3" aria-hidden="true" tabindex="-1"></a>exp_df<span class="sc">$</span>mGeneSym <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># equivalent code: exp_df &lt;- exp_df[,-1]</span></span>
-<span id="cb434-4"><a href="heatmaps.html#cb434-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb434-5"><a href="heatmaps.html#cb434-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert a data frame to a data matrix</span></span>
-<span id="cb434-6"><a href="heatmaps.html#cb434-6" aria-hidden="true" tabindex="-1"></a>exp_mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(exp_df)</span>
-<span id="cb434-7"><a href="heatmaps.html#cb434-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exp_mat)</span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="heatmaps.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename rows with feature (ie. gene name) and remove the feature column</span></span>
+<span id="cb439-2"><a href="heatmaps.html#cb439-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(exp_df) <span class="ot">&lt;-</span> exp_df<span class="sc">$</span>mGeneSym</span>
+<span id="cb439-3"><a href="heatmaps.html#cb439-3" aria-hidden="true" tabindex="-1"></a>exp_df<span class="sc">$</span>mGeneSym <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># equivalent code: exp_df &lt;- exp_df[,-1]</span></span>
+<span id="cb439-4"><a href="heatmaps.html#cb439-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb439-5"><a href="heatmaps.html#cb439-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert a data frame to a data matrix</span></span>
+<span id="cb439-6"><a href="heatmaps.html#cb439-6" aria-hidden="true" tabindex="-1"></a>exp_mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(exp_df)</span>
+<span id="cb439-7"><a href="heatmaps.html#cb439-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(exp_mat)</span></code></pre></div>
 <pre><code>##          BC_E_1  BC_E_2  BC_EP_1  BC_EP_2   LP_E_1   LP_E_2  LP_EP_1  LP_EP_2
 ## Abcb10        0       0        0        0  1557708  1013752  4221663  5882079
 ## Abcg2         0       0  2163991  1048502 12987493  7697484  6474732 13136088
@@ -338,39 +346,39 @@ Recall: matrices are data tables, where all columns and rows have the same data 
 <p>Usually, expression data has large ranges of values. This will be scaled in the heatmap but we may lose sight of small differences.
 And so, we log our data.</p>
 <p>We must deal with the zeros before log(0) is negative infinity (can’t plot -Inf).</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="heatmaps.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if there are any zeros in the data</span></span>
-<span id="cb436-2"><a href="heatmaps.html#cb436-2" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(exp_mat <span class="sc">==</span> <span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="heatmaps.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if there are any zeros in the data</span></span>
+<span id="cb441-2"><a href="heatmaps.html#cb441-2" aria-hidden="true" tabindex="-1"></a><span class="fu">any</span>(exp_mat <span class="sc">==</span> <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="heatmaps.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impute 0 with 1</span></span>
-<span id="cb438-2"><a href="heatmaps.html#cb438-2" aria-hidden="true" tabindex="-1"></a>exp_mat[exp_mat <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb438-3"><a href="heatmaps.html#cb438-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Log2-transform data </span></span>
-<span id="cb438-4"><a href="heatmaps.html#cb438-4" aria-hidden="true" tabindex="-1"></a>exp_mat <span class="ot">&lt;-</span> <span class="fu">log2</span>(exp_mat)</span>
-<span id="cb438-5"><a href="heatmaps.html#cb438-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-6"><a href="heatmaps.html#cb438-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, log2(exp_mat + 1) adds 1 to all values before log transformation</span></span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="heatmaps.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Impute 0 with 1</span></span>
+<span id="cb443-2"><a href="heatmaps.html#cb443-2" aria-hidden="true" tabindex="-1"></a>exp_mat[exp_mat <span class="sc">==</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb443-3"><a href="heatmaps.html#cb443-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Log2-transform data </span></span>
+<span id="cb443-4"><a href="heatmaps.html#cb443-4" aria-hidden="true" tabindex="-1"></a>exp_mat <span class="ot">&lt;-</span> <span class="fu">log2</span>(exp_mat)</span>
+<span id="cb443-5"><a href="heatmaps.html#cb443-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb443-6"><a href="heatmaps.html#cb443-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, log2(exp_mat + 1) adds 1 to all values before log transformation</span></span></code></pre></div>
 <p>Now let’s make our heatmaps..</p>
 <p><strong>R base heatmap: heatmap()</strong></p>
 <p>The built-in R heatmap() function [in stats package] can be used.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="heatmaps.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(<span class="at">x =</span> exp_mat) <span class="co"># x is a numeric matrix, high values are in red and low values are in yellow</span></span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="heatmaps.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(<span class="at">x =</span> exp_mat) <span class="co"># x is a numeric matrix, high values are in red and low values are in yellow</span></span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
 </div>
 <div id="pheatmap" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> pheatmap()</h2>
 <p>Use the pheatmap (“pretty” heat map package) for more customizations.</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="heatmaps.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load package</span></span>
-<span id="cb440-2"><a href="heatmaps.html#cb440-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;pheatmap&quot;)</span></span>
-<span id="cb440-3"><a href="heatmaps.html#cb440-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
-<span id="cb440-4"><a href="heatmaps.html#cb440-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb440-5"><a href="heatmaps.html#cb440-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a simple heatmap using pheatmap() function call</span></span>
-<span id="cb440-6"><a href="heatmaps.html#cb440-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat) <span class="co"># input: numeric matrix</span></span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="heatmaps.html#cb445-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load package</span></span>
+<span id="cb445-2"><a href="heatmaps.html#cb445-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;pheatmap&quot;)</span></span>
+<span id="cb445-3"><a href="heatmaps.html#cb445-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
+<span id="cb445-4"><a href="heatmaps.html#cb445-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb445-5"><a href="heatmaps.html#cb445-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a simple heatmap using pheatmap() function call</span></span>
+<span id="cb445-6"><a href="heatmaps.html#cb445-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat) <span class="co"># input: numeric matrix</span></span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <div id="modify-row-and-column-names" class="section level3" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> Modify row and column names</h3>
 <p>pheatmap allows you to specify font size, change the row/column names, remove the names, and much more.</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="heatmaps.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, </span>
-<span id="cb441-2"><a href="heatmaps.html#cb441-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">show_rownames =</span> F, <span class="co"># hide row names</span></span>
-<span id="cb441-3"><a href="heatmaps.html#cb441-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">fontsize_col =</span> <span class="dv">2</span>, <span class="co"># fontsize of column labels (sample names)</span></span>
-<span id="cb441-4"><a href="heatmaps.html#cb441-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">cellwidth =</span> <span class="dv">3</span>) <span class="co"># width of columns</span></span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="heatmaps.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, </span>
+<span id="cb446-2"><a href="heatmaps.html#cb446-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">show_rownames =</span> F, <span class="co"># hide row names</span></span>
+<span id="cb446-3"><a href="heatmaps.html#cb446-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">fontsize_col =</span> <span class="dv">2</span>, <span class="co"># fontsize of column labels (sample names)</span></span>
+<span id="cb446-4"><a href="heatmaps.html#cb446-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">cellwidth =</span> <span class="dv">3</span>) <span class="co"># width of columns</span></span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 </div>
 </div>
 <div id="scaling" class="section level2" number="9.3">
@@ -378,50 +386,50 @@ And so, we log our data.</p>
 <p>Usually, we scale by our features (genes) to normalize gene expression across different samples.
 - argument built in to heatmap function call
 - a character indicating if the values should be centered and scaled in the “row” direction, “column” direction, or “none”</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="heatmaps.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, </span>
-<span id="cb442-2"><a href="heatmaps.html#cb442-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>) <span class="co">#default scale</span></span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="heatmaps.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, </span>
+<span id="cb447-2"><a href="heatmaps.html#cb447-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>) <span class="co">#default scale</span></span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 <p>You can scale the expression matrix before plotting the heatmap as well.</p>
 <ul>
 <li>compute z-scores - Z-score normalization is a strategy of normalizing data that avoids outlier issue by considering mean and standard deviation
 Read more: <a href="https://www.codecademy.com/articles/normalization" class="uri">https://www.codecademy.com/articles/normalization</a></li>
 </ul>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="heatmaps.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute z-scores to plot on heat map</span></span>
-<span id="cb443-2"><a href="heatmaps.html#cb443-2" aria-hidden="true" tabindex="-1"></a><span class="co"># apply() performs a computation/function over rows (1) or columns (2) in a dataframe or matrix</span></span>
-<span id="cb443-3"><a href="heatmaps.html#cb443-3" aria-hidden="true" tabindex="-1"></a>z_exp_mat <span class="ot">&lt;-</span> <span class="fu">apply</span>(exp_mat, <span class="dv">1</span>, <span class="cf">function</span>(x) (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x)) </span>
-<span id="cb443-4"><a href="heatmaps.html#cb443-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb443-5"><a href="heatmaps.html#cb443-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Transpose matrix, since apply() rotates data frame</span></span>
-<span id="cb443-6"><a href="heatmaps.html#cb443-6" aria-hidden="true" tabindex="-1"></a>z_exp_mat <span class="ot">&lt;-</span> <span class="fu">t</span>(z_exp_mat)</span>
-<span id="cb443-7"><a href="heatmaps.html#cb443-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb443-8"><a href="heatmaps.html#cb443-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This is your input data matrix</span></span>
-<span id="cb443-9"><a href="heatmaps.html#cb443-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(z_exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>) </span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="heatmaps.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute z-scores to plot on heat map</span></span>
+<span id="cb448-2"><a href="heatmaps.html#cb448-2" aria-hidden="true" tabindex="-1"></a><span class="co"># apply() performs a computation/function over rows (1) or columns (2) in a dataframe or matrix</span></span>
+<span id="cb448-3"><a href="heatmaps.html#cb448-3" aria-hidden="true" tabindex="-1"></a>z_exp_mat <span class="ot">&lt;-</span> <span class="fu">apply</span>(exp_mat, <span class="dv">1</span>, <span class="cf">function</span>(x) (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">/</span> <span class="fu">sd</span>(x)) </span>
+<span id="cb448-4"><a href="heatmaps.html#cb448-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb448-5"><a href="heatmaps.html#cb448-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Transpose matrix, since apply() rotates data frame</span></span>
+<span id="cb448-6"><a href="heatmaps.html#cb448-6" aria-hidden="true" tabindex="-1"></a>z_exp_mat <span class="ot">&lt;-</span> <span class="fu">t</span>(z_exp_mat)</span>
+<span id="cb448-7"><a href="heatmaps.html#cb448-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb448-8"><a href="heatmaps.html#cb448-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This is your input data matrix</span></span>
+<span id="cb448-9"><a href="heatmaps.html#cb448-9" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(z_exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>) </span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
 <ul>
 <li>rescale to specified min/max using rescale() from the scales package
 e.g. make range of {-3.2 to 4} to {-2 to 2})</li>
 </ul>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="heatmaps.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;scales&quot;)</span></span>
-<span id="cb444-2"><a href="heatmaps.html#cb444-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb444-3"><a href="heatmaps.html#cb444-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at range (minimum and maximum)</span></span>
-<span id="cb444-4"><a href="heatmaps.html#cb444-4" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(exp_mat)</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="heatmaps.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;scales&quot;)</span></span>
+<span id="cb449-2"><a href="heatmaps.html#cb449-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb449-3"><a href="heatmaps.html#cb449-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at range (minimum and maximum)</span></span>
+<span id="cb449-4"><a href="heatmaps.html#cb449-4" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(exp_mat)</span></code></pre></div>
 <pre><code>## [1]  0.00000 34.53543</code></pre>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="heatmaps.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- rescale whole matrix</span></span>
-<span id="cb446-2"><a href="heatmaps.html#cb446-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Rescale whole matrix - this just looks like the first heatmap we made</span></span>
-<span id="cb446-3"><a href="heatmaps.html#cb446-3" aria-hidden="true" tabindex="-1"></a>exp_mat2 <span class="ot">&lt;-</span> <span class="fu">rescale</span>(<span class="at">x =</span> exp_mat, <span class="co"># numeric matrix</span></span>
-<span id="cb446-4"><a href="heatmaps.html#cb446-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">to =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># new range</span></span>
-<span id="cb446-5"><a href="heatmaps.html#cb446-5" aria-hidden="true" tabindex="-1"></a><span class="co"># In your heatmap function call, specify the scale = &quot;none&quot; to preserve the range</span></span>
-<span id="cb446-6"><a href="heatmaps.html#cb446-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat2, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-91-1.png" width="672" /></p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="heatmaps.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- rescale each row seperately</span></span>
-<span id="cb447-2"><a href="heatmaps.html#cb447-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Rescale each row seperately</span></span>
-<span id="cb447-3"><a href="heatmaps.html#cb447-3" aria-hidden="true" tabindex="-1"></a>exp_mat2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(exp_mat, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">rescale</span>(x, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>)))</span>
-<span id="cb447-4"><a href="heatmaps.html#cb447-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Transpose when using the apply function</span></span>
-<span id="cb447-5"><a href="heatmaps.html#cb447-5" aria-hidden="true" tabindex="-1"></a>exp_mat2 <span class="ot">&lt;-</span> <span class="fu">t</span>(exp_mat2)</span>
-<span id="cb447-6"><a href="heatmaps.html#cb447-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap - remember to transpose when </span></span>
-<span id="cb447-7"><a href="heatmaps.html#cb447-7" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat2, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-91-2.png" width="672" /></p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="heatmaps.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at new range (minimum and maximum)</span></span>
-<span id="cb448-2"><a href="heatmaps.html#cb448-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(exp_mat2)</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="heatmaps.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- rescale whole matrix</span></span>
+<span id="cb451-2"><a href="heatmaps.html#cb451-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Rescale whole matrix - this just looks like the first heatmap we made</span></span>
+<span id="cb451-3"><a href="heatmaps.html#cb451-3" aria-hidden="true" tabindex="-1"></a>exp_mat2 <span class="ot">&lt;-</span> <span class="fu">rescale</span>(<span class="at">x =</span> exp_mat, <span class="co"># numeric matrix</span></span>
+<span id="cb451-4"><a href="heatmaps.html#cb451-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">to =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>)) <span class="co"># new range</span></span>
+<span id="cb451-5"><a href="heatmaps.html#cb451-5" aria-hidden="true" tabindex="-1"></a><span class="co"># In your heatmap function call, specify the scale = &quot;none&quot; to preserve the range</span></span>
+<span id="cb451-6"><a href="heatmaps.html#cb451-6" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat2, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="heatmaps.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -- rescale each row seperately</span></span>
+<span id="cb452-2"><a href="heatmaps.html#cb452-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Rescale each row seperately</span></span>
+<span id="cb452-3"><a href="heatmaps.html#cb452-3" aria-hidden="true" tabindex="-1"></a>exp_mat2 <span class="ot">&lt;-</span> <span class="fu">apply</span>(exp_mat, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">rescale</span>(x, <span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="dv">2</span>)))</span>
+<span id="cb452-4"><a href="heatmaps.html#cb452-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Transpose when using the apply function</span></span>
+<span id="cb452-5"><a href="heatmaps.html#cb452-5" aria-hidden="true" tabindex="-1"></a>exp_mat2 <span class="ot">&lt;-</span> <span class="fu">t</span>(exp_mat2)</span>
+<span id="cb452-6"><a href="heatmaps.html#cb452-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap - remember to transpose when </span></span>
+<span id="cb452-7"><a href="heatmaps.html#cb452-7" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat2, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-92-2.png" width="672" /></p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="heatmaps.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at new range (minimum and maximum)</span></span>
+<span id="cb453-2"><a href="heatmaps.html#cb453-2" aria-hidden="true" tabindex="-1"></a><span class="fu">range</span>(exp_mat2)</span></code></pre></div>
 <pre><code>## [1] -2  2</code></pre>
 </div>
 <div id="heatmap-colours" class="section level2" number="9.4">
@@ -430,20 +438,20 @@ e.g. make range of {-3.2 to 4} to {-2 to 2})</li>
 <li>It’s possible to specify a color palette using the argument col, which can be defined as follow:</li>
 <li>use colorRampPalette() to make a palette and “multiply” by a number to create a gradient</li>
 </ul>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="heatmaps.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using custom colors:</span></span>
-<span id="cb450-2"><a href="heatmaps.html#cb450-2" aria-hidden="true" tabindex="-1"></a>col_palette <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;blue&quot;</span>)) (<span class="dv">256</span>) <span class="co"># 256 is the number of colours this function will create</span></span>
-<span id="cb450-3"><a href="heatmaps.html#cb450-3" aria-hidden="true" tabindex="-1"></a>scales<span class="sc">::</span><span class="fu">show_col</span>(col_palette) <span class="co">#show colour palette</span></span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="heatmaps.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using RColorBrewer color palette:</span></span>
-<span id="cb451-2"><a href="heatmaps.html#cb451-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span>
-<span id="cb451-3"><a href="heatmaps.html#cb451-3" aria-hidden="true" tabindex="-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-92-2.png" width="672" /></p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="heatmaps.html#cb452-1" aria-hidden="true" tabindex="-1"></a>col_palette <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;PuOr&quot;</span>)) (<span class="dv">256</span>) <span class="co">#pick a palette and multiply by 256 using ()</span></span>
-<span id="cb452-2"><a href="heatmaps.html#cb452-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb452-3"><a href="heatmaps.html#cb452-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show on heatmap</span></span>
-<span id="cb452-4"><a href="heatmaps.html#cb452-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, </span>
-<span id="cb452-5"><a href="heatmaps.html#cb452-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span>  col_palette) <span class="co"># specify colour palette</span></span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-92-3.png" width="672" /></p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="heatmaps.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using custom colors:</span></span>
+<span id="cb455-2"><a href="heatmaps.html#cb455-2" aria-hidden="true" tabindex="-1"></a>col_palette <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;white&quot;</span>, <span class="st">&quot;blue&quot;</span>)) (<span class="dv">256</span>) <span class="co"># 256 is the number of colours this function will create</span></span>
+<span id="cb455-3"><a href="heatmaps.html#cb455-3" aria-hidden="true" tabindex="-1"></a>scales<span class="sc">::</span><span class="fu">show_col</span>(col_palette) <span class="co">#show colour palette</span></span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="heatmaps.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using RColorBrewer color palette:</span></span>
+<span id="cb456-2"><a href="heatmaps.html#cb456-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span>
+<span id="cb456-3"><a href="heatmaps.html#cb456-3" aria-hidden="true" tabindex="-1"></a>RColorBrewer<span class="sc">::</span><span class="fu">display.brewer.all</span>()</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-93-2.png" width="672" /></p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="heatmaps.html#cb457-1" aria-hidden="true" tabindex="-1"></a>col_palette <span class="ot">&lt;-</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;PuOr&quot;</span>)) (<span class="dv">256</span>) <span class="co">#pick a palette and multiply by 256 using ()</span></span>
+<span id="cb457-2"><a href="heatmaps.html#cb457-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb457-3"><a href="heatmaps.html#cb457-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Show on heatmap</span></span>
+<span id="cb457-4"><a href="heatmaps.html#cb457-4" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, </span>
+<span id="cb457-5"><a href="heatmaps.html#cb457-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span>  col_palette) <span class="co"># specify colour palette</span></span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-93-3.png" width="672" /></p>
 </div>
 <div id="clustering-methods" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Clustering methods</h2>
@@ -452,44 +460,44 @@ e.g. make range of {-3.2 to 4} to {-2 to 2})</li>
 <li>rows and columns are clustered independent of one another</li>
 </ul>
 <p>Set “cluster_cols” and “cluster_rows” to FALSE to prevent clustering. Default is TRUE (via euclidean distance and complete linkage).</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="heatmaps.html#cb453-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">col =</span>  col_palette, </span>
-<span id="cb453-2"><a href="heatmaps.html#cb453-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">cluster_cols =</span> F, <span class="co"># specify column clustering</span></span>
-<span id="cb453-3"><a href="heatmaps.html#cb453-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">cluster_rows =</span> F <span class="co"># specify row clustering</span></span>
-<span id="cb453-4"><a href="heatmaps.html#cb453-4" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-93-1.png" width="672" /></p>
-<p>Most heatmap packages have a clustering method argument in the function call.</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="heatmaps.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">col =</span>  col_palette, </span>
-<span id="cb454-2"><a href="heatmaps.html#cb454-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">clustering_method =</span> <span class="st">&quot;complete&quot;</span>) <span class="co"># specify clustering method - select one of: ward.D&quot;, &quot;ward.D2&quot;, &quot;single&quot;, &quot;complete&quot;, &quot;average&quot; (= UPGMA), &quot;mcquitty&quot; (= WPGMA), &quot;median&quot; (= WPGMC) or &quot;centroid&quot; (= UPGMC)</span></span></code></pre></div>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="heatmaps.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">col =</span>  col_palette, </span>
+<span id="cb458-2"><a href="heatmaps.html#cb458-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">cluster_cols =</span> F, <span class="co"># specify column clustering</span></span>
+<span id="cb458-3"><a href="heatmaps.html#cb458-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">cluster_rows =</span> F <span class="co"># specify row clustering</span></span>
+<span id="cb458-4"><a href="heatmaps.html#cb458-4" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
 <p><img src="r-sessions_files/figure-html/unnamed-chunk-94-1.png" width="672" /></p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="heatmaps.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: you can hide dendograms by setting arguments treeheight_row and/or treeheight_col to 0</span></span></code></pre></div>
+<p>Most heatmap packages have a clustering method argument in the function call.</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="heatmaps.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">col =</span>  col_palette, </span>
+<span id="cb459-2"><a href="heatmaps.html#cb459-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">clustering_method =</span> <span class="st">&quot;complete&quot;</span>) <span class="co"># specify clustering method - select one of: ward.D&quot;, &quot;ward.D2&quot;, &quot;single&quot;, &quot;complete&quot;, &quot;average&quot; (= UPGMA), &quot;mcquitty&quot; (= WPGMA), &quot;median&quot; (= WPGMC) or &quot;centroid&quot; (= UPGMC)</span></span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-95-1.png" width="672" /></p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="heatmaps.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: you can hide dendograms by setting arguments treeheight_row and/or treeheight_col to 0</span></span></code></pre></div>
 <p>You can also make hierarchical cluster (hc) objects (i.e dendogram-like structures)
 1. First make a distance matrix object using dist()</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="heatmaps.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make distance matrices for columns (sample)</span></span>
-<span id="cb456-2"><a href="heatmaps.html#cb456-2" aria-hidden="true" tabindex="-1"></a>dist_cols <span class="ot">&lt;-</span> <span class="fu">dist</span>(<span class="fu">t</span>(exp_mat), <span class="at">method =</span> <span class="st">&quot;manhattan&quot;</span>) <span class="co">#default - select one of: one of &quot;euclidean&quot;, &quot;maximum&quot;, &quot;manhattan&quot;, &quot;canberra&quot;, &quot;binary&quot; or &quot;minkowski&quot;</span></span>
-<span id="cb456-3"><a href="heatmaps.html#cb456-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-4"><a href="heatmaps.html#cb456-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make distance matrices for rows (genes)</span></span>
-<span id="cb456-5"><a href="heatmaps.html#cb456-5" aria-hidden="true" tabindex="-1"></a>dist_rows <span class="ot">&lt;-</span> <span class="fu">dist</span>(exp_mat, <span class="at">method =</span> <span class="st">&quot;euclidean&quot;</span>) </span>
-<span id="cb456-6"><a href="heatmaps.html#cb456-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb456-7"><a href="heatmaps.html#cb456-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: Can also make a correlation matrix into a distance matrix by subtracting values from 1</span></span>
-<span id="cb456-8"><a href="heatmaps.html#cb456-8" aria-hidden="true" tabindex="-1"></a>dist_cols <span class="ot">&lt;-</span> <span class="fu">as.dist</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">cor</span>(exp_mat, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>))</span>
-<span id="cb456-9"><a href="heatmaps.html#cb456-9" aria-hidden="true" tabindex="-1"></a>dist_rows <span class="ot">&lt;-</span> <span class="fu">as.dist</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">cor</span>(<span class="fu">t</span>(exp_mat), <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="heatmaps.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make distance matrices for columns (sample)</span></span>
+<span id="cb461-2"><a href="heatmaps.html#cb461-2" aria-hidden="true" tabindex="-1"></a>dist_cols <span class="ot">&lt;-</span> <span class="fu">dist</span>(<span class="fu">t</span>(exp_mat), <span class="at">method =</span> <span class="st">&quot;manhattan&quot;</span>) <span class="co">#default - select one of: one of &quot;euclidean&quot;, &quot;maximum&quot;, &quot;manhattan&quot;, &quot;canberra&quot;, &quot;binary&quot; or &quot;minkowski&quot;</span></span>
+<span id="cb461-3"><a href="heatmaps.html#cb461-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb461-4"><a href="heatmaps.html#cb461-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make distance matrices for rows (genes)</span></span>
+<span id="cb461-5"><a href="heatmaps.html#cb461-5" aria-hidden="true" tabindex="-1"></a>dist_rows <span class="ot">&lt;-</span> <span class="fu">dist</span>(exp_mat, <span class="at">method =</span> <span class="st">&quot;euclidean&quot;</span>) </span>
+<span id="cb461-6"><a href="heatmaps.html#cb461-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb461-7"><a href="heatmaps.html#cb461-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: Can also make a correlation matrix into a distance matrix by subtracting values from 1</span></span>
+<span id="cb461-8"><a href="heatmaps.html#cb461-8" aria-hidden="true" tabindex="-1"></a>dist_cols <span class="ot">&lt;-</span> <span class="fu">as.dist</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">cor</span>(exp_mat, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>))</span>
+<span id="cb461-9"><a href="heatmaps.html#cb461-9" aria-hidden="true" tabindex="-1"></a>dist_rows <span class="ot">&lt;-</span> <span class="fu">as.dist</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fu">cor</span>(<span class="fu">t</span>(exp_mat), <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>))</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Then build hierachal clustering objects using hclust()</li>
 </ol>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="heatmaps.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make hclust object for columns</span></span>
-<span id="cb457-2"><a href="heatmaps.html#cb457-2" aria-hidden="true" tabindex="-1"></a>hc_cols <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_cols, <span class="at">method =</span> <span class="st">&quot;complete&quot;</span>)</span>
-<span id="cb457-3"><a href="heatmaps.html#cb457-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hc_cols)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="heatmaps.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat for rows</span></span>
-<span id="cb458-2"><a href="heatmaps.html#cb458-2" aria-hidden="true" tabindex="-1"></a>hc_rows <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_rows, <span class="at">method =</span> <span class="st">&quot;complete&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="heatmaps.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make hclust object for columns</span></span>
+<span id="cb462-2"><a href="heatmaps.html#cb462-2" aria-hidden="true" tabindex="-1"></a>hc_cols <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_cols, <span class="at">method =</span> <span class="st">&quot;complete&quot;</span>)</span>
+<span id="cb462-3"><a href="heatmaps.html#cb462-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(hc_cols)</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="heatmaps.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Repeat for rows</span></span>
+<span id="cb463-2"><a href="heatmaps.html#cb463-2" aria-hidden="true" tabindex="-1"></a>hc_rows <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_rows, <span class="at">method =</span> <span class="st">&quot;complete&quot;</span>)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Pass these objects into your heatmap function call</li>
 </ol>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="heatmaps.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">col =</span>  col_palette, </span>
-<span id="cb459-2"><a href="heatmaps.html#cb459-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">cluster_cols =</span> hc_cols, <span class="co"># specify column clustering</span></span>
-<span id="cb459-3"><a href="heatmaps.html#cb459-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">cluster_rows =</span> hc_rows <span class="co"># specify row clustering</span></span>
-<span id="cb459-4"><a href="heatmaps.html#cb459-4" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="heatmaps.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">show_rownames =</span> F, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">col =</span>  col_palette, </span>
+<span id="cb464-2"><a href="heatmaps.html#cb464-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">cluster_cols =</span> hc_cols, <span class="co"># specify column clustering</span></span>
+<span id="cb464-3"><a href="heatmaps.html#cb464-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">cluster_rows =</span> hc_rows <span class="co"># specify row clustering</span></span>
+<span id="cb464-4"><a href="heatmaps.html#cb464-4" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
 </div>
 <div id="create-annotations" class="section level2" number="9.6">
 <h2><span class="header-section-number">9.6</span> Create annotations</h2>
@@ -498,61 +506,61 @@ e.g. make range of {-3.2 to 4} to {-2 to 2})</li>
 <li><p>Annotations in pheatmap are in the form of data frames.</p></li>
 <li><p>Annotation column (sample information)</p></li>
 </ul>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="heatmaps.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get column names</span></span>
-<span id="cb460-2"><a href="heatmaps.html#cb460-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(exp_mat)</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="heatmaps.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get column names</span></span>
+<span id="cb465-2"><a href="heatmaps.html#cb465-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(exp_mat)</span></code></pre></div>
 <pre><code>##  [1] &quot;BC_E_1&quot;  &quot;BC_E_2&quot;  &quot;BC_EP_1&quot; &quot;BC_EP_2&quot; &quot;LP_E_1&quot;  &quot;LP_E_2&quot;  &quot;LP_EP_1&quot;
 ##  [8] &quot;LP_EP_2&quot; &quot;LM_E_1&quot;  &quot;LM_E_2&quot;  &quot;LM_EP_1&quot; &quot;LM_EP_2&quot;</code></pre>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="heatmaps.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make annotation column</span></span>
-<span id="cb462-2"><a href="heatmaps.html#cb462-2" aria-hidden="true" tabindex="-1"></a>ann_col <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">CellType =</span> <span class="fu">c</span>(<span class="st">&quot;BC&quot;</span>, <span class="st">&quot;BC&quot;</span>, <span class="st">&quot;BC&quot;</span>, <span class="st">&quot;BC&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LM&quot;</span>, <span class="st">&quot;LM&quot;</span>, <span class="st">&quot;LM&quot;</span>, <span class="st">&quot;LM&quot;</span>), </span>
-<span id="cb462-3"><a href="heatmaps.html#cb462-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Hormone =</span> <span class="fu">c</span>(<span class="st">&quot;E&quot;</span>, <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;EP&quot;</span>))</span>
-<span id="cb462-4"><a href="heatmaps.html#cb462-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename row names of annotation column dataframe as the column names of matrix (must match)</span></span>
-<span id="cb462-5"><a href="heatmaps.html#cb462-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ann_col) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(exp_mat)</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="heatmaps.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make annotation column</span></span>
+<span id="cb467-2"><a href="heatmaps.html#cb467-2" aria-hidden="true" tabindex="-1"></a>ann_col <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">CellType =</span> <span class="fu">c</span>(<span class="st">&quot;BC&quot;</span>, <span class="st">&quot;BC&quot;</span>, <span class="st">&quot;BC&quot;</span>, <span class="st">&quot;BC&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LM&quot;</span>, <span class="st">&quot;LM&quot;</span>, <span class="st">&quot;LM&quot;</span>, <span class="st">&quot;LM&quot;</span>), </span>
+<span id="cb467-3"><a href="heatmaps.html#cb467-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">Hormone =</span> <span class="fu">c</span>(<span class="st">&quot;E&quot;</span>, <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;E&quot;</span>,  <span class="st">&quot;EP&quot;</span>, <span class="st">&quot;EP&quot;</span>))</span>
+<span id="cb467-4"><a href="heatmaps.html#cb467-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename row names of annotation column dataframe as the column names of matrix (must match)</span></span>
+<span id="cb467-5"><a href="heatmaps.html#cb467-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ann_col) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(exp_mat)</span></code></pre></div>
 <p>Note: instead of passing in that huge vector for cell type, these lines of code do exactly the same thing</p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="heatmaps.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for cell type</span></span>
-<span id="cb463-2"><a href="heatmaps.html#cb463-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;BC&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LM&quot;</span>), <span class="at">each =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="heatmaps.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for cell type</span></span>
+<span id="cb468-2"><a href="heatmaps.html#cb468-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;BC&quot;</span>, <span class="st">&quot;LP&quot;</span>, <span class="st">&quot;LM&quot;</span>), <span class="at">each =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;BC&quot; &quot;BC&quot; &quot;BC&quot; &quot;BC&quot; &quot;LP&quot; &quot;LP&quot; &quot;LP&quot; &quot;LP&quot; &quot;LM&quot; &quot;LM&quot; &quot;LM&quot; &quot;LM&quot;</code></pre>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="heatmaps.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;_.*&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="fu">colnames</span>(exp_mat))</span></code></pre></div>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="heatmaps.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;_.*&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="fu">colnames</span>(exp_mat))</span></code></pre></div>
 <pre><code>##  [1] &quot;BC&quot; &quot;BC&quot; &quot;BC&quot; &quot;BC&quot; &quot;LP&quot; &quot;LP&quot; &quot;LP&quot; &quot;LP&quot; &quot;LM&quot; &quot;LM&quot; &quot;LM&quot; &quot;LM&quot;</code></pre>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="heatmaps.html#cb467-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for hormone treatement</span></span>
-<span id="cb467-2"><a href="heatmaps.html#cb467-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;E&quot;</span>, <span class="st">&quot;EP&quot;</span>), <span class="at">each =</span> <span class="dv">2</span>, <span class="at">times =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="heatmaps.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for hormone treatement</span></span>
+<span id="cb472-2"><a href="heatmaps.html#cb472-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;E&quot;</span>, <span class="st">&quot;EP&quot;</span>), <span class="at">each =</span> <span class="dv">2</span>, <span class="at">times =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##  [1] &quot;E&quot;  &quot;E&quot;  &quot;EP&quot; &quot;EP&quot; &quot;E&quot;  &quot;E&quot;  &quot;EP&quot; &quot;EP&quot; &quot;E&quot;  &quot;E&quot;  &quot;EP&quot; &quot;EP&quot;</code></pre>
 <ul>
 <li>Annotation rows (gene information)
 If you have to provide annotation for features, make a data frame (just like annotation column) and rename rows as genes (same order as your matrix)</li>
 </ul>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="heatmaps.html#cb469-1" aria-hidden="true" tabindex="-1"></a>ann_row <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="heatmaps.html#cb474-1" aria-hidden="true" tabindex="-1"></a>ann_row <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div>
 <ul>
 <li>Plot heatmap</li>
 </ul>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="heatmaps.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">show_rownames =</span> F, <span class="at">col =</span> col_palette,</span>
-<span id="cb470-2"><a href="heatmaps.html#cb470-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_col =</span> ann_col, <span class="co"># annotation column (sample info)</span></span>
-<span id="cb470-3"><a href="heatmaps.html#cb470-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_row =</span> ann_row <span class="co"># annotation rows (gene info)</span></span>
-<span id="cb470-4"><a href="heatmaps.html#cb470-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="heatmaps.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">show_rownames =</span> F, <span class="at">col =</span> col_palette,</span>
+<span id="cb475-2"><a href="heatmaps.html#cb475-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_col =</span> ann_col, <span class="co"># annotation column (sample info)</span></span>
+<span id="cb475-3"><a href="heatmaps.html#cb475-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_row =</span> ann_row <span class="co"># annotation rows (gene info)</span></span>
+<span id="cb475-4"><a href="heatmaps.html#cb475-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 <p>Make colours for your annotations
 - Make a list object of the annotation colors
 - List elements have the same names as the columns of the annotation data frames
 - Vector elements have same names as values</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="heatmaps.html#cb471-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make annotation colours list</span></span>
-<span id="cb471-2"><a href="heatmaps.html#cb471-2" aria-hidden="true" tabindex="-1"></a>ann_colors <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb471-3"><a href="heatmaps.html#cb471-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">CellType =</span>  <span class="fu">c</span>(<span class="at">BC=</span><span class="st">&quot;red&quot;</span>, <span class="at">LP=</span><span class="st">&quot;blue&quot;</span>, <span class="at">LM=</span><span class="st">&quot;darkgreen&quot;</span>),</span>
-<span id="cb471-4"><a href="heatmaps.html#cb471-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hormone =</span> <span class="fu">c</span>(<span class="at">E =</span> <span class="st">&quot;black&quot;</span>, <span class="at">EP =</span> <span class="st">&quot;purple&quot;</span>)</span>
-<span id="cb471-5"><a href="heatmaps.html#cb471-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb471-6"><a href="heatmaps.html#cb471-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb471-7"><a href="heatmaps.html#cb471-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap</span></span>
-<span id="cb471-8"><a href="heatmaps.html#cb471-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">show_rownames =</span> F, <span class="at">col =</span> col_palette,</span>
-<span id="cb471-9"><a href="heatmaps.html#cb471-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_col =</span> ann_col, <span class="co"># annotation column (sample info)</span></span>
-<span id="cb471-10"><a href="heatmaps.html#cb471-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_row =</span> ann_row, <span class="co"># annotation rows (gene info)</span></span>
-<span id="cb471-11"><a href="heatmaps.html#cb471-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_colors =</span> ann_colors <span class="co"># annotation colours</span></span>
-<span id="cb471-12"><a href="heatmaps.html#cb471-12" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="heatmaps.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make annotation colours list</span></span>
+<span id="cb476-2"><a href="heatmaps.html#cb476-2" aria-hidden="true" tabindex="-1"></a>ann_colors <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb476-3"><a href="heatmaps.html#cb476-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">CellType =</span>  <span class="fu">c</span>(<span class="at">BC=</span><span class="st">&quot;red&quot;</span>, <span class="at">LP=</span><span class="st">&quot;blue&quot;</span>, <span class="at">LM=</span><span class="st">&quot;darkgreen&quot;</span>),</span>
+<span id="cb476-4"><a href="heatmaps.html#cb476-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hormone =</span> <span class="fu">c</span>(<span class="at">E =</span> <span class="st">&quot;black&quot;</span>, <span class="at">EP =</span> <span class="st">&quot;purple&quot;</span>)</span>
+<span id="cb476-5"><a href="heatmaps.html#cb476-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb476-6"><a href="heatmaps.html#cb476-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb476-7"><a href="heatmaps.html#cb476-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap</span></span>
+<span id="cb476-8"><a href="heatmaps.html#cb476-8" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">show_rownames =</span> F, <span class="at">col =</span> col_palette,</span>
+<span id="cb476-9"><a href="heatmaps.html#cb476-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_col =</span> ann_col, <span class="co"># annotation column (sample info)</span></span>
+<span id="cb476-10"><a href="heatmaps.html#cb476-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_row =</span> ann_row, <span class="co"># annotation rows (gene info)</span></span>
+<span id="cb476-11"><a href="heatmaps.html#cb476-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_colors =</span> ann_colors <span class="co"># annotation colours</span></span>
+<span id="cb476-12"><a href="heatmaps.html#cb476-12" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
 <p>Save pheatmap to file
 - Add title using main =
 - Save to file using filename = (Currently following formats are supported: png, pdf, tiff, bmp, jpeg)</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="heatmaps.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap and save to file</span></span>
-<span id="cb472-2"><a href="heatmaps.html#cb472-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">show_rownames =</span> F, <span class="at">col =</span> col_palette, <span class="at">annotation_col =</span> ann_col, <span class="at">annotation_colors =</span> ann_colors,</span>
-<span id="cb472-3"><a href="heatmaps.html#cb472-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;My heatmap&quot;</span>,<span class="co"># add a title</span></span>
-<span id="cb472-4"><a href="heatmaps.html#cb472-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">filename =</span> <span class="st">&quot;my_heatmap.png&quot;</span>) <span class="co"># save as png to current working directory</span></span></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="heatmaps.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot heatmap and save to file</span></span>
+<span id="cb477-2"><a href="heatmaps.html#cb477-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(exp_mat, <span class="at">scale =</span> <span class="st">&quot;row&quot;</span>, <span class="at">show_rownames =</span> F, <span class="at">col =</span> col_palette, <span class="at">annotation_col =</span> ann_col, <span class="at">annotation_colors =</span> ann_colors,</span>
+<span id="cb477-3"><a href="heatmaps.html#cb477-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;My heatmap&quot;</span>,<span class="co"># add a title</span></span>
+<span id="cb477-4"><a href="heatmaps.html#cb477-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">filename =</span> <span class="st">&quot;my_heatmap.png&quot;</span>) <span class="co"># save as png to current working directory</span></span></code></pre></div>
 </div>
 <div id="practice-4" class="section level2" number="9.7">
 <h2><span class="header-section-number">9.7</span> Practice</h2>
@@ -570,8 +578,8 @@ iv) pick 9 colours from RColorBrewer color palette “RdPu” and make a palette
 v) set the title to “my heatmap”
 vi) save to a jpeg file called “mtcars_heatmap”</p>
 <p>Solution</p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="heatmaps.html#cb473-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) Use head() </span></span>
-<span id="cb473-2"><a href="heatmaps.html#cb473-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="heatmaps.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) Use head() </span></span>
+<span id="cb478-2"><a href="heatmaps.html#cb478-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -579,8 +587,8 @@ vi) save to a jpeg file called “mtcars_heatmap”</p>
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="heatmaps.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="co"># b) Use str() to see the structure</span></span>
-<span id="cb475-2"><a href="heatmaps.html#cb475-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mtcars) <span class="co"># ANSWER: Yes, all variables are numeric</span></span></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="heatmaps.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="co"># b) Use str() to see the structure</span></span>
+<span id="cb480-2"><a href="heatmaps.html#cb480-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(mtcars) <span class="co"># ANSWER: Yes, all variables are numeric</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    32 obs. of  11 variables:
 ##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
 ##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
@@ -593,23 +601,23 @@ vi) save to a jpeg file called “mtcars_heatmap”</p>
 ##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
 ##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
 ##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</code></pre>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="heatmaps.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) convert to matrix using as.matrix</span></span>
-<span id="cb477-2"><a href="heatmaps.html#cb477-2" aria-hidden="true" tabindex="-1"></a>mtcars_mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(mtcars)</span>
-<span id="cb477-3"><a href="heatmaps.html#cb477-3" aria-hidden="true" tabindex="-1"></a><span class="co"># d) add 1 and log2</span></span>
-<span id="cb477-4"><a href="heatmaps.html#cb477-4" aria-hidden="true" tabindex="-1"></a>mtcars_mat <span class="ot">&lt;-</span> mtcars_mat <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb477-5"><a href="heatmaps.html#cb477-5" aria-hidden="true" tabindex="-1"></a>mtcars_mat <span class="ot">&lt;-</span> <span class="fu">log2</span>(mtcars_mat)</span>
-<span id="cb477-6"><a href="heatmaps.html#cb477-6" aria-hidden="true" tabindex="-1"></a><span class="co"># equivalent: mtcars_mat &lt;- log2(mtcars_mat + 1)</span></span>
-<span id="cb477-7"><a href="heatmaps.html#cb477-7" aria-hidden="true" tabindex="-1"></a><span class="co"># e) plot heatmap</span></span>
-<span id="cb477-8"><a href="heatmaps.html#cb477-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
-<span id="cb477-9"><a href="heatmaps.html#cb477-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
-<span id="cb477-10"><a href="heatmaps.html#cb477-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(mtcars_mat, <span class="co">#e</span></span>
-<span id="cb477-11"><a href="heatmaps.html#cb477-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">scale =</span> <span class="st">&quot;column&quot;</span>, <span class="co">#i</span></span>
-<span id="cb477-12"><a href="heatmaps.html#cb477-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">clustering_method =</span> <span class="st">&quot;ward.D&quot;</span>, <span class="co">#ii</span></span>
-<span id="cb477-13"><a href="heatmaps.html#cb477-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">cellwidth =</span> <span class="dv">10</span>, <span class="co">#iii</span></span>
-<span id="cb477-14"><a href="heatmaps.html#cb477-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;RdPu&quot;</span>)) (<span class="dv">256</span>), <span class="co">#iv</span></span>
-<span id="cb477-15"><a href="heatmaps.html#cb477-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;my_heatmap&quot;</span>, <span class="co">#v</span></span>
-<span id="cb477-16"><a href="heatmaps.html#cb477-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">filename =</span> <span class="st">&quot;mtcars_heatmap.jpeg&quot;</span> <span class="co">#vi</span></span>
-<span id="cb477-17"><a href="heatmaps.html#cb477-17" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="heatmaps.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) convert to matrix using as.matrix</span></span>
+<span id="cb482-2"><a href="heatmaps.html#cb482-2" aria-hidden="true" tabindex="-1"></a>mtcars_mat <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(mtcars)</span>
+<span id="cb482-3"><a href="heatmaps.html#cb482-3" aria-hidden="true" tabindex="-1"></a><span class="co"># d) add 1 and log2</span></span>
+<span id="cb482-4"><a href="heatmaps.html#cb482-4" aria-hidden="true" tabindex="-1"></a>mtcars_mat <span class="ot">&lt;-</span> mtcars_mat <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb482-5"><a href="heatmaps.html#cb482-5" aria-hidden="true" tabindex="-1"></a>mtcars_mat <span class="ot">&lt;-</span> <span class="fu">log2</span>(mtcars_mat)</span>
+<span id="cb482-6"><a href="heatmaps.html#cb482-6" aria-hidden="true" tabindex="-1"></a><span class="co"># equivalent: mtcars_mat &lt;- log2(mtcars_mat + 1)</span></span>
+<span id="cb482-7"><a href="heatmaps.html#cb482-7" aria-hidden="true" tabindex="-1"></a><span class="co"># e) plot heatmap</span></span>
+<span id="cb482-8"><a href="heatmaps.html#cb482-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
+<span id="cb482-9"><a href="heatmaps.html#cb482-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb482-10"><a href="heatmaps.html#cb482-10" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(mtcars_mat, <span class="co">#e</span></span>
+<span id="cb482-11"><a href="heatmaps.html#cb482-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">scale =</span> <span class="st">&quot;column&quot;</span>, <span class="co">#i</span></span>
+<span id="cb482-12"><a href="heatmaps.html#cb482-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">clustering_method =</span> <span class="st">&quot;ward.D&quot;</span>, <span class="co">#ii</span></span>
+<span id="cb482-13"><a href="heatmaps.html#cb482-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">cellwidth =</span> <span class="dv">10</span>, <span class="co">#iii</span></span>
+<span id="cb482-14"><a href="heatmaps.html#cb482-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> <span class="fu">colorRampPalette</span>(<span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;RdPu&quot;</span>)) (<span class="dv">256</span>), <span class="co">#iv</span></span>
+<span id="cb482-15"><a href="heatmaps.html#cb482-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;my_heatmap&quot;</span>, <span class="co">#v</span></span>
+<span id="cb482-16"><a href="heatmaps.html#cb482-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">filename =</span> <span class="st">&quot;mtcars_heatmap.jpeg&quot;</span> <span class="co">#vi</span></span>
+<span id="cb482-17"><a href="heatmaps.html#cb482-17" aria-hidden="true" tabindex="-1"></a>         )</span></code></pre></div>
 
 </div>
 </div>

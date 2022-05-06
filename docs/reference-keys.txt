@@ -1,7 +1,7 @@
-preface
+introduction
+installation
 install-r
-download-r
-download-rstudio
+install-rstudio
 terms
 r-programming-basics
 variable-declaration

@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>12 Repetitive Jobs | R Tutorials</title>
-  <meta name="description" content="R tutorials for beginners!" />
+  <title>12 Repetitive Jobs | Learn R</title>
+  <meta name="description" content="Complete R tutorials for beginners!" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="12 Repetitive Jobs | R Tutorials" />
+  <meta property="og:title" content="12 Repetitive Jobs | Learn R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="/cover.png" />
-  <meta property="og:description" content="R tutorials for beginners!" />
+  <meta property="og:description" content="Complete R tutorials for beginners!" />
   <meta name="github-repo" content="kazeera/r-seesions" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="12 Repetitive Jobs | R Tutorials" />
+  <meta name="twitter:title" content="12 Repetitive Jobs | Learn R" />
   
-  <meta name="twitter:description" content="R tutorials for beginners!" />
+  <meta name="twitter:description" content="Complete R tutorials for beginners!" />
   <meta name="twitter:image" content="/cover.png" />
 
 <meta name="author" content="Kazeera Aliar" />
@@ -139,12 +139,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="install-r.html"><a href="install-r.html"><i class="fa fa-check"></i><b>2</b> Install R</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="install-r.html"><a href="install-r.html#download-r"><i class="fa fa-check"></i><b>2.1</b> Download R</a></li>
-<li class="chapter" data-level="2.2" data-path="install-r.html"><a href="install-r.html#download-rstudio"><i class="fa fa-check"></i><b>2.2</b> Download RStudio</a></li>
-<li class="chapter" data-level="2.3" data-path="install-r.html"><a href="install-r.html#terms"><i class="fa fa-check"></i><b>2.3</b> Terms</a></li>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#install-r"><i class="fa fa-check"></i><b>2.1</b> Install R</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#install-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#terms"><i class="fa fa-check"></i><b>2.3</b> Terms</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-programming-basics.html"><a href="r-programming-basics.html"><i class="fa fa-check"></i><b>3</b> R Programming Basics</a>
 <ul>
@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Tutorials</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Learn R</a>
           </h1>
         </div>
 
@@ -253,7 +253,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="repetitive-jobs" class="section level1" number="12">
 <h1><span class="header-section-number">12</span> Repetitive Jobs</h1>
+<blockquote>
 <p>Objective: To learn about tools to prevent copying and pasting the same code to replicate instructions</p>
+</blockquote>
 <p>We will cover:<br />
 - how to use functions (review)
 - make your own function(){}
@@ -268,18 +270,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>We can “call” functions (also called commands in this context) in R for convenience (so we don’t have to rewrite the code)</p></li>
 <li><p>Use ? or help() command To find information for a particular function</p></li>
 </ul>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="repetitive-jobs.html#cb577-1" aria-hidden="true" tabindex="-1"></a>?print</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="repetitive-jobs.html#cb582-1" aria-hidden="true" tabindex="-1"></a>?print</span></code></pre></div>
 <pre><code>## starting httpd help server ... done</code></pre>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="repetitive-jobs.html#cb579-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(print)</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="repetitive-jobs.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(print)</span></code></pre></div>
 <ul>
 <li>Functions have the format: function_name( arguments )</li>
 <li>“Arguments” are required or optional parameters used by the function to accomplish the action</li>
 <li>Functions can “return” a value (or not)</li>
 </ul>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="repetitive-jobs.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type a comma and press tab to see arguments (function parameters) in RStudio</span></span>
-<span id="cb580-2"><a href="repetitive-jobs.html#cb580-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="at">x =</span> <span class="st">&quot;Hello world&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="repetitive-jobs.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Type a comma and press tab to see arguments (function parameters) in RStudio</span></span>
+<span id="cb585-2"><a href="repetitive-jobs.html#cb585-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="at">x =</span> <span class="st">&quot;Hello world&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;Hello world&quot;</code></pre>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="repetitive-jobs.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="at">x =</span> <span class="fl">33.9431249</span>, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="repetitive-jobs.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="at">x =</span> <span class="fl">33.9431249</span>, <span class="at">digits =</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 33.94</code></pre>
 <p><strong>How to define a function:</strong></p>
 <p>name_of_function &lt;- function(list_of_arguments){
@@ -291,39 +293,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><strong>Make a function using function()</strong></p>
 <p>Make a function that adds 2 values, x and y</p>
-<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="repetitive-jobs.html#cb584-1" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) { <span class="co">#arguments within parantheses</span></span>
-<span id="cb584-2"><a href="repetitive-jobs.html#cb584-2" aria-hidden="true" tabindex="-1"></a>  x.y.sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y    <span class="co"># body of function within {}</span></span>
-<span id="cb584-3"><a href="repetitive-jobs.html#cb584-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x.y.sum)     <span class="co"># return value specified in return()</span></span>
-<span id="cb584-4"><a href="repetitive-jobs.html#cb584-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="repetitive-jobs.html#cb589-1" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) { <span class="co">#arguments within parantheses</span></span>
+<span id="cb589-2"><a href="repetitive-jobs.html#cb589-2" aria-hidden="true" tabindex="-1"></a>  x.y.sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y    <span class="co"># body of function within {}</span></span>
+<span id="cb589-3"><a href="repetitive-jobs.html#cb589-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x.y.sum)     <span class="co"># return value specified in return()</span></span>
+<span id="cb589-4"><a href="repetitive-jobs.html#cb589-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Call your function the same way you use any other.</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="repetitive-jobs.html#cb585-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#returns 9; if not saved to a variable, it will print</span></span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="repetitive-jobs.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">4</span>,<span class="dv">5</span>) <span class="co">#returns 9; if not saved to a variable, it will print</span></span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="repetitive-jobs.html#cb587-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add(4) # Error in add(4) : argument &quot;y&quot; is missing, with no default</span></span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="repetitive-jobs.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add(4) # Error in add(4) : argument &quot;y&quot; is missing, with no default</span></span></code></pre></div>
 <p>Automatic Returns - In R, it is not necessary to include the return statement. R automatically returns whichever variable is on the last line of the body of the function.</p>
 <p><strong>Default arguments</strong>
 Set defaults if not specified by user.</p>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="repetitive-jobs.html#cb588-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function</span></span>
-<span id="cb588-2"><a href="repetitive-jobs.html#cb588-2" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">y=</span><span class="dv">0</span>) { <span class="co"># x is required argument, but if y is not specified, it is 0</span></span>
-<span id="cb588-3"><a href="repetitive-jobs.html#cb588-3" aria-hidden="true" tabindex="-1"></a>  x.y.sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y    </span>
-<span id="cb588-4"><a href="repetitive-jobs.html#cb588-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x.y.sum)    </span>
-<span id="cb588-5"><a href="repetitive-jobs.html#cb588-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb588-6"><a href="repetitive-jobs.html#cb588-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Use function</span></span>
-<span id="cb588-7"><a href="repetitive-jobs.html#cb588-7" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">4</span>,<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="repetitive-jobs.html#cb593-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function</span></span>
+<span id="cb593-2"><a href="repetitive-jobs.html#cb593-2" aria-hidden="true" tabindex="-1"></a>add <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">y=</span><span class="dv">0</span>) { <span class="co"># x is required argument, but if y is not specified, it is 0</span></span>
+<span id="cb593-3"><a href="repetitive-jobs.html#cb593-3" aria-hidden="true" tabindex="-1"></a>  x.y.sum <span class="ot">&lt;-</span> x <span class="sc">+</span> y    </span>
+<span id="cb593-4"><a href="repetitive-jobs.html#cb593-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x.y.sum)    </span>
+<span id="cb593-5"><a href="repetitive-jobs.html#cb593-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb593-6"><a href="repetitive-jobs.html#cb593-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Use function</span></span>
+<span id="cb593-7"><a href="repetitive-jobs.html#cb593-7" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">4</span>,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] 9</code></pre>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="repetitive-jobs.html#cb590-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="repetitive-jobs.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="fu">add</span>(<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <p>Define a function lb.to.kg that converts weights from pounds (lb) to kilogram (kg):</p>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="repetitive-jobs.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for an approximate result, divide the mass value by 2.205</span></span>
-<span id="cb592-2"><a href="repetitive-jobs.html#cb592-2" aria-hidden="true" tabindex="-1"></a>lb.to.kg <span class="ot">&lt;-</span> <span class="cf">function</span>(wt_lb) { <span class="co">#argument within parantheses</span></span>
-<span id="cb592-3"><a href="repetitive-jobs.html#cb592-3" aria-hidden="true" tabindex="-1"></a>  wt_kg <span class="ot">&lt;-</span> wt_lb<span class="sc">/</span><span class="fl">2.205</span>      <span class="co"># body of function within {}</span></span>
-<span id="cb592-4"><a href="repetitive-jobs.html#cb592-4" aria-hidden="true" tabindex="-1"></a>  wt_kg <span class="ot">&lt;-</span> <span class="fu">round</span>(wt_kg, <span class="at">digits =</span> <span class="dv">3</span>)</span>
-<span id="cb592-5"><a href="repetitive-jobs.html#cb592-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(wt_kg)           <span class="co"># return value specified in return()</span></span>
-<span id="cb592-6"><a href="repetitive-jobs.html#cb592-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb592-7"><a href="repetitive-jobs.html#cb592-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb592-8"><a href="repetitive-jobs.html#cb592-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s try running our function. Calling our own function is no different from calling any other function:</span></span>
-<span id="cb592-9"><a href="repetitive-jobs.html#cb592-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lb.to.kg</span>(<span class="dv">32</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="repetitive-jobs.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for an approximate result, divide the mass value by 2.205</span></span>
+<span id="cb597-2"><a href="repetitive-jobs.html#cb597-2" aria-hidden="true" tabindex="-1"></a>lb.to.kg <span class="ot">&lt;-</span> <span class="cf">function</span>(wt_lb) { <span class="co">#argument within parantheses</span></span>
+<span id="cb597-3"><a href="repetitive-jobs.html#cb597-3" aria-hidden="true" tabindex="-1"></a>  wt_kg <span class="ot">&lt;-</span> wt_lb<span class="sc">/</span><span class="fl">2.205</span>      <span class="co"># body of function within {}</span></span>
+<span id="cb597-4"><a href="repetitive-jobs.html#cb597-4" aria-hidden="true" tabindex="-1"></a>  wt_kg <span class="ot">&lt;-</span> <span class="fu">round</span>(wt_kg, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb597-5"><a href="repetitive-jobs.html#cb597-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(wt_kg)           <span class="co"># return value specified in return()</span></span>
+<span id="cb597-6"><a href="repetitive-jobs.html#cb597-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb597-7"><a href="repetitive-jobs.html#cb597-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb597-8"><a href="repetitive-jobs.html#cb597-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Let&#39;s try running our function. Calling our own function is no different from calling any other function:</span></span>
+<span id="cb597-9"><a href="repetitive-jobs.html#cb597-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lb.to.kg</span>(<span class="dv">32</span>)</span></code></pre></div>
 <pre><code>## [1] 14.512</code></pre>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="repetitive-jobs.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lb.to.kg</span>(<span class="dv">212</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb599-1"><a href="repetitive-jobs.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lb.to.kg</span>(<span class="dv">212</span>)</span></code></pre></div>
 <pre><code>## [1] 96.145</code></pre>
 <p>Summary:
 - Define a function using name &lt;- function(args…) { body… }
@@ -336,33 +338,33 @@ Set defaults if not specified by user.</p>
 <h2><span class="header-section-number">12.2</span> Loops</h2>
 <p>Based on following tutorial: <a href="https://swcarpentry.github.io/r-novice-inflammation/03-loops-R/index.html" class="uri">https://swcarpentry.github.io/r-novice-inflammation/03-loops-R/index.html</a></p>
 <p>Suppose we want to print each word in a sentence. One way is to use six print statements:</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="repetitive-jobs.html#cb596-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a character vector</span></span>
-<span id="cb596-2"><a href="repetitive-jobs.html#cb596-2" aria-hidden="true" tabindex="-1"></a>sentence1 <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;Try&quot;</span>, <span class="st">&quot;printing&quot;</span>, <span class="st">&quot;this&quot;</span>)</span>
-<span id="cb596-3"><a href="repetitive-jobs.html#cb596-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb596-4"><a href="repetitive-jobs.html#cb596-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a function to print each value in sentence vector</span></span>
-<span id="cb596-5"><a href="repetitive-jobs.html#cb596-5" aria-hidden="true" tabindex="-1"></a>print_sentence <span class="ot">&lt;-</span> <span class="cf">function</span>(sentence) {</span>
-<span id="cb596-6"><a href="repetitive-jobs.html#cb596-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(sentence[<span class="dv">1</span>])</span>
-<span id="cb596-7"><a href="repetitive-jobs.html#cb596-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(sentence[<span class="dv">2</span>])</span>
-<span id="cb596-8"><a href="repetitive-jobs.html#cb596-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(sentence[<span class="dv">3</span>])</span>
-<span id="cb596-9"><a href="repetitive-jobs.html#cb596-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb596-10"><a href="repetitive-jobs.html#cb596-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Call function</span></span>
-<span id="cb596-11"><a href="repetitive-jobs.html#cb596-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print_sentence</span>(sentence1)</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb601-1"><a href="repetitive-jobs.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a character vector</span></span>
+<span id="cb601-2"><a href="repetitive-jobs.html#cb601-2" aria-hidden="true" tabindex="-1"></a>sentence1 <span class="ot">&lt;-</span>  <span class="fu">c</span>(<span class="st">&quot;Try&quot;</span>, <span class="st">&quot;printing&quot;</span>, <span class="st">&quot;this&quot;</span>)</span>
+<span id="cb601-3"><a href="repetitive-jobs.html#cb601-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb601-4"><a href="repetitive-jobs.html#cb601-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a function to print each value in sentence vector</span></span>
+<span id="cb601-5"><a href="repetitive-jobs.html#cb601-5" aria-hidden="true" tabindex="-1"></a>print_sentence <span class="ot">&lt;-</span> <span class="cf">function</span>(sentence) {</span>
+<span id="cb601-6"><a href="repetitive-jobs.html#cb601-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(sentence[<span class="dv">1</span>])</span>
+<span id="cb601-7"><a href="repetitive-jobs.html#cb601-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(sentence[<span class="dv">2</span>])</span>
+<span id="cb601-8"><a href="repetitive-jobs.html#cb601-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(sentence[<span class="dv">3</span>])</span>
+<span id="cb601-9"><a href="repetitive-jobs.html#cb601-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb601-10"><a href="repetitive-jobs.html#cb601-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Call function</span></span>
+<span id="cb601-11"><a href="repetitive-jobs.html#cb601-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print_sentence</span>(sentence1)</span></code></pre></div>
 <pre><code>## [1] &quot;Try&quot;
 ## [1] &quot;printing&quot;
 ## [1] &quot;this&quot;</code></pre>
 <p>However this function won’t work as intended (doesn’t scale and fragile) if there are more than 3 values in sentence argument.</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="repetitive-jobs.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make another sentence vector</span></span>
-<span id="cb598-2"><a href="repetitive-jobs.html#cb598-2" aria-hidden="true" tabindex="-1"></a>sentence2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Let&quot;</span>, <span class="st">&quot;the&quot;</span>, <span class="st">&quot;computer&quot;</span>, <span class="st">&quot;do&quot;</span>, <span class="st">&quot;the&quot;</span>, <span class="st">&quot;work&quot;</span>)</span>
-<span id="cb598-3"><a href="repetitive-jobs.html#cb598-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call function</span></span>
-<span id="cb598-4"><a href="repetitive-jobs.html#cb598-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print_sentence</span>(sentence2)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="repetitive-jobs.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make another sentence vector</span></span>
+<span id="cb603-2"><a href="repetitive-jobs.html#cb603-2" aria-hidden="true" tabindex="-1"></a>sentence2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Let&quot;</span>, <span class="st">&quot;the&quot;</span>, <span class="st">&quot;computer&quot;</span>, <span class="st">&quot;do&quot;</span>, <span class="st">&quot;the&quot;</span>, <span class="st">&quot;work&quot;</span>)</span>
+<span id="cb603-3"><a href="repetitive-jobs.html#cb603-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call function</span></span>
+<span id="cb603-4"><a href="repetitive-jobs.html#cb603-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print_sentence</span>(sentence2)</span></code></pre></div>
 <pre><code>## [1] &quot;Let&quot;
 ## [1] &quot;the&quot;
 ## [1] &quot;computer&quot;</code></pre>
 <p>Or if the sentence is shorter, NAs (missing values) are introduced.</p>
-<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="repetitive-jobs.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make another sentence vector</span></span>
-<span id="cb600-2"><a href="repetitive-jobs.html#cb600-2" aria-hidden="true" tabindex="-1"></a>sentence3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Try&quot;</span>, <span class="st">&quot;this&quot;</span>)</span>
-<span id="cb600-3"><a href="repetitive-jobs.html#cb600-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call function</span></span>
-<span id="cb600-4"><a href="repetitive-jobs.html#cb600-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print_sentence</span>(sentence3)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="repetitive-jobs.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make another sentence vector</span></span>
+<span id="cb605-2"><a href="repetitive-jobs.html#cb605-2" aria-hidden="true" tabindex="-1"></a>sentence3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Try&quot;</span>, <span class="st">&quot;this&quot;</span>)</span>
+<span id="cb605-3"><a href="repetitive-jobs.html#cb605-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Call function</span></span>
+<span id="cb605-4"><a href="repetitive-jobs.html#cb605-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print_sentence</span>(sentence3)</span></code></pre></div>
 <pre><code>## [1] &quot;Try&quot;
 ## [1] &quot;this&quot;
 ## [1] NA</code></pre>
@@ -378,57 +380,57 @@ Set defaults if not specified by user.</p>
   # do things with variable
 }</code></pre>
 <p>Eg. make a for loop</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb603-1"><a href="repetitive-jobs.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a for loop to print out each element in sentence1</span></span>
-<span id="cb603-2"><a href="repetitive-jobs.html#cb603-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (word <span class="cf">in</span> sentence1){ <span class="co"># word will take on the value of &quot;sentence1&quot; element by element until there are no elements left</span></span>
-<span id="cb603-3"><a href="repetitive-jobs.html#cb603-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print the current word</span></span>
-<span id="cb603-4"><a href="repetitive-jobs.html#cb603-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(word)</span>
-<span id="cb603-5"><a href="repetitive-jobs.html#cb603-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb608-1"><a href="repetitive-jobs.html#cb608-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a for loop to print out each element in sentence1</span></span>
+<span id="cb608-2"><a href="repetitive-jobs.html#cb608-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (word <span class="cf">in</span> sentence1){ <span class="co"># word will take on the value of &quot;sentence1&quot; element by element until there are no elements left</span></span>
+<span id="cb608-3"><a href="repetitive-jobs.html#cb608-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print the current word</span></span>
+<span id="cb608-4"><a href="repetitive-jobs.html#cb608-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(word)</span>
+<span id="cb608-5"><a href="repetitive-jobs.html#cb608-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Try&quot;
 ## [1] &quot;printing&quot;
 ## [1] &quot;this&quot;</code></pre>
 <p>Add a condition</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb605-1"><a href="repetitive-jobs.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a for loop to print out each element in sentence1</span></span>
-<span id="cb605-2"><a href="repetitive-jobs.html#cb605-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (word <span class="cf">in</span> sentence1){ <span class="co"># word will take on the value of &quot;sentence1&quot; element by element until there are no elements left</span></span>
-<span id="cb605-3"><a href="repetitive-jobs.html#cb605-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Skip current iteration if the current word is equal to  &quot;printing&quot;</span></span>
-<span id="cb605-4"><a href="repetitive-jobs.html#cb605-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(word <span class="sc">==</span> <span class="st">&quot;printing&quot;</span>){</span>
-<span id="cb605-5"><a href="repetitive-jobs.html#cb605-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span>;</span>
-<span id="cb605-6"><a href="repetitive-jobs.html#cb605-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb605-7"><a href="repetitive-jobs.html#cb605-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print the current word</span></span>
-<span id="cb605-8"><a href="repetitive-jobs.html#cb605-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(word)</span>
-<span id="cb605-9"><a href="repetitive-jobs.html#cb605-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="repetitive-jobs.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a for loop to print out each element in sentence1</span></span>
+<span id="cb610-2"><a href="repetitive-jobs.html#cb610-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (word <span class="cf">in</span> sentence1){ <span class="co"># word will take on the value of &quot;sentence1&quot; element by element until there are no elements left</span></span>
+<span id="cb610-3"><a href="repetitive-jobs.html#cb610-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Skip current iteration if the current word is equal to  &quot;printing&quot;</span></span>
+<span id="cb610-4"><a href="repetitive-jobs.html#cb610-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(word <span class="sc">==</span> <span class="st">&quot;printing&quot;</span>){</span>
+<span id="cb610-5"><a href="repetitive-jobs.html#cb610-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span>;</span>
+<span id="cb610-6"><a href="repetitive-jobs.html#cb610-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb610-7"><a href="repetitive-jobs.html#cb610-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print the current word</span></span>
+<span id="cb610-8"><a href="repetitive-jobs.html#cb610-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(word)</span>
+<span id="cb610-9"><a href="repetitive-jobs.html#cb610-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Try&quot;
 ## [1] &quot;this&quot;</code></pre>
 <p>Eg. make a while loop</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb607-1"><a href="repetitive-jobs.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intialize an index counter </span></span>
-<span id="cb607-2"><a href="repetitive-jobs.html#cb607-2" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span> </span>
-<span id="cb607-3"><a href="repetitive-jobs.html#cb607-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb607-4"><a href="repetitive-jobs.html#cb607-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a while loop to print out each element in sentence1</span></span>
-<span id="cb607-5"><a href="repetitive-jobs.html#cb607-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: length() is the number of elements in a vector or list</span></span>
-<span id="cb607-6"><a href="repetitive-jobs.html#cb607-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;=</span> <span class="fu">length</span>(sentence1)){ <span class="co"># i will test this condition and run the code within {} until it is FALSE</span></span>
-<span id="cb607-7"><a href="repetitive-jobs.html#cb607-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define word variable by indexing sentence1</span></span>
-<span id="cb607-8"><a href="repetitive-jobs.html#cb607-8" aria-hidden="true" tabindex="-1"></a>  word <span class="ot">&lt;-</span> sentence1[i]</span>
-<span id="cb607-9"><a href="repetitive-jobs.html#cb607-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print the current word</span></span>
-<span id="cb607-10"><a href="repetitive-jobs.html#cb607-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(word)</span>
-<span id="cb607-11"><a href="repetitive-jobs.html#cb607-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update counter by 1 - i.e. move to the next index - must do this or you&#39;ll end up with an infinite loop!</span></span>
-<span id="cb607-12"><a href="repetitive-jobs.html#cb607-12" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb607-13"><a href="repetitive-jobs.html#cb607-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="repetitive-jobs.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intialize an index counter </span></span>
+<span id="cb612-2"><a href="repetitive-jobs.html#cb612-2" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span> </span>
+<span id="cb612-3"><a href="repetitive-jobs.html#cb612-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb612-4"><a href="repetitive-jobs.html#cb612-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a while loop to print out each element in sentence1</span></span>
+<span id="cb612-5"><a href="repetitive-jobs.html#cb612-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: length() is the number of elements in a vector or list</span></span>
+<span id="cb612-6"><a href="repetitive-jobs.html#cb612-6" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&lt;=</span> <span class="fu">length</span>(sentence1)){ <span class="co"># i will test this condition and run the code within {} until it is FALSE</span></span>
+<span id="cb612-7"><a href="repetitive-jobs.html#cb612-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Define word variable by indexing sentence1</span></span>
+<span id="cb612-8"><a href="repetitive-jobs.html#cb612-8" aria-hidden="true" tabindex="-1"></a>  word <span class="ot">&lt;-</span> sentence1[i]</span>
+<span id="cb612-9"><a href="repetitive-jobs.html#cb612-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># print the current word</span></span>
+<span id="cb612-10"><a href="repetitive-jobs.html#cb612-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(word)</span>
+<span id="cb612-11"><a href="repetitive-jobs.html#cb612-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Update counter by 1 - i.e. move to the next index - must do this or you&#39;ll end up with an infinite loop!</span></span>
+<span id="cb612-12"><a href="repetitive-jobs.html#cb612-12" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">&lt;-</span> i<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb612-13"><a href="repetitive-jobs.html#cb612-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Try&quot;
 ## [1] &quot;printing&quot;
 ## [1] &quot;this&quot;</code></pre>
 <p>Applications:
 - processing/analyzing multiple files (look at linked tutorial)
 - plotting graphs from columns in same dataframe</p>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb609-1"><a href="repetitive-jobs.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eg. Use a for loop to apply same preprocessing steps to multiple csv files</span></span>
-<span id="cb609-2"><a href="repetitive-jobs.html#cb609-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (filename <span class="cf">in</span> <span class="fu">list.files</span>(<span class="at">pattern=</span><span class="st">&quot;csv&quot;</span>)){ </span>
-<span id="cb609-3"><a href="repetitive-jobs.html#cb609-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Read csv file into a variable called df</span></span>
-<span id="cb609-4"><a href="repetitive-jobs.html#cb609-4" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(filename)</span>
-<span id="cb609-5"><a href="repetitive-jobs.html#cb609-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb609-6"><a href="repetitive-jobs.html#cb609-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(df)){</span>
-<span id="cb609-7"><a href="repetitive-jobs.html#cb609-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span>;</span>
-<span id="cb609-8"><a href="repetitive-jobs.html#cb609-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb609-9"><a href="repetitive-jobs.html#cb609-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb609-10"><a href="repetitive-jobs.html#cb609-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># downstream processing df</span></span>
-<span id="cb609-11"><a href="repetitive-jobs.html#cb609-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="repetitive-jobs.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eg. Use a for loop to apply same preprocessing steps to multiple csv files</span></span>
+<span id="cb614-2"><a href="repetitive-jobs.html#cb614-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (filename <span class="cf">in</span> <span class="fu">list.files</span>(<span class="at">pattern=</span><span class="st">&quot;csv&quot;</span>)){ </span>
+<span id="cb614-3"><a href="repetitive-jobs.html#cb614-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Read csv file into a variable called df</span></span>
+<span id="cb614-4"><a href="repetitive-jobs.html#cb614-4" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(filename)</span>
+<span id="cb614-5"><a href="repetitive-jobs.html#cb614-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb614-6"><a href="repetitive-jobs.html#cb614-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(df)){</span>
+<span id="cb614-7"><a href="repetitive-jobs.html#cb614-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">next</span>;</span>
+<span id="cb614-8"><a href="repetitive-jobs.html#cb614-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb614-9"><a href="repetitive-jobs.html#cb614-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb614-10"><a href="repetitive-jobs.html#cb614-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># downstream processing df</span></span>
+<span id="cb614-11"><a href="repetitive-jobs.html#cb614-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="vectorization" class="section level2" number="12.3">
 <h2><span class="header-section-number">12.3</span> Vectorization</h2>
@@ -439,20 +441,20 @@ Set defaults if not specified by user.</p>
 <li>most functions in R perform vectorization intrinsically, such as colSums(), rowMeans(), and even basic arithmetic operations (e.g +, -, *)</li>
 </ul>
 <p>e.g. Power of vectorization: Add 2 to all values</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb610-1"><a href="repetitive-jobs.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a numeric vector called values</span></span>
-<span id="cb610-2"><a href="repetitive-jobs.html#cb610-2" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">10</span>)</span>
-<span id="cb610-3"><a href="repetitive-jobs.html#cb610-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb610-4"><a href="repetitive-jobs.html#cb610-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In many programming languages you may have to run a loop to do this</span></span>
-<span id="cb610-5"><a href="repetitive-jobs.html#cb610-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(value <span class="cf">in</span> values){</span>
-<span id="cb610-6"><a href="repetitive-jobs.html#cb610-6" aria-hidden="true" tabindex="-1"></a>  new_value <span class="ot">&lt;-</span> value <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb610-7"><a href="repetitive-jobs.html#cb610-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(new_value)</span>
-<span id="cb610-8"><a href="repetitive-jobs.html#cb610-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb615-1"><a href="repetitive-jobs.html#cb615-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a numeric vector called values</span></span>
+<span id="cb615-2"><a href="repetitive-jobs.html#cb615-2" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">10</span>)</span>
+<span id="cb615-3"><a href="repetitive-jobs.html#cb615-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb615-4"><a href="repetitive-jobs.html#cb615-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In many programming languages you may have to run a loop to do this</span></span>
+<span id="cb615-5"><a href="repetitive-jobs.html#cb615-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(value <span class="cf">in</span> values){</span>
+<span id="cb615-6"><a href="repetitive-jobs.html#cb615-6" aria-hidden="true" tabindex="-1"></a>  new_value <span class="ot">&lt;-</span> value <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb615-7"><a href="repetitive-jobs.html#cb615-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(new_value)</span>
+<span id="cb615-8"><a href="repetitive-jobs.html#cb615-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 5
 ## [1] 7
 ## [1] 8
 ## [1] 12</code></pre>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb612-1"><a href="repetitive-jobs.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="co"># But R lets you add 2 to all values at once - this is called vectorization</span></span>
-<span id="cb612-2"><a href="repetitive-jobs.html#cb612-2" aria-hidden="true" tabindex="-1"></a>values <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="repetitive-jobs.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="co"># But R lets you add 2 to all values at once - this is called vectorization</span></span>
+<span id="cb617-2"><a href="repetitive-jobs.html#cb617-2" aria-hidden="true" tabindex="-1"></a>values <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1]  5  7  8 12</code></pre>
 </div>
 <div id="intro-to-apply" class="section level2" number="12.4">
@@ -472,8 +474,8 @@ Set defaults if not specified by user.</p>
 <li>returns a list</li>
 <li>note: use unlist() to convert the resulting list to vector</li>
 </ul>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb614-1"><a href="repetitive-jobs.html#cb614-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. print vector elements</span></span>
-<span id="cb614-2"><a href="repetitive-jobs.html#cb614-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(sentence1, <span class="at">FUN =</span> print)</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="repetitive-jobs.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. print vector elements</span></span>
+<span id="cb619-2"><a href="repetitive-jobs.html#cb619-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(sentence1, <span class="at">FUN =</span> print)</span></code></pre></div>
 <pre><code>## [1] &quot;Try&quot;
 ## [1] &quot;printing&quot;
 ## [1] &quot;this&quot;</code></pre>
@@ -485,10 +487,10 @@ Set defaults if not specified by user.</p>
 ## 
 ## [[3]]
 ## [1] &quot;this&quot;</code></pre>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb617-1"><a href="repetitive-jobs.html#cb617-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. add 2 to each element by making your own function</span></span>
-<span id="cb617-2"><a href="repetitive-jobs.html#cb617-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(values, <span class="at">FUN =</span> <span class="cf">function</span>(value){</span>
-<span id="cb617-3"><a href="repetitive-jobs.html#cb617-3" aria-hidden="true" tabindex="-1"></a>  value <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb617-4"><a href="repetitive-jobs.html#cb617-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb622-1"><a href="repetitive-jobs.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. add 2 to each element by making your own function</span></span>
+<span id="cb622-2"><a href="repetitive-jobs.html#cb622-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(values, <span class="at">FUN =</span> <span class="cf">function</span>(value){</span>
+<span id="cb622-3"><a href="repetitive-jobs.html#cb622-3" aria-hidden="true" tabindex="-1"></a>  value <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb622-4"><a href="repetitive-jobs.html#cb622-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 5
 ## 
@@ -507,21 +509,21 @@ Set defaults if not specified by user.</p>
 <li>apply a function to 2D data - matrix or data frame</li>
 <li>specify if function should be apply on rows or columns (using MARGIN argument: 1 = row, 2 = column)</li>
 </ul>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb619-1"><a href="repetitive-jobs.html#cb619-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read input table</span></span>
-<span id="cb619-2"><a href="repetitive-jobs.html#cb619-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="at">file =</span> <span class="st">&quot;07-Casey-mamm-mouse-proteome-sample.txt&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
-<span id="cb619-3"><a href="repetitive-jobs.html#cb619-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb619-4"><a href="repetitive-jobs.html#cb619-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get standard deviation of columns</span></span>
-<span id="cb619-5"><a href="repetitive-jobs.html#cb619-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> sd)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="repetitive-jobs.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read input table</span></span>
+<span id="cb624-2"><a href="repetitive-jobs.html#cb624-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="at">file =</span> <span class="st">&quot;07-Casey-mamm-mouse-proteome-sample.txt&quot;</span>, <span class="at">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb624-3"><a href="repetitive-jobs.html#cb624-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb624-4"><a href="repetitive-jobs.html#cb624-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get standard deviation of columns</span></span>
+<span id="cb624-5"><a href="repetitive-jobs.html#cb624-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(df, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> sd)</span></code></pre></div>
 <pre><code>##     BC_E_1     BC_E_2    BC_EP_1    BC_EP_2     LP_E_1     LP_E_2    LP_EP_1 
 ##  216497329  250258435  175483149  189537235  359922127  271978322  212250113 
 ##    LP_EP_2     LM_E_1     LM_E_2    LM_EP_1    LM_EP_2 
 ##  238676624 1550773037 1494197893  687720907  625922913</code></pre>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb621-1"><a href="repetitive-jobs.html#cb621-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform data to z-scores (which account for sd of each row)</span></span>
-<span id="cb621-2"><a href="repetitive-jobs.html#cb621-2" aria-hidden="true" tabindex="-1"></a>z_scores <span class="ot">&lt;-</span> <span class="fu">apply</span>(df, <span class="at">MARGIN =</span> <span class="dv">1</span>, <span class="at">FUN =</span> <span class="cf">function</span>(x){ <span class="co"># in this function, x is a numeric vector of each row</span></span>
-<span id="cb621-3"><a href="repetitive-jobs.html#cb621-3" aria-hidden="true" tabindex="-1"></a>  (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x)</span>
-<span id="cb621-4"><a href="repetitive-jobs.html#cb621-4" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb621-5"><a href="repetitive-jobs.html#cb621-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at first 6 rows and 6 columns</span></span>
-<span id="cb621-6"><a href="repetitive-jobs.html#cb621-6" aria-hidden="true" tabindex="-1"></a>z_scores[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="repetitive-jobs.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transform data to z-scores (which account for sd of each row)</span></span>
+<span id="cb626-2"><a href="repetitive-jobs.html#cb626-2" aria-hidden="true" tabindex="-1"></a>z_scores <span class="ot">&lt;-</span> <span class="fu">apply</span>(df, <span class="at">MARGIN =</span> <span class="dv">1</span>, <span class="at">FUN =</span> <span class="cf">function</span>(x){ <span class="co"># in this function, x is a numeric vector of each row</span></span>
+<span id="cb626-3"><a href="repetitive-jobs.html#cb626-3" aria-hidden="true" tabindex="-1"></a>  (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x)</span>
+<span id="cb626-4"><a href="repetitive-jobs.html#cb626-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb626-5"><a href="repetitive-jobs.html#cb626-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at first 6 rows and 6 columns</span></span>
+<span id="cb626-6"><a href="repetitive-jobs.html#cb626-6" aria-hidden="true" tabindex="-1"></a>z_scores[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]</span></code></pre></div>
 <pre><code>##              Abcb10      Abcg2       Abhd4      Abhd5       Acox1        Ada
 ## BC_E_1  -0.88084429 -0.8165888  0.02080524 -0.6218765  0.34686146 -0.8860501
 ## BC_E_2  -0.88084429 -0.8165888  0.05777697 -0.6218765  0.50786325 -0.9420582
@@ -529,8 +531,8 @@ Set defaults if not specified by user.</p>
 ## BC_EP_2 -0.88084429 -0.6085926  1.26884306 -0.6218765 -0.05682232 -0.9485052
 ## LP_E_1  -0.05139152  1.7598003 -1.06841075 -0.5106032 -0.59603606 -0.3825228
 ## LP_E_2  -0.34103905  0.7103968 -1.06841075 -0.2380836 -0.13543827  0.1221950</code></pre>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb623-1"><a href="repetitive-jobs.html#cb623-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note apply() has transposed our original matrix; re-transpose using t()</span></span>
-<span id="cb623-2"><a href="repetitive-jobs.html#cb623-2" aria-hidden="true" tabindex="-1"></a>z_scores <span class="ot">&lt;-</span> <span class="fu">t</span>(z_scores)</span></code></pre></div>
+<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="repetitive-jobs.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note apply() has transposed our original matrix; re-transpose using t()</span></span>
+<span id="cb628-2"><a href="repetitive-jobs.html#cb628-2" aria-hidden="true" tabindex="-1"></a>z_scores <span class="ot">&lt;-</span> <span class="fu">t</span>(z_scores)</span></code></pre></div>
 </div>
 <div id="practice-7" class="section level2" number="12.5">
 <h2><span class="header-section-number">12.5</span> Practice</h2>
@@ -544,33 +546,33 @@ d) In a loop,
 e) Use the lapply() function to apply your function to each element.
 f) Pass your vector into your function. What’s the result? This is called vectorization.</p>
 <p>Solution</p>
-<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb624-1"><a href="repetitive-jobs.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) make a function</span></span>
-<span id="cb624-2"><a href="repetitive-jobs.html#cb624-2" aria-hidden="true" tabindex="-1"></a>cm_to_in <span class="ot">&lt;-</span> <span class="cf">function</span>(value){</span>
-<span id="cb624-3"><a href="repetitive-jobs.html#cb624-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Divide value by 2.54</span></span>
-<span id="cb624-4"><a href="repetitive-jobs.html#cb624-4" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> value<span class="sc">/</span><span class="fl">2.54</span></span>
-<span id="cb624-5"><a href="repetitive-jobs.html#cb624-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Round to 2 digits</span></span>
-<span id="cb624-6"><a href="repetitive-jobs.html#cb624-6" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">round</span>(result, <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb624-7"><a href="repetitive-jobs.html#cb624-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb624-8"><a href="repetitive-jobs.html#cb624-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb624-9"><a href="repetitive-jobs.html#cb624-9" aria-hidden="true" tabindex="-1"></a><span class="co"># b) pass in single numeric value to function</span></span>
-<span id="cb624-10"><a href="repetitive-jobs.html#cb624-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cm_to_in</span>(<span class="dv">45</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="repetitive-jobs.html#cb629-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) make a function</span></span>
+<span id="cb629-2"><a href="repetitive-jobs.html#cb629-2" aria-hidden="true" tabindex="-1"></a>cm_to_in <span class="ot">&lt;-</span> <span class="cf">function</span>(value){</span>
+<span id="cb629-3"><a href="repetitive-jobs.html#cb629-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Divide value by 2.54</span></span>
+<span id="cb629-4"><a href="repetitive-jobs.html#cb629-4" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> value<span class="sc">/</span><span class="fl">2.54</span></span>
+<span id="cb629-5"><a href="repetitive-jobs.html#cb629-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Round to 2 digits</span></span>
+<span id="cb629-6"><a href="repetitive-jobs.html#cb629-6" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">round</span>(result, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb629-7"><a href="repetitive-jobs.html#cb629-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb629-8"><a href="repetitive-jobs.html#cb629-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb629-9"><a href="repetitive-jobs.html#cb629-9" aria-hidden="true" tabindex="-1"></a><span class="co"># b) pass in single numeric value to function</span></span>
+<span id="cb629-10"><a href="repetitive-jobs.html#cb629-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cm_to_in</span>(<span class="dv">45</span>)</span></code></pre></div>
 <pre><code>## [1] 17.72</code></pre>
-<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb626-1"><a href="repetitive-jobs.html#cb626-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) make a numeric vector</span></span>
-<span id="cb626-2"><a href="repetitive-jobs.html#cb626-2" aria-hidden="true" tabindex="-1"></a>cm_measurements <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>,<span class="dv">63</span>,<span class="dv">53</span>,<span class="dv">67</span>,<span class="dv">32</span>)</span>
-<span id="cb626-3"><a href="repetitive-jobs.html#cb626-3" aria-hidden="true" tabindex="-1"></a><span class="co"># d)  make for loop</span></span>
-<span id="cb626-4"><a href="repetitive-jobs.html#cb626-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(in_cm <span class="cf">in</span> cm_measurements){</span>
-<span id="cb626-5"><a href="repetitive-jobs.html#cb626-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save output of function to variable</span></span>
-<span id="cb626-6"><a href="repetitive-jobs.html#cb626-6" aria-hidden="true" tabindex="-1"></a>  in_inches <span class="ot">&lt;-</span> <span class="fu">cm_to_in</span>(in_cm)</span>
-<span id="cb626-7"><a href="repetitive-jobs.html#cb626-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print</span></span>
-<span id="cb626-8"><a href="repetitive-jobs.html#cb626-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(in_inches)</span>
-<span id="cb626-9"><a href="repetitive-jobs.html#cb626-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="repetitive-jobs.html#cb631-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) make a numeric vector</span></span>
+<span id="cb631-2"><a href="repetitive-jobs.html#cb631-2" aria-hidden="true" tabindex="-1"></a>cm_measurements <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">35</span>,<span class="dv">63</span>,<span class="dv">53</span>,<span class="dv">67</span>,<span class="dv">32</span>)</span>
+<span id="cb631-3"><a href="repetitive-jobs.html#cb631-3" aria-hidden="true" tabindex="-1"></a><span class="co"># d)  make for loop</span></span>
+<span id="cb631-4"><a href="repetitive-jobs.html#cb631-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(in_cm <span class="cf">in</span> cm_measurements){</span>
+<span id="cb631-5"><a href="repetitive-jobs.html#cb631-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save output of function to variable</span></span>
+<span id="cb631-6"><a href="repetitive-jobs.html#cb631-6" aria-hidden="true" tabindex="-1"></a>  in_inches <span class="ot">&lt;-</span> <span class="fu">cm_to_in</span>(in_cm)</span>
+<span id="cb631-7"><a href="repetitive-jobs.html#cb631-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Print</span></span>
+<span id="cb631-8"><a href="repetitive-jobs.html#cb631-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(in_inches)</span>
+<span id="cb631-9"><a href="repetitive-jobs.html#cb631-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 13.78
 ## [1] 24.8
 ## [1] 20.87
 ## [1] 26.38
 ## [1] 12.6</code></pre>
-<div class="sourceCode" id="cb628"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb628-1"><a href="repetitive-jobs.html#cb628-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e) use lapply() on vector</span></span>
-<span id="cb628-2"><a href="repetitive-jobs.html#cb628-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(cm_measurements, <span class="at">FUN =</span> cm_to_in)</span></code></pre></div>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="repetitive-jobs.html#cb633-1" aria-hidden="true" tabindex="-1"></a><span class="co"># e) use lapply() on vector</span></span>
+<span id="cb633-2"><a href="repetitive-jobs.html#cb633-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(cm_measurements, <span class="at">FUN =</span> cm_to_in)</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 13.78
 ## 
@@ -585,8 +587,8 @@ f) Pass your vector into your function. What’s the result? This is called vect
 ## 
 ## [[5]]
 ## [1] 12.6</code></pre>
-<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb630-1"><a href="repetitive-jobs.html#cb630-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f) pass in whole vector to function</span></span>
-<span id="cb630-2"><a href="repetitive-jobs.html#cb630-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cm_to_in</span>(cm_measurements)</span></code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="repetitive-jobs.html#cb635-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f) pass in whole vector to function</span></span>
+<span id="cb635-2"><a href="repetitive-jobs.html#cb635-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cm_to_in</span>(cm_measurements)</span></code></pre></div>
 <pre><code>## [1] 13.78 24.80 20.87 26.38 12.60</code></pre>
 
 </div>
