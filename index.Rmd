@@ -1,11 +1,11 @@
 ---
 title: "Learn R"
-author: "Kazeera Aliar"
-date: "last revised: May 4, 2022"
+author: "By KazeeRa AliaR"
+date: "last revised: May 6, 2022"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-github-repo: kazeera/r-seesions
+github-repo: "kazeera/learn-r"
 cover-image: "cover.png"
 description: "Complete R tutorials for beginners!"
 ---
@@ -13,9 +13,13 @@ description: "Complete R tutorials for beginners!"
 # Introduction
 This book is a resource for R programming for beginners. Each chapter is a tutorial. I highly recommend cementing your knowledge in programming basics and data types (chapters 3 and 4) as a foundation for any type of downstream analysis in R.
 
+
+
+Test out this app made using R. Move the slider!
+
 ```{r, echo=FALSE}
 knitr::include_app("https://kazeera.shinyapps.io/learn-r-shiny/",
-  height = "400px")
+  height = "470px")
 
 ```
 
@@ -42,7 +46,7 @@ Here are some benefits of R programming for both beginners and experts.
 
 R has a comprehensive development environment, which will help you perform statistical computing as well as software development.
 
-1. Delve into **statistical computing and analysis**
+1. Delve into **statistical computing and analysis**.
 2. Analyze **large data sets** for data science via parallel/distributed computing.
 3. Great for **data cleansing and wrangling**.
 4. Produce **powerful graphics**, that is, high quality visualizations, even interactive graphs!

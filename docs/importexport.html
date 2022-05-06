@@ -13,7 +13,7 @@
   
   <meta property="og:image" content="/cover.png" />
   <meta property="og:description" content="Complete R tutorials for beginners!" />
-  <meta name="github-repo" content="kazeera/r-seesions" />
+  <meta name="github-repo" content="kazeera/learn-r" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="5 Import/Export | Learn R" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Complete R tutorials for beginners!" />
   <meta name="twitter:image" content="/cover.png" />
 
-<meta name="author" content="Kazeera Aliar" />
+<meta name="author" content="By KazeeRa AliaR" />
 
 
 
@@ -331,19 +331,18 @@ Row and column names<br />
 - header = logical for column names<br />
 - row.names = vector of row names or number/name of column which contains the row names</p>
 <div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="importexport.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Data folder</span></span>
-<span id="cb251-2"><a href="importexport.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;Data&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning in dir.create(&quot;Data&quot;): &#39;Data&#39; already exists</code></pre>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="importexport.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to txt file: tab separated values</span></span>
-<span id="cb253-2"><a href="importexport.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sep = &quot;\t&quot;</span></span>
-<span id="cb253-3"><a href="importexport.html#cb253-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(DNase, <span class="at">file =</span> <span class="st">&quot;Data/DNase.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>) <span class="co">#&quot;\t&quot; means &quot;tab&quot;</span></span>
-<span id="cb253-4"><a href="importexport.html#cb253-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb253-5"><a href="importexport.html#cb253-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to csv files:</span></span>
-<span id="cb253-6"><a href="importexport.html#cb253-6" aria-hidden="true" tabindex="-1"></a><span class="co"># decimal point = &quot;.&quot; and value separators = comma (&quot;,&quot;)</span></span>
-<span id="cb253-7"><a href="importexport.html#cb253-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(DNase, <span class="at">file =</span> <span class="st">&quot;Data/DNase.csv&quot;</span>)</span>
-<span id="cb253-8"><a href="importexport.html#cb253-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb253-9"><a href="importexport.html#cb253-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to csv files:</span></span>
-<span id="cb253-10"><a href="importexport.html#cb253-10" aria-hidden="true" tabindex="-1"></a><span class="co"># decimal point = comma (&quot;,&quot;) and value separators = semicolon (&quot;;&quot;)</span></span>
-<span id="cb253-11"><a href="importexport.html#cb253-11" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv2(DNase, file = &quot;DNase.csv&quot;)</span></span></code></pre></div>
+<span id="cb251-2"><a href="importexport.html#cb251-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;Data&quot;</span>)</span>
+<span id="cb251-3"><a href="importexport.html#cb251-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to txt file: tab separated values</span></span>
+<span id="cb251-4"><a href="importexport.html#cb251-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sep = &quot;\t&quot;</span></span>
+<span id="cb251-5"><a href="importexport.html#cb251-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(DNase, <span class="at">file =</span> <span class="st">&quot;Data/DNase.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>) <span class="co">#&quot;\t&quot; means &quot;tab&quot;</span></span>
+<span id="cb251-6"><a href="importexport.html#cb251-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb251-7"><a href="importexport.html#cb251-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to csv files:</span></span>
+<span id="cb251-8"><a href="importexport.html#cb251-8" aria-hidden="true" tabindex="-1"></a><span class="co"># decimal point = &quot;.&quot; and value separators = comma (&quot;,&quot;)</span></span>
+<span id="cb251-9"><a href="importexport.html#cb251-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(DNase, <span class="at">file =</span> <span class="st">&quot;Data/DNase.csv&quot;</span>)</span>
+<span id="cb251-10"><a href="importexport.html#cb251-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb251-11"><a href="importexport.html#cb251-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to csv files:</span></span>
+<span id="cb251-12"><a href="importexport.html#cb251-12" aria-hidden="true" tabindex="-1"></a><span class="co"># decimal point = comma (&quot;,&quot;) and value separators = semicolon (&quot;;&quot;)</span></span>
+<span id="cb251-13"><a href="importexport.html#cb251-13" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv2(DNase, file = &quot;DNase.csv&quot;)</span></span></code></pre></div>
 </div>
 <div id="import-tables" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Import Tables</h2>
@@ -359,30 +358,30 @@ Row and column names<br />
 <ul>
 <li>file = absolute/local file paths with name of file, file.choose() to choose interactively, internet address e.g. “<a href="http://www.sthda.com/upload/boxplot_format.txt" class="uri">http://www.sthda.com/upload/boxplot_format.txt</a>”</li>
 </ul>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="importexport.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read tabular data into R</span></span>
-<span id="cb254-2"><a href="importexport.html#cb254-2" aria-hidden="true" tabindex="-1"></a><span class="co"># file.choose() allows you to interactively pick a data file</span></span>
-<span id="cb254-3"><a href="importexport.html#cb254-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df &lt;- read.table(file.choose(), header = FALSE, sep = &quot;\t&quot;, dec = &quot;.&quot;)</span></span>
-<span id="cb254-4"><a href="importexport.html#cb254-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read &quot;comma separated value&quot; files (&quot;.csv&quot;)</span></span>
-<span id="cb254-5"><a href="importexport.html#cb254-5" aria-hidden="true" tabindex="-1"></a>filename <span class="ot">&lt;-</span> <span class="st">&quot;Data/DNase.csv&quot;</span></span>
-<span id="cb254-6"><a href="importexport.html#cb254-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(filename, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb254-7"><a href="importexport.html#cb254-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Read TAB delimited files</span></span>
-<span id="cb254-8"><a href="importexport.html#cb254-8" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="at">file =</span> <span class="st">&quot;Data/DNase.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>)</span>
-<span id="cb254-9"><a href="importexport.html#cb254-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Note to save into an object, we must assign to variable!</span></span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="importexport.html#cb252-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read tabular data into R</span></span>
+<span id="cb252-2"><a href="importexport.html#cb252-2" aria-hidden="true" tabindex="-1"></a><span class="co"># file.choose() allows you to interactively pick a data file</span></span>
+<span id="cb252-3"><a href="importexport.html#cb252-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df &lt;- read.table(file.choose(), header = FALSE, sep = &quot;\t&quot;, dec = &quot;.&quot;)</span></span>
+<span id="cb252-4"><a href="importexport.html#cb252-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read &quot;comma separated value&quot; files (&quot;.csv&quot;)</span></span>
+<span id="cb252-5"><a href="importexport.html#cb252-5" aria-hidden="true" tabindex="-1"></a>filename <span class="ot">&lt;-</span> <span class="st">&quot;Data/DNase.csv&quot;</span></span>
+<span id="cb252-6"><a href="importexport.html#cb252-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(filename, <span class="at">header =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb252-7"><a href="importexport.html#cb252-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Read TAB delimited files</span></span>
+<span id="cb252-8"><a href="importexport.html#cb252-8" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read.delim</span>(<span class="at">file =</span> <span class="st">&quot;Data/DNase.txt&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>, <span class="at">dec =</span> <span class="st">&quot;.&quot;</span>)</span>
+<span id="cb252-9"><a href="importexport.html#cb252-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Note to save into an object, we must assign to variable!</span></span></code></pre></div>
 <p><strong>Working with Excel files</strong>
 * <em>openxlsx</em> package<br />
 * <em>readxl</em> package</p>
 <p>Note: install libraries/packages in R using install.packages(“package_name”). Load intro environment before using with library(package_name)</p>
 <p>Writing Data From R to Excel Files (xls|xlsx)</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="importexport.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # install.packages(&quot;openxlsx&quot;)</span></span>
-<span id="cb255-2"><a href="importexport.html#cb255-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb255-3"><a href="importexport.html#cb255-3" aria-hidden="true" tabindex="-1"></a><span class="co"># library(&quot;openxlsx&quot;) # or require(&quot;openxlsx&quot;)</span></span>
-<span id="cb255-4"><a href="importexport.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # Write the first 10 rows in a new workbook</span></span>
-<span id="cb255-5"><a href="importexport.html#cb255-5" aria-hidden="true" tabindex="-1"></a><span class="co"># write.xlsx(DNase[1:10,], file = &quot;Data/DNase.xlsx&quot;, sheetName = &quot;DNase 1&quot;, append = FALSE)</span></span>
-<span id="cb255-6"><a href="importexport.html#cb255-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # Add a second data set in a new worksheet with first and third column</span></span>
-<span id="cb255-7"><a href="importexport.html#cb255-7" aria-hidden="true" tabindex="-1"></a><span class="co"># write.xlsx(DNase[,c(1,3)], file = &quot;Data/DNase.xlsx&quot;, sheetName = &quot;DNase 2&quot;, append = TRUE)</span></span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="importexport.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # install.packages(&quot;openxlsx&quot;)</span></span>
+<span id="cb253-2"><a href="importexport.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb253-3"><a href="importexport.html#cb253-3" aria-hidden="true" tabindex="-1"></a><span class="co"># library(&quot;openxlsx&quot;) # or require(&quot;openxlsx&quot;)</span></span>
+<span id="cb253-4"><a href="importexport.html#cb253-4" aria-hidden="true" tabindex="-1"></a><span class="co"># # Write the first 10 rows in a new workbook</span></span>
+<span id="cb253-5"><a href="importexport.html#cb253-5" aria-hidden="true" tabindex="-1"></a><span class="co"># write.xlsx(DNase[1:10,], file = &quot;Data/DNase.xlsx&quot;, sheetName = &quot;DNase 1&quot;, append = FALSE)</span></span>
+<span id="cb253-6"><a href="importexport.html#cb253-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # Add a second data set in a new worksheet with first and third column</span></span>
+<span id="cb253-7"><a href="importexport.html#cb253-7" aria-hidden="true" tabindex="-1"></a><span class="co"># write.xlsx(DNase[,c(1,3)], file = &quot;Data/DNase.xlsx&quot;, sheetName = &quot;DNase 2&quot;, append = TRUE)</span></span></code></pre></div>
 <p><strong>Reading data From Excel Files (xls|xlsx) into R</strong></p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="importexport.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Use openxlsx package</span></span>
-<span id="cb256-2"><a href="importexport.html#cb256-2" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data &lt;- read.xlsx(&quot;Data/DNase.xlsx&quot;, sheetIndex = 1) </span></span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="importexport.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Use openxlsx package</span></span>
+<span id="cb254-2"><a href="importexport.html#cb254-2" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data &lt;- read.xlsx(&quot;Data/DNase.xlsx&quot;, sheetIndex = 1) </span></span></code></pre></div>
 <p><strong>Using R data format: RDATA and RDS</strong></p>
 <ul>
 <li>Save/load variables, user-made functions and data
@@ -393,19 +392,19 @@ Saving objects</li>
 Loading objects</li>
 <li>readRDS(rds_file), load(RData_file)</li>
 </ul>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="importexport.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Save a single object to a file</span></span>
-<span id="cb257-2"><a href="importexport.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="co"># saveRDS(DNase, &quot;Data/DNase.rds&quot;)</span></span>
-<span id="cb257-3"><a href="importexport.html#cb257-3" aria-hidden="true" tabindex="-1"></a><span class="co"># # Restore it under a different name</span></span>
-<span id="cb257-4"><a href="importexport.html#cb257-4" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data &lt;- readRDS(&quot;Data/DNase.rds&quot;)</span></span>
-<span id="cb257-5"><a href="importexport.html#cb257-5" aria-hidden="true" tabindex="-1"></a><span class="co"># # Save multiple objects</span></span>
-<span id="cb257-6"><a href="importexport.html#cb257-6" aria-hidden="true" tabindex="-1"></a><span class="co"># save(DNase, my_data, file = &quot;Data/data.RData&quot;)</span></span>
-<span id="cb257-7"><a href="importexport.html#cb257-7" aria-hidden="true" tabindex="-1"></a><span class="co"># # To load the data again</span></span>
-<span id="cb257-8"><a href="importexport.html#cb257-8" aria-hidden="true" tabindex="-1"></a><span class="co"># load(&quot;Data/data.RData&quot;)</span></span>
-<span id="cb257-9"><a href="importexport.html#cb257-9" aria-hidden="true" tabindex="-1"></a><span class="co"># # Saving and restoring your entire workspace:</span></span>
-<span id="cb257-10"><a href="importexport.html#cb257-10" aria-hidden="true" tabindex="-1"></a><span class="co"># # Save your workspace</span></span>
-<span id="cb257-11"><a href="importexport.html#cb257-11" aria-hidden="true" tabindex="-1"></a><span class="co"># save.image(file = &quot;Data/my_work_space.RData&quot;)</span></span>
-<span id="cb257-12"><a href="importexport.html#cb257-12" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load the workspace again</span></span>
-<span id="cb257-13"><a href="importexport.html#cb257-13" aria-hidden="true" tabindex="-1"></a><span class="co"># load(&quot;Data/my_work_space.RData&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="importexport.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Save a single object to a file</span></span>
+<span id="cb255-2"><a href="importexport.html#cb255-2" aria-hidden="true" tabindex="-1"></a><span class="co"># saveRDS(DNase, &quot;Data/DNase.rds&quot;)</span></span>
+<span id="cb255-3"><a href="importexport.html#cb255-3" aria-hidden="true" tabindex="-1"></a><span class="co"># # Restore it under a different name</span></span>
+<span id="cb255-4"><a href="importexport.html#cb255-4" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data &lt;- readRDS(&quot;Data/DNase.rds&quot;)</span></span>
+<span id="cb255-5"><a href="importexport.html#cb255-5" aria-hidden="true" tabindex="-1"></a><span class="co"># # Save multiple objects</span></span>
+<span id="cb255-6"><a href="importexport.html#cb255-6" aria-hidden="true" tabindex="-1"></a><span class="co"># save(DNase, my_data, file = &quot;Data/data.RData&quot;)</span></span>
+<span id="cb255-7"><a href="importexport.html#cb255-7" aria-hidden="true" tabindex="-1"></a><span class="co"># # To load the data again</span></span>
+<span id="cb255-8"><a href="importexport.html#cb255-8" aria-hidden="true" tabindex="-1"></a><span class="co"># load(&quot;Data/data.RData&quot;)</span></span>
+<span id="cb255-9"><a href="importexport.html#cb255-9" aria-hidden="true" tabindex="-1"></a><span class="co"># # Saving and restoring your entire workspace:</span></span>
+<span id="cb255-10"><a href="importexport.html#cb255-10" aria-hidden="true" tabindex="-1"></a><span class="co"># # Save your workspace</span></span>
+<span id="cb255-11"><a href="importexport.html#cb255-11" aria-hidden="true" tabindex="-1"></a><span class="co"># save.image(file = &quot;Data/my_work_space.RData&quot;)</span></span>
+<span id="cb255-12"><a href="importexport.html#cb255-12" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load the workspace again</span></span>
+<span id="cb255-13"><a href="importexport.html#cb255-13" aria-hidden="true" tabindex="-1"></a><span class="co"># load(&quot;Data/my_work_space.RData&quot;)</span></span></code></pre></div>
 <p><strong>Consider using readr package</strong>
 * Reading lines from a file: read_lines()<br />
 * readr functions for writing data: write_tsv(), write_csv()<br />
@@ -441,33 +440,33 @@ Read more: <a href="https://www.statmethods.net/advgraphs/parameters.html" class
 <li><p>Combine plots using par()<br />
 Read more: <a href="https://www.statmethods.net/advgraphs/layout.html" class="uri">https://www.statmethods.net/advgraphs/layout.html</a></p></li>
 </ul>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="importexport.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can plot all pairs of variables in one graph</span></span>
-<span id="cb258-2"><a href="importexport.html#cb258-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DNase)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="importexport.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also specify vectors to plot</span></span>
-<span id="cb259-2"><a href="importexport.html#cb259-2" aria-hidden="true" tabindex="-1"></a>conc <span class="ot">&lt;-</span> DNase<span class="sc">$</span>conc; dens <span class="ot">&lt;-</span> DNase<span class="sc">$</span>density</span>
-<span id="cb259-3"><a href="importexport.html#cb259-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> conc, <span class="at">y =</span> dens, <span class="at">type =</span><span class="st">&quot;p&quot;</span>) </span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="importexport.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> conc, <span class="at">y =</span> dens, <span class="at">type =</span><span class="st">&quot;h&quot;</span>)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-37-3.png" width="672" /></p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="importexport.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> conc, <span class="at">y =</span> dens, <span class="at">type =</span><span class="st">&quot;s&quot;</span>)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-37-4.png" width="672" /></p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="importexport.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add title </span></span>
-<span id="cb262-2"><a href="importexport.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> conc, <span class="at">y =</span> dens, <span class="at">type =</span><span class="st">&quot;h&quot;</span>,</span>
-<span id="cb262-3"><a href="importexport.html#cb262-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="co"># colour of line</span></span>
-<span id="cb262-4"><a href="importexport.html#cb262-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">3</span>, <span class="co"># width of line</span></span>
-<span id="cb262-5"><a href="importexport.html#cb262-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Conc&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Density&quot;</span>, <span class="co"># x, y axis labels</span></span>
-<span id="cb262-6"><a href="importexport.html#cb262-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;ELISA Assay of DNase&quot;</span>) <span class="co"># title for plot</span></span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-37-5.png" width="672" /></p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="importexport.html#cb256-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can plot all pairs of variables in one graph</span></span>
+<span id="cb256-2"><a href="importexport.html#cb256-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DNase)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="importexport.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="co"># You can also specify vectors to plot</span></span>
+<span id="cb257-2"><a href="importexport.html#cb257-2" aria-hidden="true" tabindex="-1"></a>conc <span class="ot">&lt;-</span> DNase<span class="sc">$</span>conc; dens <span class="ot">&lt;-</span> DNase<span class="sc">$</span>density</span>
+<span id="cb257-3"><a href="importexport.html#cb257-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> conc, <span class="at">y =</span> dens, <span class="at">type =</span><span class="st">&quot;p&quot;</span>) </span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-37-2.png" width="672" /></p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="importexport.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> conc, <span class="at">y =</span> dens, <span class="at">type =</span><span class="st">&quot;h&quot;</span>)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-37-3.png" width="672" /></p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="importexport.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> conc, <span class="at">y =</span> dens, <span class="at">type =</span><span class="st">&quot;s&quot;</span>)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-37-4.png" width="672" /></p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="importexport.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add title </span></span>
+<span id="cb260-2"><a href="importexport.html#cb260-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> conc, <span class="at">y =</span> dens, <span class="at">type =</span><span class="st">&quot;h&quot;</span>,</span>
+<span id="cb260-3"><a href="importexport.html#cb260-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="co"># colour of line</span></span>
+<span id="cb260-4"><a href="importexport.html#cb260-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">3</span>, <span class="co"># width of line</span></span>
+<span id="cb260-5"><a href="importexport.html#cb260-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Conc&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Density&quot;</span>, <span class="co"># x, y axis labels</span></span>
+<span id="cb260-6"><a href="importexport.html#cb260-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;ELISA Assay of DNase&quot;</span>) <span class="co"># title for plot</span></span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-37-5.png" width="672" /></p>
 <p><strong>Tip: Open graphics windows before calling plot() to view larger plot/several graphs at once</strong></p>
 <p>Function - Platform
 In Windows, windows() or win.graph()
 In Unix, X11()
 In Mac, quartz() or x11()</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="importexport.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># windows()</span></span>
-<span id="cb263-2"><a href="importexport.html#cb263-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span>pi,pi, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
-<span id="cb263-3"><a href="importexport.html#cb263-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">sin</span>(x), <span class="at">main=</span><span class="st">&quot;The Sine Function&quot;</span>)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="importexport.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># windows()</span></span>
+<span id="cb261-2"><a href="importexport.html#cb261-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span>pi,pi, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb261-3"><a href="importexport.html#cb261-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="fu">sin</span>(x), <span class="at">main=</span><span class="st">&quot;The Sine Function&quot;</span>)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <p><strong>Plot line graph with regression </strong></p>
 <ul>
 <li><p>Linear regression: statistical analysis technique used to determine the extent to which there is a linear relationship between a dependent variable and one or more independent variables</p></li>
@@ -481,17 +480,17 @@ In Mac, quartz() or x11()</p>
 Recall: y = mx + b, where m is c</p></li>
 </ul>
 <p>Read more: <a href="https://www.r-bloggers.com/r-tutorial-series-simple-linear-regression/" class="uri">https://www.r-bloggers.com/r-tutorial-series-simple-linear-regression/</a></p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="importexport.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot </span></span>
-<span id="cb264-2"><a href="importexport.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DNase<span class="sc">$</span>conc, y <span class="ot">&lt;-</span> DNase<span class="sc">$</span>density, </span>
-<span id="cb264-3"><a href="importexport.html#cb264-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="co"># line graph</span></span>
-<span id="cb264-4"><a href="importexport.html#cb264-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="co"># colour of line</span></span>
-<span id="cb264-5"><a href="importexport.html#cb264-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">3</span>, <span class="co"># width of line</span></span>
-<span id="cb264-6"><a href="importexport.html#cb264-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Concentration&quot;</span>, <span class="co"># x axis label</span></span>
-<span id="cb264-7"><a href="importexport.html#cb264-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Density&quot;</span>, <span class="co"># y axis label</span></span>
-<span id="cb264-8"><a href="importexport.html#cb264-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;ELISA assay of DNase&quot;</span>) <span class="co"># title of plot</span></span>
-<span id="cb264-9"><a href="importexport.html#cb264-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a linear model with the density and concentration variables</span></span>
-<span id="cb264-10"><a href="importexport.html#cb264-10" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span> (density <span class="sc">~</span> conc, <span class="at">data =</span> DNase) </span>
-<span id="cb264-11"><a href="importexport.html#cb264-11" aria-hidden="true" tabindex="-1"></a>fit</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="importexport.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot </span></span>
+<span id="cb262-2"><a href="importexport.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(DNase<span class="sc">$</span>conc, y <span class="ot">&lt;-</span> DNase<span class="sc">$</span>density, </span>
+<span id="cb262-3"><a href="importexport.html#cb262-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="co"># line graph</span></span>
+<span id="cb262-4"><a href="importexport.html#cb262-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="co"># colour of line</span></span>
+<span id="cb262-5"><a href="importexport.html#cb262-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">lwd =</span> <span class="dv">3</span>, <span class="co"># width of line</span></span>
+<span id="cb262-6"><a href="importexport.html#cb262-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Concentration&quot;</span>, <span class="co"># x axis label</span></span>
+<span id="cb262-7"><a href="importexport.html#cb262-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Density&quot;</span>, <span class="co"># y axis label</span></span>
+<span id="cb262-8"><a href="importexport.html#cb262-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;ELISA assay of DNase&quot;</span>) <span class="co"># title of plot</span></span>
+<span id="cb262-9"><a href="importexport.html#cb262-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a linear model with the density and concentration variables</span></span>
+<span id="cb262-10"><a href="importexport.html#cb262-10" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span> (density <span class="sc">~</span> conc, <span class="at">data =</span> DNase) </span>
+<span id="cb262-11"><a href="importexport.html#cb262-11" aria-hidden="true" tabindex="-1"></a>fit</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = density ~ conc, data = DNase)
@@ -499,8 +498,8 @@ Recall: y = mx + b, where m is c</p></li>
 ## Coefficients:
 ## (Intercept)         conc  
 ##      0.2949       0.1366</code></pre>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="importexport.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get statistics</span></span>
-<span id="cb266-2"><a href="importexport.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="importexport.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get statistics</span></span>
+<span id="cb264-2"><a href="importexport.html#cb264-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = density ~ conc, data = DNase)
@@ -519,19 +518,19 @@ Recall: y = mx + b, where m is c</p></li>
 ## Residual standard error: 0.2181 on 174 degrees of freedom
 ## Multiple R-squared:  0.8667, Adjusted R-squared:  0.8659 
 ## F-statistic:  1131 on 1 and 174 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="importexport.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a line to the plot (new layer)</span></span>
-<span id="cb268-2"><a href="importexport.html#cb268-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(fit)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="importexport.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text to the plot (new layer)</span></span>
-<span id="cb269-2"><a href="importexport.html#cb269-2" aria-hidden="true" tabindex="-1"></a><span class="co"># text()</span></span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="importexport.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a line to the plot (new layer)</span></span>
+<span id="cb266-2"><a href="importexport.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(fit)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-39-1.png" width="672" /></p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="importexport.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text to the plot (new layer)</span></span>
+<span id="cb267-2"><a href="importexport.html#cb267-2" aria-hidden="true" tabindex="-1"></a><span class="co"># text()</span></span></code></pre></div>
 <p><strong>Make a basic histogram of a numeric vector using hist()</strong></p>
 <ul>
 <li>ref: <a href="https://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html" class="uri">https://rstudio-pubs-static.s3.amazonaws.com/7953_4e3efd5b9415444ca065b1167862c349.html</a><br />
 </li>
 <li>Histograms: show frequencies for ranges of values</li>
 </ul>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="importexport.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DNase<span class="sc">$</span>density)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="importexport.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(DNase<span class="sc">$</span>density)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 <p><strong>Saving to File</strong></p>
 <p>1 - Plot by exporting using “Export” in plot panel (bottom-right pane) or in window menu
 2 - Plot by opening a file connection
@@ -543,18 +542,18 @@ postscript(rplot.ps): postscript file
 bmp(rplot.bmp): bmp file
 win.metafile(rplot.wmf): windows metafile
 Note: Use “dev.off()” to close the connection after plotting</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="importexport.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 2 vectors with 10 elements/values</span></span>
-<span id="cb271-2"><a href="importexport.html#cb271-2" aria-hidden="true" tabindex="-1"></a>TEN_Random <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
-<span id="cb271-3"><a href="importexport.html#cb271-3" aria-hidden="true" tabindex="-1"></a>TEN_sequence <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">30</span>, <span class="at">length.out =</span> <span class="dv">10</span>)</span>
-<span id="cb271-4"><a href="importexport.html#cb271-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the second value missing in y </span></span>
-<span id="cb271-5"><a href="importexport.html#cb271-5" aria-hidden="true" tabindex="-1"></a>TEN_sequence[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb271-6"><a href="importexport.html#cb271-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a &quot;Plots&quot; directory in your current working directory</span></span>
-<span id="cb271-7"><a href="importexport.html#cb271-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;Plots&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="importexport.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 2 vectors with 10 elements/values</span></span>
+<span id="cb269-2"><a href="importexport.html#cb269-2" aria-hidden="true" tabindex="-1"></a>TEN_Random <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>, <span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb269-3"><a href="importexport.html#cb269-3" aria-hidden="true" tabindex="-1"></a>TEN_sequence <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">30</span>, <span class="at">length.out =</span> <span class="dv">10</span>)</span>
+<span id="cb269-4"><a href="importexport.html#cb269-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the second value missing in y </span></span>
+<span id="cb269-5"><a href="importexport.html#cb269-5" aria-hidden="true" tabindex="-1"></a>TEN_sequence[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb269-6"><a href="importexport.html#cb269-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a &quot;Plots&quot; directory in your current working directory</span></span>
+<span id="cb269-7"><a href="importexport.html#cb269-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;Plots&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in dir.create(&quot;Plots&quot;): &#39;Plots&#39; already exists</code></pre>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="importexport.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to png file</span></span>
-<span id="cb273-2"><a href="importexport.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;Plots/plot.png&quot;</span>) <span class="co"># open &quot;device&quot; connection</span></span>
-<span id="cb273-3"><a href="importexport.html#cb273-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> TEN_sequence, <span class="at">y =</span> TEN_Random, <span class="at">xlab =</span> <span class="st">&quot;Index&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Random values&quot;</span>) <span class="co"># plot</span></span>
-<span id="cb273-4"><a href="importexport.html#cb273-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co">#close connection</span></span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="importexport.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save to png file</span></span>
+<span id="cb271-2"><a href="importexport.html#cb271-2" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="st">&quot;Plots/plot.png&quot;</span>) <span class="co"># open &quot;device&quot; connection</span></span>
+<span id="cb271-3"><a href="importexport.html#cb271-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> TEN_sequence, <span class="at">y =</span> TEN_Random, <span class="at">xlab =</span> <span class="st">&quot;Index&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Random values&quot;</span>) <span class="co"># plot</span></span>
+<span id="cb271-4"><a href="importexport.html#cb271-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>() <span class="co">#close connection</span></span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
 <p><strong>Create an editable graph from R using ReporteRs package</strong></p>
@@ -576,9 +575,9 @@ g) print the variables from f) in a statement "The mean and standard deviation o
 h) Plot a scatter plot, where x = height and y = weight. Relabel x and y axes to “Height (in)” and “Weight (lbs)” respectively.<br />
 i) Save f) to a jpeg file.</p>
 <p>Solution</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="importexport.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;women&quot;</span>)</span>
-<span id="cb275-2"><a href="importexport.html#cb275-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a) Print using head()</span></span>
-<span id="cb275-3"><a href="importexport.html#cb275-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(women, <span class="at">n =</span> <span class="dv">15</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="importexport.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;women&quot;</span>)</span>
+<span id="cb273-2"><a href="importexport.html#cb273-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a) Print using head()</span></span>
+<span id="cb273-3"><a href="importexport.html#cb273-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(women, <span class="at">n =</span> <span class="dv">15</span>)</span></code></pre></div>
 <pre><code>##    height weight
 ## 1      58    115
 ## 2      59    117
@@ -595,31 +594,30 @@ i) Save f) to a jpeg file.</p>
 ## 13     70    154
 ## 14     71    159
 ## 15     72    164</code></pre>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="importexport.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="co"># b) Create a folder using dir.create()</span></span>
-<span id="cb277-2"><a href="importexport.html#cb277-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;Data Sets&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning in dir.create(&quot;Data Sets&quot;): &#39;Data Sets&#39; already exists</code></pre>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="importexport.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Write to csv using write.csv()</span></span>
-<span id="cb279-2"><a href="importexport.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> women, <span class="at">file =</span> <span class="st">&quot;Data sets/women.csv&quot;</span>, <span class="at">row.names =</span> F)</span>
-<span id="cb279-3"><a href="importexport.html#cb279-3" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Read using read.csv()</span></span>
-<span id="cb279-4"><a href="importexport.html#cb279-4" aria-hidden="true" tabindex="-1"></a>women.df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;Data sets/women.csv&quot;</span>)</span>
-<span id="cb279-5"><a href="importexport.html#cb279-5" aria-hidden="true" tabindex="-1"></a><span class="co"># e) Plot histogram using hist()</span></span>
-<span id="cb279-6"><a href="importexport.html#cb279-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(women.df<span class="sc">$</span>height)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="importexport.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f) Find mean using mean() and standard deviation using sd()</span></span>
-<span id="cb280-2"><a href="importexport.html#cb280-2" aria-hidden="true" tabindex="-1"></a>mean.hts <span class="ot">&lt;-</span> <span class="fu">mean</span>(women.df<span class="sc">$</span>height)</span>
-<span id="cb280-3"><a href="importexport.html#cb280-3" aria-hidden="true" tabindex="-1"></a>sd.hts <span class="ot">&lt;-</span> <span class="fu">sd</span>(women.df<span class="sc">$</span>weight)</span>
-<span id="cb280-4"><a href="importexport.html#cb280-4" aria-hidden="true" tabindex="-1"></a><span class="co"># g) Print</span></span>
-<span id="cb280-5"><a href="importexport.html#cb280-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;The mean and standard deviation of the heights is %s and %s&quot;</span>, mean.hts, sd.hts)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="importexport.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="co"># b) Create a folder using dir.create()</span></span>
+<span id="cb275-2"><a href="importexport.html#cb275-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">&quot;Data Sets&quot;</span>)</span>
+<span id="cb275-3"><a href="importexport.html#cb275-3" aria-hidden="true" tabindex="-1"></a><span class="co"># c) Write to csv using write.csv()</span></span>
+<span id="cb275-4"><a href="importexport.html#cb275-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x =</span> women, <span class="at">file =</span> <span class="st">&quot;Data sets/women.csv&quot;</span>, <span class="at">row.names =</span> F)</span>
+<span id="cb275-5"><a href="importexport.html#cb275-5" aria-hidden="true" tabindex="-1"></a><span class="co"># d) Read using read.csv()</span></span>
+<span id="cb275-6"><a href="importexport.html#cb275-6" aria-hidden="true" tabindex="-1"></a>women.df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">&quot;Data sets/women.csv&quot;</span>)</span>
+<span id="cb275-7"><a href="importexport.html#cb275-7" aria-hidden="true" tabindex="-1"></a><span class="co"># e) Plot histogram using hist()</span></span>
+<span id="cb275-8"><a href="importexport.html#cb275-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(women.df<span class="sc">$</span>height)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="importexport.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="co"># f) Find mean using mean() and standard deviation using sd()</span></span>
+<span id="cb276-2"><a href="importexport.html#cb276-2" aria-hidden="true" tabindex="-1"></a>mean.hts <span class="ot">&lt;-</span> <span class="fu">mean</span>(women.df<span class="sc">$</span>height)</span>
+<span id="cb276-3"><a href="importexport.html#cb276-3" aria-hidden="true" tabindex="-1"></a>sd.hts <span class="ot">&lt;-</span> <span class="fu">sd</span>(women.df<span class="sc">$</span>weight)</span>
+<span id="cb276-4"><a href="importexport.html#cb276-4" aria-hidden="true" tabindex="-1"></a><span class="co"># g) Print</span></span>
+<span id="cb276-5"><a href="importexport.html#cb276-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sprintf</span>(<span class="st">&quot;The mean and standard deviation of the heights is %s and %s&quot;</span>, mean.hts, sd.hts)</span></code></pre></div>
 <pre><code>## [1] &quot;The mean and standard deviation of the heights is 65 and 15.4986942614378&quot;</code></pre>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="importexport.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;The mean of the heights is &quot;</span>, mean.hts, <span class="st">&quot; and &quot;</span>, sd.hts, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="importexport.html#cb278-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;The mean of the heights is &quot;</span>, mean.hts, <span class="st">&quot; and &quot;</span>, sd.hts, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;The mean of the heights is 65 and 15.4986942614378&quot;</code></pre>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="importexport.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="co"># h) Plot using plot()</span></span>
-<span id="cb284-2"><a href="importexport.html#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>women.df<span class="sc">$</span>height, <span class="at">y=</span>women.df<span class="sc">$</span>weight, <span class="at">xlab =</span> <span class="st">&quot;Height (in)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Weight (lbs)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Avg Heights and Weights for American Women 30-39&quot;</span>)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-42-2.png" width="672" /></p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="importexport.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="co"># i) Save as jpeg</span></span>
-<span id="cb285-2"><a href="importexport.html#cb285-2" aria-hidden="true" tabindex="-1"></a><span class="fu">jpeg</span>(<span class="at">filename =</span> <span class="st">&quot;heights_vs_weights.jpeg&quot;</span>)</span>
-<span id="cb285-3"><a href="importexport.html#cb285-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>women.df<span class="sc">$</span>height, <span class="at">y=</span>women.df<span class="sc">$</span>weight, <span class="at">xlab =</span> <span class="st">&quot;Height (in)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Weight (lbs)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Avg Heights and Weights for American Women 30-39&quot;</span>)</span>
-<span id="cb285-4"><a href="importexport.html#cb285-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="importexport.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="co"># h) Plot using plot()</span></span>
+<span id="cb280-2"><a href="importexport.html#cb280-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>women.df<span class="sc">$</span>height, <span class="at">y=</span>women.df<span class="sc">$</span>weight, <span class="at">xlab =</span> <span class="st">&quot;Height (in)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Weight (lbs)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Avg Heights and Weights for American Women 30-39&quot;</span>)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-42-2.png" width="672" /></p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="importexport.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="co"># i) Save as jpeg</span></span>
+<span id="cb281-2"><a href="importexport.html#cb281-2" aria-hidden="true" tabindex="-1"></a><span class="fu">jpeg</span>(<span class="at">filename =</span> <span class="st">&quot;heights_vs_weights.jpeg&quot;</span>)</span>
+<span id="cb281-3"><a href="importexport.html#cb281-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x=</span>women.df<span class="sc">$</span>height, <span class="at">y=</span>women.df<span class="sc">$</span>weight, <span class="at">xlab =</span> <span class="st">&quot;Height (in)&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Weight (lbs)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Avg Heights and Weights for American Women 30-39&quot;</span>)</span>
+<span id="cb281-4"><a href="importexport.html#cb281-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
 

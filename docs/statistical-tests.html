@@ -13,7 +13,7 @@
   
   <meta property="og:image" content="/cover.png" />
   <meta property="og:description" content="Complete R tutorials for beginners!" />
-  <meta name="github-repo" content="kazeera/r-seesions" />
+  <meta name="github-repo" content="kazeera/learn-r" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="7 Statistical Tests | Learn R" />
@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Complete R tutorials for beginners!" />
   <meta name="twitter:image" content="/cover.png" />
 
-<meta name="author" content="Kazeera Aliar" />
+<meta name="author" content="By KazeeRa AliaR" />
 
 
 
@@ -266,10 +266,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 - ANOVA<br />
 * how to add p-values to ggplot2 using ggpubr package</p>
 <p>First, load the “iris” dataset that comes with R.</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="statistical-tests.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the data appear in environment # you can still use it without doing this step</span></span>
-<span id="cb344-2"><a href="statistical-tests.html#cb344-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
-<span id="cb344-3"><a href="statistical-tests.html#cb344-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first 6 rows</span></span>
-<span id="cb344-4"><a href="statistical-tests.html#cb344-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="statistical-tests.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the data appear in environment # you can still use it without doing this step</span></span>
+<span id="cb340-2"><a href="statistical-tests.html#cb340-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb340-3"><a href="statistical-tests.html#cb340-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first 6 rows</span></span>
+<span id="cb340-4"><a href="statistical-tests.html#cb340-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -277,16 +277,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4          4.6         3.1          1.5         0.2  setosa
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="statistical-tests.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the structure of a data frame (column names and data types)</span></span>
-<span id="cb346-2"><a href="statistical-tests.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris) </span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="statistical-tests.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the structure of a data frame (column names and data types)</span></span>
+<span id="cb342-2"><a href="statistical-tests.html#cb342-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris) </span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
 ##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
 ##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
 ##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
 ##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
 ##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="statistical-tests.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Learn more about the data </span></span>
-<span id="cb348-2"><a href="statistical-tests.html#cb348-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ? iris </span></span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="statistical-tests.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Learn more about the data </span></span>
+<span id="cb344-2"><a href="statistical-tests.html#cb344-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ? iris </span></span></code></pre></div>
 <p>Review - ggplot2 tutorial:</p>
 <p>Practice 4.1. ggplot2
 Initialize a ggplot of the flower Species on the x-axis and the Sepal.Length on the y-axis for the iris dataset.
@@ -297,21 +297,21 @@ Use theme_bw().
 Add a title “Sepal Length of Iris Species”.
 Assign this to a variable called g.
 Plot g.</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="statistical-tests.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
-<span id="cb349-2"><a href="statistical-tests.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># library to make plots</span></span>
-<span id="cb349-3"><a href="statistical-tests.html#cb349-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co">#library to pick colors</span></span>
-<span id="cb349-4"><a href="statistical-tests.html#cb349-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize plot</span></span>
-<span id="cb349-5"><a href="statistical-tests.html#cb349-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length))<span class="sc">+</span> <span class="co">#</span></span>
-<span id="cb349-6"><a href="statistical-tests.html#cb349-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add layers using +</span></span>
-<span id="cb349-7"><a href="statistical-tests.html#cb349-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species), <span class="at">outlier.fill =</span> <span class="cn">NA</span>)<span class="sc">+</span> <span class="co">#make a boxplot, color by species, remove outliers; </span></span>
-<span id="cb349-8"><a href="statistical-tests.html#cb349-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Dark2&quot;</span>)<span class="sc">+</span> <span class="co">#set colors</span></span>
-<span id="cb349-9"><a href="statistical-tests.html#cb349-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span> <span class="co">#add points, </span><span class="al">NOTE</span><span class="co">: replots all values including outliers</span></span>
-<span id="cb349-10"><a href="statistical-tests.html#cb349-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Sepal Length of Iris Species&quot;</span>)<span class="sc">+</span> <span class="co">#add title</span></span>
-<span id="cb349-11"><a href="statistical-tests.html#cb349-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co">#set theme to black and white</span></span>
-<span id="cb349-12"><a href="statistical-tests.html#cb349-12" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="statistical-tests.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: you would say &quot;fill&quot; instead of &quot;color&quot; to fill boxes in in aes() and use scale_fill_brewer() instead of scale_color_brewer()</span></span>
-<span id="cb350-2"><a href="statistical-tests.html#cb350-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Save plot using ggsave()</span></span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="statistical-tests.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb345-2"><a href="statistical-tests.html#cb345-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># library to make plots</span></span>
+<span id="cb345-3"><a href="statistical-tests.html#cb345-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co">#library to pick colors</span></span>
+<span id="cb345-4"><a href="statistical-tests.html#cb345-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize plot</span></span>
+<span id="cb345-5"><a href="statistical-tests.html#cb345-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Length))<span class="sc">+</span> <span class="co">#</span></span>
+<span id="cb345-6"><a href="statistical-tests.html#cb345-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Add layers using +</span></span>
+<span id="cb345-7"><a href="statistical-tests.html#cb345-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">color =</span> Species), <span class="at">outlier.fill =</span> <span class="cn">NA</span>)<span class="sc">+</span> <span class="co">#make a boxplot, color by species, remove outliers; </span></span>
+<span id="cb345-8"><a href="statistical-tests.html#cb345-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Dark2&quot;</span>)<span class="sc">+</span> <span class="co">#set colors</span></span>
+<span id="cb345-9"><a href="statistical-tests.html#cb345-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span> <span class="co">#add points, </span><span class="al">NOTE</span><span class="co">: replots all values including outliers</span></span>
+<span id="cb345-10"><a href="statistical-tests.html#cb345-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">&quot;Sepal Length of Iris Species&quot;</span>)<span class="sc">+</span> <span class="co">#add title</span></span>
+<span id="cb345-11"><a href="statistical-tests.html#cb345-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="co">#set theme to black and white</span></span>
+<span id="cb345-12"><a href="statistical-tests.html#cb345-12" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="statistical-tests.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: you would say &quot;fill&quot; instead of &quot;color&quot; to fill boxes in in aes() and use scale_fill_brewer() instead of scale_color_brewer()</span></span>
+<span id="cb346-2"><a href="statistical-tests.html#cb346-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Save plot using ggsave()</span></span></code></pre></div>
 <div id="lists-1" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Lists</h2>
 <ul>
@@ -322,20 +322,20 @@ e.g. [[“name”]] or [[1]] or $name<br />
 </li>
 <li>Many functions return lists (e.g. ggplot, statistical tests) - look at environment for overview</li>
 </ul>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="statistical-tests.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elements in a list have names and value</span></span>
-<span id="cb351-2"><a href="statistical-tests.html#cb351-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Element value can be any type and structure of data, including vectors and data frames</span></span>
-<span id="cb351-3"><a href="statistical-tests.html#cb351-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb351-4"><a href="statistical-tests.html#cb351-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list</span></span>
-<span id="cb351-5"><a href="statistical-tests.html#cb351-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: this example features arbritrary values</span></span>
-<span id="cb351-6"><a href="statistical-tests.html#cb351-6" aria-hidden="true" tabindex="-1"></a>my_analysis <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb351-7"><a href="statistical-tests.html#cb351-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">input_data =</span> iris, <span class="co">#dataframe </span></span>
-<span id="cb351-8"><a href="statistical-tests.html#cb351-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">columns.of.interest =</span> <span class="fu">c</span>(<span class="st">&quot;Sepal.Length&quot;</span>, <span class="st">&quot;Petal.Width&quot;</span>), <span class="co">#character vector</span></span>
-<span id="cb351-9"><a href="statistical-tests.html#cb351-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">test =</span> <span class="st">&quot;t.test&quot;</span>,  <span class="co">#character</span></span>
-<span id="cb351-10"><a href="statistical-tests.html#cb351-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.value =</span> <span class="st">&quot;0.0032&quot;</span> <span class="co">#numeric</span></span>
-<span id="cb351-11"><a href="statistical-tests.html#cb351-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb351-12"><a href="statistical-tests.html#cb351-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb351-13"><a href="statistical-tests.html#cb351-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print list </span></span>
-<span id="cb351-14"><a href="statistical-tests.html#cb351-14" aria-hidden="true" tabindex="-1"></a>my_analysis</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="statistical-tests.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Elements in a list have names and value</span></span>
+<span id="cb347-2"><a href="statistical-tests.html#cb347-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Element value can be any type and structure of data, including vectors and data frames</span></span>
+<span id="cb347-3"><a href="statistical-tests.html#cb347-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-4"><a href="statistical-tests.html#cb347-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list</span></span>
+<span id="cb347-5"><a href="statistical-tests.html#cb347-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: this example features arbritrary values</span></span>
+<span id="cb347-6"><a href="statistical-tests.html#cb347-6" aria-hidden="true" tabindex="-1"></a>my_analysis <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb347-7"><a href="statistical-tests.html#cb347-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">input_data =</span> iris, <span class="co">#dataframe </span></span>
+<span id="cb347-8"><a href="statistical-tests.html#cb347-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">columns.of.interest =</span> <span class="fu">c</span>(<span class="st">&quot;Sepal.Length&quot;</span>, <span class="st">&quot;Petal.Width&quot;</span>), <span class="co">#character vector</span></span>
+<span id="cb347-9"><a href="statistical-tests.html#cb347-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">test =</span> <span class="st">&quot;t.test&quot;</span>,  <span class="co">#character</span></span>
+<span id="cb347-10"><a href="statistical-tests.html#cb347-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.value =</span> <span class="st">&quot;0.0032&quot;</span> <span class="co">#numeric</span></span>
+<span id="cb347-11"><a href="statistical-tests.html#cb347-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb347-12"><a href="statistical-tests.html#cb347-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-13"><a href="statistical-tests.html#cb347-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print list </span></span>
+<span id="cb347-14"><a href="statistical-tests.html#cb347-14" aria-hidden="true" tabindex="-1"></a>my_analysis</span></code></pre></div>
 <pre><code>## $input_data
 ##     Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 ## 1            5.1         3.5          1.4         0.2     setosa
@@ -497,29 +497,29 @@ e.g. [[“name”]] or [[1]] or $name<br />
 ## 
 ## $p.value
 ## [1] &quot;0.0032&quot;</code></pre>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="statistical-tests.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Names of elements in the list</span></span>
-<span id="cb353-2"><a href="statistical-tests.html#cb353-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_analysis)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="statistical-tests.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Names of elements in the list</span></span>
+<span id="cb349-2"><a href="statistical-tests.html#cb349-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_analysis)</span></code></pre></div>
 <pre><code>## [1] &quot;input_data&quot;          &quot;columns.of.interest&quot; &quot;test&quot;               
 ## [4] &quot;p.value&quot;</code></pre>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="statistical-tests.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of elements in the list</span></span>
-<span id="cb355-2"><a href="statistical-tests.html#cb355-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(my_analysis)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="statistical-tests.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of elements in the list</span></span>
+<span id="cb351-2"><a href="statistical-tests.html#cb351-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(my_analysis)</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="statistical-tests.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Access the list</span></span>
-<span id="cb357-2"><a href="statistical-tests.html#cb357-2" aria-hidden="true" tabindex="-1"></a><span class="co"># select element by its name or its index</span></span>
-<span id="cb357-3"><a href="statistical-tests.html#cb357-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select by name (1/2)</span></span>
-<span id="cb357-4"><a href="statistical-tests.html#cb357-4" aria-hidden="true" tabindex="-1"></a>my_analysis<span class="sc">$</span>p.value</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="statistical-tests.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Access the list</span></span>
+<span id="cb353-2"><a href="statistical-tests.html#cb353-2" aria-hidden="true" tabindex="-1"></a><span class="co"># select element by its name or its index</span></span>
+<span id="cb353-3"><a href="statistical-tests.html#cb353-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Select by name (1/2)</span></span>
+<span id="cb353-4"><a href="statistical-tests.html#cb353-4" aria-hidden="true" tabindex="-1"></a>my_analysis<span class="sc">$</span>p.value</span></code></pre></div>
 <pre><code>## [1] &quot;0.0032&quot;</code></pre>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="statistical-tests.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select by name (2/2)</span></span>
-<span id="cb359-2"><a href="statistical-tests.html#cb359-2" aria-hidden="true" tabindex="-1"></a>my_analysis[[<span class="st">&quot;p.value&quot;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="statistical-tests.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select by name (2/2)</span></span>
+<span id="cb355-2"><a href="statistical-tests.html#cb355-2" aria-hidden="true" tabindex="-1"></a>my_analysis[[<span class="st">&quot;p.value&quot;</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;0.0032&quot;</code></pre>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="statistical-tests.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select by index</span></span>
-<span id="cb361-2"><a href="statistical-tests.html#cb361-2" aria-hidden="true" tabindex="-1"></a>my_analysis[[<span class="dv">4</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="statistical-tests.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select by index</span></span>
+<span id="cb357-2"><a href="statistical-tests.html#cb357-2" aria-hidden="true" tabindex="-1"></a>my_analysis[[<span class="dv">4</span>]]</span></code></pre></div>
 <pre><code>## [1] &quot;0.0032&quot;</code></pre>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="statistical-tests.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select the first ([1]) element of my_analysis[[2]]</span></span>
-<span id="cb363-2"><a href="statistical-tests.html#cb363-2" aria-hidden="true" tabindex="-1"></a>my_analysis[[<span class="st">&quot;columns.of.interest&quot;</span>]][<span class="dv">1</span>] <span class="co"># equivalent to: my_analysis$columns.of.interest[1] or my_analysis[[2]][1] </span></span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="statistical-tests.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select the first ([1]) element of my_analysis[[2]]</span></span>
+<span id="cb359-2"><a href="statistical-tests.html#cb359-2" aria-hidden="true" tabindex="-1"></a>my_analysis[[<span class="st">&quot;columns.of.interest&quot;</span>]][<span class="dv">1</span>] <span class="co"># equivalent to: my_analysis$columns.of.interest[1] or my_analysis[[2]][1] </span></span></code></pre></div>
 <pre><code>## [1] &quot;Sepal.Length&quot;</code></pre>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="statistical-tests.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to list #or modify using assignment</span></span>
-<span id="cb365-2"><a href="statistical-tests.html#cb365-2" aria-hidden="true" tabindex="-1"></a>my_analysis[[<span class="st">&quot;is.significant&quot;</span>]] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="statistical-tests.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to list #or modify using assignment</span></span>
+<span id="cb361-2"><a href="statistical-tests.html#cb361-2" aria-hidden="true" tabindex="-1"></a>my_analysis[[<span class="st">&quot;is.significant&quot;</span>]] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div>
 </div>
 <div id="statistical-significance" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Statistical Significance</h2>
@@ -549,15 +549,15 @@ e.g. [[“name”]] or [[1]] or $name<br />
 <p>Null hypothesis: the data are normally distributed<br />
 * p &gt; 0.05 #normally distributed
 * p &lt; 0.05 #not normally distributed</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="statistical-tests.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shapiro-Wilk normality test for Petal.Length</span></span>
-<span id="cb366-2"><a href="statistical-tests.html#cb366-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(iris<span class="sc">$</span>Petal.Length) <span class="co"># =&gt; p &lt; 0.05 # not normally distributed</span></span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="statistical-tests.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shapiro-Wilk normality test for Petal.Length</span></span>
+<span id="cb362-2"><a href="statistical-tests.html#cb362-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(iris<span class="sc">$</span>Petal.Length) <span class="co"># =&gt; p &lt; 0.05 # not normally distributed</span></span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  iris$Petal.Length
 ## W = 0.87627, p-value = 7.412e-10</code></pre>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="statistical-tests.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shapiro-Wilk normality test for Petal.Width </span></span>
-<span id="cb368-2"><a href="statistical-tests.html#cb368-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(iris<span class="sc">$</span>Petal.Width) </span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="statistical-tests.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shapiro-Wilk normality test for Petal.Width </span></span>
+<span id="cb364-2"><a href="statistical-tests.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(iris<span class="sc">$</span>Petal.Width) </span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
@@ -573,7 +573,7 @@ e.g. [[“name”]] or [[1]] or $name<br />
 <ul>
 <li>parametric test used to test if the mean of a sample from a normal distribution could reasonably be a specific value</li>
 </ul>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="statistical-tests.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">mu=</span><span class="dv">4</span>) <span class="co"># testing if mean of x could be</span></span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="statistical-tests.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">mu=</span><span class="dv">4</span>) <span class="co"># testing if mean of x could be</span></span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -585,7 +585,7 @@ e.g. [[“name”]] or [[1]] or $name<br />
 ## sample estimates:
 ## mean of x 
 ##     3.758</code></pre>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="statistical-tests.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: in example, I&#39;m using data that&#39;s not normally distributed</span></span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="statistical-tests.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: in example, I&#39;m using data that&#39;s not normally distributed</span></span></code></pre></div>
 <ul>
 <li>note that the 95% confidence interval range includes the value 4 within its range. So, it is ok to say the mean of x is 10</li>
 </ul>
@@ -593,8 +593,8 @@ e.g. [[“name”]] or [[1]] or $name<br />
 <ul>
 <li>alternative to t-Test when data is not normally distributed</li>
 </ul>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="statistical-tests.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run test</span></span>
-<span id="cb373-2"><a href="statistical-tests.html#cb373-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(iris<span class="sc">$</span>Petal.Length, <span class="at">mu=</span><span class="dv">20</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="statistical-tests.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="co"># run test</span></span>
+<span id="cb369-2"><a href="statistical-tests.html#cb369-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(iris<span class="sc">$</span>Petal.Length, <span class="at">mu=</span><span class="dv">20</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
 ## 
@@ -607,10 +607,10 @@ e.g. [[“name”]] or [[1]] or $name<br />
 ## (pseudo)median 
 ##       3.650033</code></pre>
 <p>Note: statisical testing prints result to console, but can also be saved in a list object.</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="statistical-tests.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store the output in the &quot;result&quot; variable</span></span>
-<span id="cb375-2"><a href="statistical-tests.html#cb375-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">mu=</span><span class="dv">4</span>)</span>
-<span id="cb375-3"><a href="statistical-tests.html#cb375-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract from list - Get the p-value</span></span>
-<span id="cb375-4"><a href="statistical-tests.html#cb375-4" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>p.value <span class="co">#alternatively, result[[&quot;p.value&quot;]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="statistical-tests.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store the output in the &quot;result&quot; variable</span></span>
+<span id="cb371-2"><a href="statistical-tests.html#cb371-2" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">mu=</span><span class="dv">4</span>)</span>
+<span id="cb371-3"><a href="statistical-tests.html#cb371-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract from list - Get the p-value</span></span>
+<span id="cb371-4"><a href="statistical-tests.html#cb371-4" aria-hidden="true" tabindex="-1"></a>result<span class="sc">$</span>p.value <span class="co">#alternatively, result[[&quot;p.value&quot;]]</span></span></code></pre></div>
 <pre><code>## [1] 0.09525381</code></pre>
 </div>
 <div id="two-sample-tests" class="section level2" number="7.5">
@@ -619,8 +619,8 @@ e.g. [[“name”]] or [[1]] or $name<br />
 * p &lt; 0.05 #means are different</p>
 <p>Two Sample t-Test and Wilcoxon Rank Sum Test
 - compare the mean of 2 samples using t.test() and wilcox.test()</p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="statistical-tests.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="co"># two sample t-test</span></span>
-<span id="cb377-2"><a href="statistical-tests.html#cb377-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width)    </span></code></pre></div>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="statistical-tests.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="co"># two sample t-test</span></span>
+<span id="cb373-2"><a href="statistical-tests.html#cb373-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width)    </span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -632,8 +632,8 @@ e.g. [[“name”]] or [[1]] or $name<br />
 ## sample estimates:
 ## mean of x mean of y 
 ##  3.758000  1.199333</code></pre>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="statistical-tests.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="co"># two sample wilcoxin test</span></span>
-<span id="cb379-2"><a href="statistical-tests.html#cb379-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width)</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="statistical-tests.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="co"># two sample wilcoxin test</span></span>
+<span id="cb375-2"><a href="statistical-tests.html#cb375-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Length, <span class="at">y =</span> iris<span class="sc">$</span>Petal.Width)</span></code></pre></div>
 <pre><code>## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
@@ -644,8 +644,8 @@ e.g. [[“name”]] or [[1]] or $name<br />
 <li>Use paired = TRUE for 1-to-1 comparison of observations</li>
 <li>x and y should have the sample length</li>
 </ul>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="statistical-tests.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t.test(x, y, paired = TRUE) # when observations are paired, use &#39;paired&#39; argument.</span></span>
-<span id="cb381-2"><a href="statistical-tests.html#cb381-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wilcox.test(x, y, paired = TRUE) # both x and y are assumed to have similar shapes</span></span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="statistical-tests.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t.test(x, y, paired = TRUE) # when observations are paired, use &#39;paired&#39; argument.</span></span>
+<span id="cb377-2"><a href="statistical-tests.html#cb377-2" aria-hidden="true" tabindex="-1"></a><span class="co"># wilcox.test(x, y, paired = TRUE) # both x and y are assumed to have similar shapes</span></span></code></pre></div>
 </div>
 <div id="anova" class="section level2" number="7.6">
 <h2><span class="header-section-number">7.6</span> ANOVA</h2>
@@ -657,12 +657,12 @@ e.g. [[“name”]] or [[1]] or $name<br />
 <li><p>In the iris dataset, there are 3 species (the factor), so we could compare Petal.Width across the groups</p></li>
 <li><p>use aov() to compute ANOVA and anova() of that output to summarize model</p></li>
 </ul>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="statistical-tests.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the analysis of variance</span></span>
-<span id="cb382-2"><a href="statistical-tests.html#cb382-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The first argument is a formula: name_of_variable ~ factor</span></span>
-<span id="cb382-3"><a href="statistical-tests.html#cb382-3" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Petal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
-<span id="cb382-4"><a href="statistical-tests.html#cb382-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the analysis</span></span>
-<span id="cb382-5"><a href="statistical-tests.html#cb382-5" aria-hidden="true" tabindex="-1"></a>anova_summ <span class="ot">&lt;-</span> <span class="fu">anova</span>(anova_model)</span>
-<span id="cb382-6"><a href="statistical-tests.html#cb382-6" aria-hidden="true" tabindex="-1"></a>anova_summ</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="statistical-tests.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the analysis of variance</span></span>
+<span id="cb378-2"><a href="statistical-tests.html#cb378-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The first argument is a formula: name_of_variable ~ factor</span></span>
+<span id="cb378-3"><a href="statistical-tests.html#cb378-3" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Petal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
+<span id="cb378-4"><a href="statistical-tests.html#cb378-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the analysis</span></span>
+<span id="cb378-5"><a href="statistical-tests.html#cb378-5" aria-hidden="true" tabindex="-1"></a>anova_summ <span class="ot">&lt;-</span> <span class="fu">anova</span>(anova_model)</span>
+<span id="cb378-6"><a href="statistical-tests.html#cb378-6" aria-hidden="true" tabindex="-1"></a>anova_summ</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: Petal.Width
@@ -671,14 +671,14 @@ e.g. [[“name”]] or [[1]] or $name<br />
 ## Residuals 147  6.157   0.042                      
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="statistical-tests.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get p-value </span></span>
-<span id="cb384-2"><a href="statistical-tests.html#cb384-2" aria-hidden="true" tabindex="-1"></a>anova_summ<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span></span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="statistical-tests.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get p-value </span></span>
+<span id="cb380-2"><a href="statistical-tests.html#cb380-2" aria-hidden="true" tabindex="-1"></a>anova_summ<span class="sc">$</span><span class="st">`</span><span class="at">Pr(&gt;F)</span><span class="st">`</span></span></code></pre></div>
 <pre><code>## [1] 4.169446e-85           NA</code></pre>
 <p><strong>Tukey multiple pairwise-comparisons</strong></p>
 <p>The ANOVA test tells us that the means between at least one pair is significant.
 To see which one(s) is significant, we can do post-hoc Tukey HSD (Tukey Honest Significant Differences) for performing multiple pairwise-comparison between the means of groups.</p>
 <p>The function TukeyHSD() takes the fitted ANOVA as an argument. The output is a table with all pairwise combinations in your factor.</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="statistical-tests.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(anova_model)</span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="statistical-tests.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(anova_model)</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ## 
@@ -690,7 +690,7 @@ To see which one(s) is significant, we can do post-hoc Tukey HSD (Tukey Honest S
 ## virginica-setosa     1.78 1.6830903 1.8769097     0
 ## virginica-versicolor 0.70 0.6030903 0.7969097     0</code></pre>
 <p>Alternatively, we could also perform multiple t-tests and adjust p-values by different methods</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="statistical-tests.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Width, <span class="at">g =</span> iris<span class="sc">$</span>Species, <span class="at">p.adjust.method =</span> <span class="st">&quot;fdr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="statistical-tests.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Width, <span class="at">g =</span> iris<span class="sc">$</span>Species, <span class="at">p.adjust.method =</span> <span class="st">&quot;fdr&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pairwise comparisons using t tests with pooled SD 
 ## 
@@ -701,7 +701,7 @@ To see which one(s) is significant, we can do post-hoc Tukey HSD (Tukey Honest S
 ## virginica  &lt;2e-16 &lt;2e-16    
 ## 
 ## P value adjustment method: fdr</code></pre>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="statistical-tests.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.wilcox.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Width, <span class="at">g =</span> iris<span class="sc">$</span>Species, <span class="at">p.adjust.method =</span> <span class="st">&quot;fdr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="statistical-tests.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.wilcox.test</span>(<span class="at">x =</span> iris<span class="sc">$</span>Petal.Width, <span class="at">g =</span> iris<span class="sc">$</span>Species, <span class="at">p.adjust.method =</span> <span class="st">&quot;fdr&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pairwise comparisons using Wilcoxon rank sum test with continuity correction 
 ## 
@@ -720,34 +720,34 @@ To see which one(s) is significant, we can do post-hoc Tukey HSD (Tukey Honest S
 <li>using ggpubr package</li>
 <li>ggpubr R package for an easy ggplot2-based data visualization</li>
 </ul>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="statistical-tests.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Install the latest version from GitHub as follow (recommended):</span></span>
-<span id="cb392-2"><a href="statistical-tests.html#cb392-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb392-3"><a href="statistical-tests.html#cb392-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
-<span id="cb392-4"><a href="statistical-tests.html#cb392-4" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;kassambara/ggpubr&quot;)</span></span>
-<span id="cb392-5"><a href="statistical-tests.html#cb392-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb392-6"><a href="statistical-tests.html#cb392-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # Or, install from CRAN as follow:</span></span>
-<span id="cb392-7"><a href="statistical-tests.html#cb392-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ggpubr&quot;)</span></span>
-<span id="cb392-8"><a href="statistical-tests.html#cb392-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load ggpubr as follow:</span></span>
-<span id="cb392-9"><a href="statistical-tests.html#cb392-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
-<span id="cb392-10"><a href="statistical-tests.html#cb392-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb392-11"><a href="statistical-tests.html#cb392-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the ggplot object made at the beginning of this tutorial</span></span>
-<span id="cb392-12"><a href="statistical-tests.html#cb392-12" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="statistical-tests.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the unique values in Species</span></span>
-<span id="cb393-2"><a href="statistical-tests.html#cb393-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species) <span class="co"># unique(iris$Species)</span></span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="statistical-tests.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Install the latest version from GitHub as follow (recommended):</span></span>
+<span id="cb388-2"><a href="statistical-tests.html#cb388-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb388-3"><a href="statistical-tests.html#cb388-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;)</span></span>
+<span id="cb388-4"><a href="statistical-tests.html#cb388-4" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github(&quot;kassambara/ggpubr&quot;)</span></span>
+<span id="cb388-5"><a href="statistical-tests.html#cb388-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb388-6"><a href="statistical-tests.html#cb388-6" aria-hidden="true" tabindex="-1"></a><span class="co"># # Or, install from CRAN as follow:</span></span>
+<span id="cb388-7"><a href="statistical-tests.html#cb388-7" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;ggpubr&quot;)</span></span>
+<span id="cb388-8"><a href="statistical-tests.html#cb388-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load ggpubr as follow:</span></span>
+<span id="cb388-9"><a href="statistical-tests.html#cb388-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
+<span id="cb388-10"><a href="statistical-tests.html#cb388-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb388-11"><a href="statistical-tests.html#cb388-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the ggplot object made at the beginning of this tutorial</span></span>
+<span id="cb388-12"><a href="statistical-tests.html#cb388-12" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="statistical-tests.html#cb389-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the unique values in Species</span></span>
+<span id="cb389-2"><a href="statistical-tests.html#cb389-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(iris<span class="sc">$</span>Species) <span class="co"># unique(iris$Species)</span></span></code></pre></div>
 <pre><code>## [1] &quot;setosa&quot;     &quot;versicolor&quot; &quot;virginica&quot;</code></pre>
-<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="statistical-tests.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a list of Species comparisons</span></span>
-<span id="cb395-2"><a href="statistical-tests.html#cb395-2" aria-hidden="true" tabindex="-1"></a>comparisons <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>,<span class="st">&quot;versicolor&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;virginica&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;versicolor&quot;</span>, <span class="st">&quot;virginica&quot;</span>))</span>
-<span id="cb395-3"><a href="statistical-tests.html#cb395-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb395-4"><a href="statistical-tests.html#cb395-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternative code for line above: no &quot;hard-coding&quot;</span></span>
-<span id="cb395-5"><a href="statistical-tests.html#cb395-5" aria-hidden="true" tabindex="-1"></a><span class="co"># elements &lt;- levels(iris$Species) </span></span>
-<span id="cb395-6"><a href="statistical-tests.html#cb395-6" aria-hidden="true" tabindex="-1"></a><span class="co"># comparisons &lt;- gtools::combinations(n=length(elements),r=2,v=elements, repeats.allowed=F)</span></span>
-<span id="cb395-7"><a href="statistical-tests.html#cb395-7" aria-hidden="true" tabindex="-1"></a><span class="co"># comparisons &lt;- split(comparisons, seq(nrow(comparisons)))</span></span>
-<span id="cb395-8"><a href="statistical-tests.html#cb395-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb395-9"><a href="statistical-tests.html#cb395-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Add stats_compare_means() from ggpubr to your ggplot</span></span>
-<span id="cb395-10"><a href="statistical-tests.html#cb395-10" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> </span>
-<span id="cb395-11"><a href="statistical-tests.html#cb395-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_compare_means</span>(<span class="at">method=</span><span class="st">&quot;t.test&quot;</span>, <span class="at">comparisons =</span> comparisons)</span></code></pre></div>
-<p><img src="r-sessions_files/figure-html/unnamed-chunk-74-2.png" width="672" /></p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="statistical-tests.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a list of Species comparisons</span></span>
+<span id="cb391-2"><a href="statistical-tests.html#cb391-2" aria-hidden="true" tabindex="-1"></a>comparisons <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>,<span class="st">&quot;versicolor&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;setosa&quot;</span>, <span class="st">&quot;virginica&quot;</span>), <span class="fu">c</span>(<span class="st">&quot;versicolor&quot;</span>, <span class="st">&quot;virginica&quot;</span>))</span>
+<span id="cb391-3"><a href="statistical-tests.html#cb391-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb391-4"><a href="statistical-tests.html#cb391-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternative code for line above: no &quot;hard-coding&quot;</span></span>
+<span id="cb391-5"><a href="statistical-tests.html#cb391-5" aria-hidden="true" tabindex="-1"></a><span class="co"># elements &lt;- levels(iris$Species) </span></span>
+<span id="cb391-6"><a href="statistical-tests.html#cb391-6" aria-hidden="true" tabindex="-1"></a><span class="co"># comparisons &lt;- gtools::combinations(n=length(elements),r=2,v=elements, repeats.allowed=F)</span></span>
+<span id="cb391-7"><a href="statistical-tests.html#cb391-7" aria-hidden="true" tabindex="-1"></a><span class="co"># comparisons &lt;- split(comparisons, seq(nrow(comparisons)))</span></span>
+<span id="cb391-8"><a href="statistical-tests.html#cb391-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb391-9"><a href="statistical-tests.html#cb391-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Add stats_compare_means() from ggpubr to your ggplot</span></span>
+<span id="cb391-10"><a href="statistical-tests.html#cb391-10" aria-hidden="true" tabindex="-1"></a>g <span class="sc">+</span> </span>
+<span id="cb391-11"><a href="statistical-tests.html#cb391-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_compare_means</span>(<span class="at">method=</span><span class="st">&quot;t.test&quot;</span>, <span class="at">comparisons =</span> comparisons)</span></code></pre></div>
+<p><img src="learn-r_files/figure-html/unnamed-chunk-74-2.png" width="672" /></p>
 <p><strong>Other tests </strong>
 - Read more from this tutorial here: <a href="http://r-statistics.co/Statistical-Tests-in-R.html" class="uri">http://r-statistics.co/Statistical-Tests-in-R.html</a>
 5. Kolmogorov And Smirnov Test
@@ -770,10 +770,10 @@ d) Should we use t-test or wilcoxin test on this data? Why?<br />
 e) Compare the heights to an estimated mean of 66.2 using a one-sample t-test. Is there a significant difference in means?<br />
 f) Compare the first 6 weights recorded (ie. 1 to 6) to the next 6 (ie. 7 to 12) using a t-test. Is there a significant difference in means?</p>
 <p>Solution</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="statistical-tests.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data (you can still use it without this step)</span></span>
-<span id="cb396-2"><a href="statistical-tests.html#cb396-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;women&quot;</span>)</span>
-<span id="cb396-3"><a href="statistical-tests.html#cb396-3" aria-hidden="true" tabindex="-1"></a><span class="co"># a) Print using head()</span></span>
-<span id="cb396-4"><a href="statistical-tests.html#cb396-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(women, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="statistical-tests.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data (you can still use it without this step)</span></span>
+<span id="cb392-2"><a href="statistical-tests.html#cb392-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;women&quot;</span>)</span>
+<span id="cb392-3"><a href="statistical-tests.html#cb392-3" aria-hidden="true" tabindex="-1"></a><span class="co"># a) Print using head()</span></span>
+<span id="cb392-4"><a href="statistical-tests.html#cb392-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(women, <span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##    height weight
 ## 1      58    115
 ## 2      59    117
@@ -785,28 +785,28 @@ f) Compare the first 6 weights recorded (ie. 1 to 6) to the next 6 (ie. 7 to 12)
 ## 8      65    135
 ## 9      66    139
 ## 10     67    142</code></pre>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="statistical-tests.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="co"># b) Use class() to get data type </span></span>
-<span id="cb398-2"><a href="statistical-tests.html#cb398-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(women<span class="sc">$</span>height) <span class="co"># ANSWER: numeric</span></span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="statistical-tests.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="co"># b) Use class() to get data type </span></span>
+<span id="cb394-2"><a href="statistical-tests.html#cb394-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(women<span class="sc">$</span>height) <span class="co"># ANSWER: numeric</span></span></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="statistical-tests.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) use Shapiro&#39;s test to test for normality. If p &gt; 0.05, normally distributed</span></span>
-<span id="cb400-2"><a href="statistical-tests.html#cb400-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(women<span class="sc">$</span>height) <span class="co"># p-value = 0.7545</span></span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="statistical-tests.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c) use Shapiro&#39;s test to test for normality. If p &gt; 0.05, normally distributed</span></span>
+<span id="cb396-2"><a href="statistical-tests.html#cb396-2" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(women<span class="sc">$</span>height) <span class="co"># p-value = 0.7545</span></span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  women$height
 ## W = 0.96359, p-value = 0.7545</code></pre>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="statistical-tests.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(women<span class="sc">$</span>weight) <span class="co"># p-value = 0.6986</span></span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="statistical-tests.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(women<span class="sc">$</span>weight) <span class="co"># p-value = 0.6986</span></span></code></pre></div>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  women$weight
 ## W = 0.96036, p-value = 0.6986</code></pre>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="statistical-tests.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER: Yes, since p &gt; 0.05 for both variables, the data is normally distributed</span></span>
-<span id="cb404-2"><a href="statistical-tests.html#cb404-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb404-3"><a href="statistical-tests.html#cb404-3" aria-hidden="true" tabindex="-1"></a><span class="co"># d) ANSWER: We could use t-tests because parametric statistical tests is used on normally distributed data.</span></span>
-<span id="cb404-4"><a href="statistical-tests.html#cb404-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb404-5"><a href="statistical-tests.html#cb404-5" aria-hidden="true" tabindex="-1"></a><span class="co"># e) use t.test(), where mu = 66.2</span></span>
-<span id="cb404-6"><a href="statistical-tests.html#cb404-6" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(women<span class="sc">$</span>height, <span class="at">mu =</span> <span class="fl">66.2</span>) <span class="co"># p-value = 0.3163</span></span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="statistical-tests.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER: Yes, since p &gt; 0.05 for both variables, the data is normally distributed</span></span>
+<span id="cb400-2"><a href="statistical-tests.html#cb400-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb400-3"><a href="statistical-tests.html#cb400-3" aria-hidden="true" tabindex="-1"></a><span class="co"># d) ANSWER: We could use t-tests because parametric statistical tests is used on normally distributed data.</span></span>
+<span id="cb400-4"><a href="statistical-tests.html#cb400-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb400-5"><a href="statistical-tests.html#cb400-5" aria-hidden="true" tabindex="-1"></a><span class="co"># e) use t.test(), where mu = 66.2</span></span>
+<span id="cb400-6"><a href="statistical-tests.html#cb400-6" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(women<span class="sc">$</span>height, <span class="at">mu =</span> <span class="fl">66.2</span>) <span class="co"># p-value = 0.3163</span></span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -818,10 +818,10 @@ f) Compare the first 6 weights recorded (ie. 1 to 6) to the next 6 (ie. 7 to 12)
 ## sample estimates:
 ## mean of x 
 ##        65</code></pre>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="statistical-tests.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER: No, since p &gt; 0.05, there is no significant difference, so the mean of heights is close to 66.2.</span></span>
-<span id="cb406-2"><a href="statistical-tests.html#cb406-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb406-3"><a href="statistical-tests.html#cb406-3" aria-hidden="true" tabindex="-1"></a><span class="co"># f) use t.test() with x,y (two samples)</span></span>
-<span id="cb406-4"><a href="statistical-tests.html#cb406-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> women<span class="sc">$</span>weight[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="at">y =</span> women<span class="sc">$</span>weight[<span class="dv">7</span><span class="sc">:</span><span class="dv">12</span>]) <span class="co"># p-value 0.0003556</span></span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="statistical-tests.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER: No, since p &gt; 0.05, there is no significant difference, so the mean of heights is close to 66.2.</span></span>
+<span id="cb402-2"><a href="statistical-tests.html#cb402-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb402-3"><a href="statistical-tests.html#cb402-3" aria-hidden="true" tabindex="-1"></a><span class="co"># f) use t.test() with x,y (two samples)</span></span>
+<span id="cb402-4"><a href="statistical-tests.html#cb402-4" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> women<span class="sc">$</span>weight[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="at">y =</span> women<span class="sc">$</span>weight[<span class="dv">7</span><span class="sc">:</span><span class="dv">12</span>]) <span class="co"># p-value 0.0003556</span></span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -833,7 +833,7 @@ f) Compare the first 6 weights recorded (ie. 1 to 6) to the next 6 (ie. 7 to 12)
 ## sample estimates:
 ## mean of x mean of y 
 ##  121.6667  140.6667</code></pre>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="statistical-tests.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER: Yes, since p &lt; 0.05, there is a significant difference  </span></span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="statistical-tests.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ANSWER: Yes, since p &lt; 0.05, there is a significant difference  </span></span></code></pre></div>
 
 </div>
 </div>
