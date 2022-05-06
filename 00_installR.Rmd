@@ -3,14 +3,17 @@ site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 ---
-# Install R
+# Installation
+This chapter provides installation instructions for R and RStudio (developing environment, user interface) on your local system.
 
-##	Download R 
+## Install R 
+
 * Follow link on website for your operating system [link](https://cran.r-project.org/bin/)  
 * Select CRAN
 * Comprehensive R Archive Network (CRAN) is a collection of sites which carry identical material, consisting of the R distribution(s), the contributed extensions, documentation for R, and binaries.
 
-## Download RStudio
+## Install RStudio
+
 * Download community/open-source version for free on website [link](https://rstudio.com/products/rstudio/download/#download)
 * RStudio is an integrated development environment (IDE) for R that provides an alternative interface to R
 * RStudio provides integrated support for editing and executing R code and documents.
@@ -19,8 +22,8 @@ documentclass: book
 * Write code interactively in console pane and make scripts in program pane
 *	Practice: the Workspace [link](https://www.statmethods.net/interface/workspace.html)
 
-
 ## Terms
+
 * **Path** = the route to a file (file = file or folder)
 *	**Absolute path** = the route starts at home node 
 e.g. /home/Documents/myReport (mac) or C:\home\Documents\myReport (windows), C:\home\Documents\myReport\report.txt
@@ -29,14 +32,17 @@ e.g starting in the home folder: Documents/myReport
 *	Read more: What Is a Path? [link](https://docs.oracle.com/javase/tutorial/essential/io/path.html)
 * **Directory** = folder
 * **Working directory** = which folder are you/R currently working in? When you import or export files using a relative path, it will be relative to this working directory.
+* **Script** = a list of commands that are executed by a certain program, saved as files with extension ".R". Save code in the scripting area and run chunks or all code.
 * **Command** =  instruction given by a user telling a computer to do something. Commands are given to R / implemented using functions (code to execute instructions).
-*	Examples
+
+Examples of commands:
+
 -	_getwd()_ # print your current working directory
 -	_setwd(a_path)_ # sets your working directory
 -	_q()_ # quit
-Type commands in RStudio in the program pane (also called console) starting at the ">".
-* **Script** = a list of commands that are executed by a certain program, saved as files with extension ".R". Save code in the scripting area and run chunks or all code.
-```{r, results='hide'}
+
+Type commands in RStudio in the program pane (also called console) starting at the **>**.
+```{r}
 # Get working directory
 getwd()
 # Paths

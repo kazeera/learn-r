@@ -4,8 +4,7 @@ output: bookdown::gitbook
 documentclass: book
 ---
 # Dataframe Manipulation
-Objective: To reformat data frames using tidyr and learn how to pipe using magrittr
-
+> Objective: To reformat data frames using tidyr and learn how to pipe using magrittr
 
 Quick Review of vectors and data frames
 ```{r}

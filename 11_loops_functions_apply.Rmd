@@ -4,7 +4,7 @@ output: bookdown::gitbook
 documentclass: book
 ---
 # Repetitive Jobs
-Objective: To learn about tools to prevent copying and pasting the same code to replicate instructions
+> Objective: To learn about tools to prevent copying and pasting the same code to replicate instructions
 
 We will cover:  
 - how to use functions (review)

@@ -4,8 +4,10 @@ output: bookdown::gitbook
 documentclass: book
 ---
 # Data Structures
+> Objective: Learn how to work with vectors and data frames in R.
 
-Objective: Learn how to work with vectors and data frames in R.
+We will cover:  
+
 - vector creation using c()
 - Positive and negative indexing using [] 
 - Vector functions (mean, sd, sort, max, min, etc)  

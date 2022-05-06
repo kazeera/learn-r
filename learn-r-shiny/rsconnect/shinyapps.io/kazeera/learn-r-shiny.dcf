@@ -1,0 +1,13 @@
+name: learn-r-shiny
+title: learn-r-shiny
+username:
+account: kazeera
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6249488
+bundleId: 5878282
+url: https://kazeera.shinyapps.io/learn-r-shiny/
+when: 1651853908.9328
+lastSyncTime: 1651853908.9328
+asMultiple: FALSE
+asStatic: FALSE

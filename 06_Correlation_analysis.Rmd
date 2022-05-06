@@ -4,9 +4,10 @@ output: bookdown::gitbook
 documentclass: book
 ---
 # Correlation Analysis
-Objective: To learn how to perform correlation analysis in R
+> Objective: To learn how to perform correlation analysis in R
 
-Summary:
+We will cover:  
+
 - cor.test(x,y, method) computes the correlation coefficient and significance between two variables  
 - cor() creates correlation matrix from a numeric matrix/data frame
 - in corrplot package, cor.mtest() gives p-values and corrplot() plots a graph (i.e. correlogram) of a correlation matrix

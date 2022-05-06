@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Correlation Analysis | Learn R</title>
+  <meta name="description" content="Complete R tutorials for beginners!" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Correlation Analysis | Learn R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/cover.png" />
+  <meta property="og:description" content="Complete R tutorials for beginners!" />
+  <meta name="github-repo" content="kazeera/r-seesions" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Correlation Analysis | Learn R" />
+  
+  <meta name="twitter:description" content="Complete R tutorials for beginners!" />
+  <meta name="twitter:image" content="/cover.png" />
+
+<meta name="author" content="Kazeera Aliar" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statistical-tests.html"/>
+<link rel="next" href="heatmaps.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.4.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> Installation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#install-r"><i class="fa fa-check"></i><b>2.1</b> Install R</a></li>
+<li class="chapter" data-level="2.2" data-path="installation.html"><a href="installation.html#install-rstudio"><i class="fa fa-check"></i><b>2.2</b> Install RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#terms"><i class="fa fa-check"></i><b>2.3</b> Terms</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-programming-basics.html"><a href="r-programming-basics.html"><i class="fa fa-check"></i><b>3</b> R Programming Basics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r-programming-basics.html"><a href="r-programming-basics.html#variable-declaration"><i class="fa fa-check"></i><b>3.1</b> Variable Declaration</a></li>
+<li class="chapter" data-level="3.2" data-path="r-programming-basics.html"><a href="r-programming-basics.html#basic-data-types"><i class="fa fa-check"></i><b>3.2</b> Basic Data Types</a></li>
+<li class="chapter" data-level="3.3" data-path="r-programming-basics.html"><a href="r-programming-basics.html#operators"><i class="fa fa-check"></i><b>3.3</b> Operators</a></li>
+<li class="chapter" data-level="3.4" data-path="r-programming-basics.html"><a href="r-programming-basics.html#practice"><i class="fa fa-check"></i><b>3.4</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>4</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-structures.html"><a href="data-structures.html#vectors"><i class="fa fa-check"></i><b>4.1</b> Vectors</a></li>
+<li class="chapter" data-level="4.2" data-path="data-structures.html"><a href="data-structures.html#data-frames"><i class="fa fa-check"></i><b>4.2</b> Data Frames</a></li>
+<li class="chapter" data-level="4.3" data-path="data-structures.html"><a href="data-structures.html#practice-1"><i class="fa fa-check"></i><b>4.3</b> Practice</a></li>
+<li class="chapter" data-level="4.4" data-path="data-structures.html"><a href="data-structures.html#lists"><i class="fa fa-check"></i><b>4.4</b> Lists</a></li>
+<li class="chapter" data-level="4.5" data-path="data-structures.html"><a href="data-structures.html#factors"><i class="fa fa-check"></i><b>4.5</b> Factors</a></li>
+<li class="chapter" data-level="4.6" data-path="data-structures.html"><a href="data-structures.html#matrices"><i class="fa fa-check"></i><b>4.6</b> Matrices</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="importexport.html"><a href="importexport.html"><i class="fa fa-check"></i><b>5</b> Import/Export</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="importexport.html"><a href="importexport.html#export-tables"><i class="fa fa-check"></i><b>5.1</b> Export Tables</a></li>
+<li class="chapter" data-level="5.2" data-path="importexport.html"><a href="importexport.html#import-tables"><i class="fa fa-check"></i><b>5.2</b> Import Tables</a></li>
+<li class="chapter" data-level="5.3" data-path="importexport.html"><a href="importexport.html#graphing-with-base-r"><i class="fa fa-check"></i><b>5.3</b> Graphing with base R</a></li>
+<li class="chapter" data-level="5.4" data-path="importexport.html"><a href="importexport.html#practice-2"><i class="fa fa-check"></i><b>5.4</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphing-with-ggplot2.html"><a href="graphing-with-ggplot2.html"><i class="fa fa-check"></i><b>6</b> Graphing with ggplot2</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="graphing-with-ggplot2.html"><a href="graphing-with-ggplot2.html#what-is-ggplot2"><i class="fa fa-check"></i><b>6.1</b> What is ggplot2?</a></li>
+<li class="chapter" data-level="6.2" data-path="graphing-with-ggplot2.html"><a href="graphing-with-ggplot2.html#factors-1"><i class="fa fa-check"></i><b>6.2</b> Factors</a></li>
+<li class="chapter" data-level="6.3" data-path="graphing-with-ggplot2.html"><a href="graphing-with-ggplot2.html#r-colors"><i class="fa fa-check"></i><b>6.3</b> R Colors</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="statistical-tests.html"><a href="statistical-tests.html"><i class="fa fa-check"></i><b>7</b> Statistical Tests</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistical-tests.html"><a href="statistical-tests.html#lists-1"><i class="fa fa-check"></i><b>7.1</b> Lists</a></li>
+<li class="chapter" data-level="7.2" data-path="statistical-tests.html"><a href="statistical-tests.html#statistical-significance"><i class="fa fa-check"></i><b>7.2</b> Statistical Significance</a></li>
+<li class="chapter" data-level="7.3" data-path="statistical-tests.html"><a href="statistical-tests.html#checks-for-normality"><i class="fa fa-check"></i><b>7.3</b> Checks for Normality</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="statistical-tests.html"><a href="statistical-tests.html#shapiro-test"><i class="fa fa-check"></i><b>7.3.1</b> Shapiro Test</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="statistical-tests.html"><a href="statistical-tests.html#one-sample-tests"><i class="fa fa-check"></i><b>7.4</b> One-Sample Tests</a></li>
+<li class="chapter" data-level="7.5" data-path="statistical-tests.html"><a href="statistical-tests.html#two-sample-tests"><i class="fa fa-check"></i><b>7.5</b> Two-Sample Tests</a></li>
+<li class="chapter" data-level="7.6" data-path="statistical-tests.html"><a href="statistical-tests.html#anova"><i class="fa fa-check"></i><b>7.6</b> ANOVA</a></li>
+<li class="chapter" data-level="7.7" data-path="statistical-tests.html"><a href="statistical-tests.html#adding-p-values-to-ggplot"><i class="fa fa-check"></i><b>7.7</b> Adding p-values to ggplot</a></li>
+<li class="chapter" data-level="7.8" data-path="statistical-tests.html"><a href="statistical-tests.html#practice-3"><i class="fa fa-check"></i><b>7.8</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="correlation-analysis.html"><a href="correlation-analysis.html"><i class="fa fa-check"></i><b>8</b> Correlation Analysis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="correlation-analysis.html"><a href="correlation-analysis.html#correlation-methods"><i class="fa fa-check"></i><b>8.1</b> Correlation Methods</a></li>
+<li class="chapter" data-level="8.2" data-path="correlation-analysis.html"><a href="correlation-analysis.html#correlation-matrix"><i class="fa fa-check"></i><b>8.2</b> Correlation Matrix:</a></li>
+<li class="chapter" data-level="8.3" data-path="correlation-analysis.html"><a href="correlation-analysis.html#practice-correlation-analysis"><i class="fa fa-check"></i><b>8.3</b> Practice: Correlation analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="heatmaps.html"><a href="heatmaps.html"><i class="fa fa-check"></i><b>9</b> Heatmaps</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="heatmaps.html"><a href="heatmaps.html#data-preparation"><i class="fa fa-check"></i><b>9.1</b> Data preparation</a></li>
+<li class="chapter" data-level="9.2" data-path="heatmaps.html"><a href="heatmaps.html#pheatmap"><i class="fa fa-check"></i><b>9.2</b> pheatmap()</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="heatmaps.html"><a href="heatmaps.html#modify-row-and-column-names"><i class="fa fa-check"></i><b>9.2.1</b> Modify row and column names</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="heatmaps.html"><a href="heatmaps.html#scaling"><i class="fa fa-check"></i><b>9.3</b> Scaling</a></li>
+<li class="chapter" data-level="9.4" data-path="heatmaps.html"><a href="heatmaps.html#heatmap-colours"><i class="fa fa-check"></i><b>9.4</b> Heatmap Colours</a></li>
+<li class="chapter" data-level="9.5" data-path="heatmaps.html"><a href="heatmaps.html#clustering-methods"><i class="fa fa-check"></i><b>9.5</b> Clustering methods</a></li>
+<li class="chapter" data-level="9.6" data-path="heatmaps.html"><a href="heatmaps.html#create-annotations"><i class="fa fa-check"></i><b>9.6</b> Create annotations</a></li>
+<li class="chapter" data-level="9.7" data-path="heatmaps.html"><a href="heatmaps.html#practice-4"><i class="fa fa-check"></i><b>9.7</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html"><i class="fa fa-check"></i><b>10</b> Dataframe Manipulation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html#reshape-data"><i class="fa fa-check"></i><b>10.1</b> Reshape Data</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html#data"><i class="fa fa-check"></i><b>10.1.1</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html#pipe-operator"><i class="fa fa-check"></i><b>10.2</b> Pipe operator</a></li>
+<li class="chapter" data-level="10.3" data-path="dataframe-manipulation.html"><a href="dataframe-manipulation.html#practice-5"><i class="fa fa-check"></i><b>10.3</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="search-and-conditions.html"><a href="search-and-conditions.html"><i class="fa fa-check"></i><b>11</b> Search and Conditions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="search-and-conditions.html"><a href="search-and-conditions.html#general-expressions"><i class="fa fa-check"></i><b>11.1</b> General Expressions</a></li>
+<li class="chapter" data-level="11.2" data-path="search-and-conditions.html"><a href="search-and-conditions.html#conditions"><i class="fa fa-check"></i><b>11.2</b> Conditions</a></li>
+<li class="chapter" data-level="11.3" data-path="search-and-conditions.html"><a href="search-and-conditions.html#any-and-all"><i class="fa fa-check"></i><b>11.3</b> any() and all()</a></li>
+<li class="chapter" data-level="11.4" data-path="search-and-conditions.html"><a href="search-and-conditions.html#operators-1"><i class="fa fa-check"></i><b>11.4</b> Operators</a></li>
+<li class="chapter" data-level="11.5" data-path="search-and-conditions.html"><a href="search-and-conditions.html#ifelse"><i class="fa fa-check"></i><b>11.5</b> ifelse()</a></li>
+<li class="chapter" data-level="11.6" data-path="search-and-conditions.html"><a href="search-and-conditions.html#practice-6"><i class="fa fa-check"></i><b>11.6</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html"><i class="fa fa-check"></i><b>12</b> Repetitive Jobs</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#functions"><i class="fa fa-check"></i><b>12.1</b> Functions</a></li>
+<li class="chapter" data-level="12.2" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#loops"><i class="fa fa-check"></i><b>12.2</b> Loops</a></li>
+<li class="chapter" data-level="12.3" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#vectorization"><i class="fa fa-check"></i><b>12.3</b> Vectorization</a></li>
+<li class="chapter" data-level="12.4" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#intro-to-apply"><i class="fa fa-check"></i><b>12.4</b> Intro to apply</a></li>
+<li class="chapter" data-level="12.5" data-path="repetitive-jobs.html"><a href="repetitive-jobs.html#practice-7"><i class="fa fa-check"></i><b>12.5</b> Practice</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Learn R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="correlation-analysis" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Correlation Analysis</h1>
+<blockquote>
+<p>Objective: To learn how to perform correlation analysis in R</p>
+</blockquote>
+<p>We will cover:</p>
+<ul>
+<li>cor.test(x,y, method) computes the correlation coefficient and significance between two variables<br />
+</li>
+<li>cor() creates correlation matrix from a numeric matrix/data frame</li>
+<li>in corrplot package, cor.mtest() gives p-values and corrplot() plots a graph (i.e. correlogram) of a correlation matrix</li>
+</ul>
+<p><strong>What is correlation test?</strong></p>
+<ul>
+<li>Correlation test is used to evaluate the association between two or more continuous (numeric) variables.</li>
+</ul>
+<div id="correlation-methods" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Correlation Methods</h2>
+<p>(Note: Ref for formulas: <a href="http://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r" class="uri">http://www.sthda.com/english/wiki/correlation-test-between-two-variables-in-r</a>)</p>
+<p>Pearson correlation:
+- parametric test, which measures a linear dependence between two variables (x and y)
+- Correlation coefficient (r) is a value between -1 and 1:
+-1 - strong negative correlation: x increases, y decreases ()
+0 - no association between the two variables (x and y) (-)
+1 - strong positive correlation: x increases, y increases (/)</p>
+<ul>
+<li>Kendall tau and Spearman rho are rank-based correlation coefficients (non-parametric)</li>
+</ul>
+<p>Compute correlation in R</p>
+<p>** R functions**</p>
+<ul>
+<li><p>cor() computes just correlation coefficient (acts on vectors and data frames)</p></li>
+<li><p>cor.test() computes correlation coefficient and p-value</p></li>
+<li><p>Arguments:
+x, y = numeric vectors with the same length
+method = correlation method, e.g. “pearson”</p></li>
+<li><p>return values:
+p.value = p-value of the test
+estimate = the correlation coefficient</p></li>
+</ul>
+<p>Here, we’ll use the built-in R data set mtcars for our analysis</p>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="correlation-analysis.html#cb409-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the first 6 rows</span></span>
+<span id="cb409-2"><a href="correlation-analysis.html#cb409-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars, <span class="dv">6</span>)</span></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>Visualize your data using scatter plots</p>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="correlation-analysis.html#cb411-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggpubr&quot;</span>)</span>
+<span id="cb411-2"><a href="correlation-analysis.html#cb411-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggscatter() creates a scatter plot</span></span>
+<span id="cb411-3"><a href="correlation-analysis.html#cb411-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggscatter</span>(mtcars, <span class="at">x =</span> <span class="st">&quot;mpg&quot;</span>, <span class="at">y =</span> <span class="st">&quot;wt&quot;</span>, <span class="co"># specify data and aesthetics </span></span>
+<span id="cb411-4"><a href="correlation-analysis.html#cb411-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">add =</span> <span class="st">&quot;reg.line&quot;</span>, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="co"># add regression to plot</span></span>
+<span id="cb411-5"><a href="correlation-analysis.html#cb411-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">cor.coef =</span> <span class="cn">TRUE</span>, <span class="at">cor.method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="co">#label correlation coeffient</span></span>
+<span id="cb411-6"><a href="correlation-analysis.html#cb411-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">xlab =</span> <span class="st">&quot;Miles/(US) gallon&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Weight (1000 lbs)&quot;</span>) <span class="co"># label axes</span></span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p>Run Pearson correlation test</p>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="correlation-analysis.html#cb413-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">cor.test</span>(mtcars<span class="sc">$</span>wt, mtcars<span class="sc">$</span>mpg, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb413-2"><a href="correlation-analysis.html#cb413-2" aria-hidden="true" tabindex="-1"></a>res</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s product-moment correlation
+## 
+## data:  mtcars$wt and mtcars$mpg
+## t = -9.559, df = 30, p-value = 1.294e-10
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  -0.9338264 -0.7440872
+## sample estimates:
+##        cor 
+## -0.8676594</code></pre>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="correlation-analysis.html#cb415-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In the result above:</span></span>
+<span id="cb415-2"><a href="correlation-analysis.html#cb415-2" aria-hidden="true" tabindex="-1"></a><span class="co"># t is the t-test statistic value (t = -9.559),</span></span>
+<span id="cb415-3"><a href="correlation-analysis.html#cb415-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df is the degrees of freedom (df= 30),</span></span>
+<span id="cb415-4"><a href="correlation-analysis.html#cb415-4" aria-hidden="true" tabindex="-1"></a><span class="co"># p-value is the significance level of the t-test (p-value = 1.29410^{-10}).</span></span>
+<span id="cb415-5"><a href="correlation-analysis.html#cb415-5" aria-hidden="true" tabindex="-1"></a><span class="co"># conf.int is the confidence interval of the correlation coefficient at 95% (conf.int = [-0.9338, -0.7441]);</span></span>
+<span id="cb415-6"><a href="correlation-analysis.html#cb415-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sample estimates is the correlation coefficient (Cor.coeff = -0.87).</span></span>
+<span id="cb415-7"><a href="correlation-analysis.html#cb415-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb415-8"><a href="correlation-analysis.html#cb415-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Interpretation of result:</span></span>
+<span id="cb415-9"><a href="correlation-analysis.html#cb415-9" aria-hidden="true" tabindex="-1"></a><span class="co"># - p-value &lt; 0.05 and r = -0.87 &lt; 0. So wt and mpg are significantly correlated and strongly negatively correlated.</span></span></code></pre></div>
+<p>Recall: result is a list object</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="correlation-analysis.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="co"># &quot;res&quot; is a list object so we can extract values from the result </span></span>
+<span id="cb416-2"><a href="correlation-analysis.html#cb416-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the p.value</span></span>
+<span id="cb416-3"><a href="correlation-analysis.html#cb416-3" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>p.value</span></code></pre></div>
+<pre><code>## [1] 1.293959e-10</code></pre>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="correlation-analysis.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the correlation coefficient</span></span>
+<span id="cb418-2"><a href="correlation-analysis.html#cb418-2" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>estimate</span></code></pre></div>
+<pre><code>##        cor 
+## -0.8676594</code></pre>
+</div>
+<div id="correlation-matrix" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Correlation Matrix:</h2>
+<p>** Analyze, Format and Visualize**</p>
+<p>Read more: <a href="http://www.sthda.com/english/wiki/correlation-matrix-a-quick-start-guide-to-analyze-format-and-visualize-a-correlation-matrix-using-r-software" class="uri">http://www.sthda.com/english/wiki/correlation-matrix-a-quick-start-guide-to-analyze-format-and-visualize-a-correlation-matrix-using-r-software</a></p>
+<p>Correlation matrix is used to analyze the correlation between multiple variables at the same time (performs pairwise correlation tests)</p>
+<p><strong>Draw scatter plots using chart.Correlation()</strong></p>
+<p>The function chart.Correlation() can be used to display multiple charts for a correlation matrix.</p>
+<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="correlation-analysis.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # # Install package</span></span>
+<span id="cb420-2"><a href="correlation-analysis.html#cb420-2" aria-hidden="true" tabindex="-1"></a><span class="co"># # install.packages(&quot;PerformanceAnalytics&quot;)</span></span>
+<span id="cb420-3"><a href="correlation-analysis.html#cb420-3" aria-hidden="true" tabindex="-1"></a><span class="co"># # Load package into environment</span></span>
+<span id="cb420-4"><a href="correlation-analysis.html#cb420-4" aria-hidden="true" tabindex="-1"></a><span class="co"># library(&quot;PerformanceAnalytics&quot;)</span></span>
+<span id="cb420-5"><a href="correlation-analysis.html#cb420-5" aria-hidden="true" tabindex="-1"></a><span class="co"># # Subset data frames (select certain columns)</span></span>
+<span id="cb420-6"><a href="correlation-analysis.html#cb420-6" aria-hidden="true" tabindex="-1"></a><span class="co"># my_data &lt;- mtcars[, c(1,3,4,5,6,7)]</span></span>
+<span id="cb420-7"><a href="correlation-analysis.html#cb420-7" aria-hidden="true" tabindex="-1"></a><span class="co"># # Plot scatter plots, histograms and correlation using chart.Correlation()</span></span>
+<span id="cb420-8"><a href="correlation-analysis.html#cb420-8" aria-hidden="true" tabindex="-1"></a><span class="co"># chart.Correlation(my_data, histogram=TRUE, pch=19)</span></span></code></pre></div>
+<p><strong>Draw correlogram using corrplot()</strong></p>
+<ul>
+<li>Correlogram is a graph of correlation matrix</li>
+</ul>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="correlation-analysis.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create correlation matrix</span></span>
+<span id="cb421-2"><a href="correlation-analysis.html#cb421-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">cor</span>(mtcars, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span>
+<span id="cb421-3"><a href="correlation-analysis.html#cb421-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first 6 rows, round all values to 2 decimal points</span></span>
+<span id="cb421-4"><a href="correlation-analysis.html#cb421-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">round</span>(M,<span class="dv">2</span>))</span></code></pre></div>
+<pre><code>##        mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+## mpg   1.00 -0.85 -0.85 -0.78  0.68 -0.87  0.42  0.66  0.60  0.48 -0.55
+## cyl  -0.85  1.00  0.90  0.83 -0.70  0.78 -0.59 -0.81 -0.52 -0.49  0.53
+## disp -0.85  0.90  1.00  0.79 -0.71  0.89 -0.43 -0.71 -0.59 -0.56  0.39
+## hp   -0.78  0.83  0.79  1.00 -0.45  0.66 -0.71 -0.72 -0.24 -0.13  0.75
+## drat  0.68 -0.70 -0.71 -0.45  1.00 -0.71  0.09  0.44  0.71  0.70 -0.09
+## wt   -0.87  0.78  0.89  0.66 -0.71  1.00 -0.17 -0.55 -0.69 -0.58  0.43</code></pre>
+<ul>
+<li><p>use corrplot() to plot the graph of the correlation matrix</p></li>
+<li><p>Arguments
+corr = correlation matrix
+method = visualization: circle, square, ellipse, number, shade, color, pie
+** many more options to customize: <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html" class="uri">https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html</a></p></li>
+</ul>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="correlation-analysis.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Install and load package</span></span>
+<span id="cb423-2"><a href="correlation-analysis.html#cb423-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;corrplot&quot;)</span></span>
+<span id="cb423-3"><a href="correlation-analysis.html#cb423-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot correlogram</span></span>
+<span id="cb423-4"><a href="correlation-analysis.html#cb423-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div>
+<pre><code>## Warning: package &#39;corrplot&#39; was built under R version 4.1.3</code></pre>
+<pre><code>## corrplot 0.92 loaded</code></pre>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="correlation-analysis.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M, <span class="at">method=</span><span class="st">&quot;circle&quot;</span>)</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="correlation-analysis.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M, <span class="at">method=</span><span class="st">&quot;color&quot;</span>)</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-82-2.png" width="672" /></p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="correlation-analysis.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Positive correlations = blue and negative correlations = red</span></span>
+<span id="cb428-2"><a href="correlation-analysis.html#cb428-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Color intensity and size of the circle are proportional to the correlation coefficients</span></span>
+<span id="cb428-3"><a href="correlation-analysis.html#cb428-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb428-4"><a href="correlation-analysis.html#cb428-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the correlation coefficient:</span></span>
+<span id="cb428-5"><a href="correlation-analysis.html#cb428-5" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M, <span class="at">method=</span><span class="st">&quot;number&quot;</span>)</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-82-3.png" width="672" /></p>
+<ul>
+<li>Use cor.mtest() to make matrix of p-value</li>
+</ul>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="correlation-analysis.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of matrices of p-value, lower confidence interval (CI) and upper CI for a correlation matrix</span></span>
+<span id="cb429-2"><a href="correlation-analysis.html#cb429-2" aria-hidden="true" tabindex="-1"></a>p.mat <span class="ot">&lt;-</span> <span class="fu">cor.mtest</span>(mtcars)</span>
+<span id="cb429-3"><a href="correlation-analysis.html#cb429-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the p-values from the list object</span></span>
+<span id="cb429-4"><a href="correlation-analysis.html#cb429-4" aria-hidden="true" tabindex="-1"></a>p.mat <span class="ot">&lt;-</span> p.mat<span class="sc">$</span>p</span>
+<span id="cb429-5"><a href="correlation-analysis.html#cb429-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first 6 rows and first 5 columns</span></span>
+<span id="cb429-6"><a href="correlation-analysis.html#cb429-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p.mat[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<pre><code>##               mpg          cyl         disp           hp         drat
+## mpg  0.000000e+00 6.112687e-10 9.380327e-10 1.787835e-07 1.776240e-05
+## cyl  6.112687e-10 0.000000e+00 1.802838e-12 3.477861e-09 8.244636e-06
+## disp 9.380327e-10 1.802838e-12 0.000000e+00 7.142679e-08 5.282022e-06
+## hp   1.787835e-07 3.477861e-09 7.142679e-08 0.000000e+00 9.988772e-03
+## drat 1.776240e-05 8.244636e-06 5.282022e-06 9.988772e-03 0.000000e+00
+## wt   1.293959e-10 1.217567e-07 1.222320e-11 4.145827e-05 4.784260e-06</code></pre>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="correlation-analysis.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot correlogram with p-values</span></span>
+<span id="cb431-2"><a href="correlation-analysis.html#cb431-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Specialized the insignificant value according to the significant level</span></span>
+<span id="cb431-3"><a href="correlation-analysis.html#cb431-3" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(M, <span class="at">type=</span><span class="st">&quot;upper&quot;</span>, <span class="at">p.mat =</span> p.mat, <span class="at">sig.level =</span> <span class="fl">0.01</span>, <span class="at">order=</span><span class="st">&quot;hclust&quot;</span>)</span></code></pre></div>
+<p><img src="r-sessions_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="correlation-analysis.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: correlations with p-value &gt; 0.01 are considered as insignificant (i.e. correlation with crosses)</span></span>
+<span id="cb432-2"><a href="correlation-analysis.html#cb432-2" aria-hidden="true" tabindex="-1"></a><span class="co"># type = upper means show only the upper triangle of the matrix</span></span>
+<span id="cb432-3"><a href="correlation-analysis.html#cb432-3" aria-hidden="true" tabindex="-1"></a><span class="co"># order = hclust means order the variables by hierarchal clustering</span></span></code></pre></div>
+</div>
+<div id="practice-correlation-analysis" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Practice: Correlation analysis</h2>
+<p>Motor trend car road tests (mtcars)
+Fuel consumption and 10 additional aspects (variables) of automobile design tested in 1974 are given in an in-built R dataset called “mtcars”.<br />
+a) Look at the structure of mtcars. (Use str())<br />
+b) Is the first column/variable numeric?<br />
+c) Are the variables “mpg” and “drat” in mtcars normally distributed? (can use shapiro.test())<br />
+d) What is the Pearson correlation coefficient and p-value of the correlation between mpg and drat?<br />
+e) Is the correlation from d) positive or negative? Is it significant?<br />
+f) Plot a scatter plot of the two variables. Bonus: Add a line for regression. (use plot, ggplot, ggscatter from ggpubr)<br />
+g) Create a Pearson correlation matrix of mtcars. Assign it to a variable “cor_mat”<br />
+h) Create a p-value matrix for the correlation matrix in g). Assign it to a variable “p_mat”.<br />
+i) Create a correlogram of the correlation matrix and p-values in g and h using the corrplot package.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistical-tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="heatmaps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,17 +1,59 @@
 ---
-title: "R Tutorials"
+title: "Learn R"
 author: "Kazeera Aliar"
-date: "Dec 13, 2021"
+date: "last revised: May 4, 2022"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 github-repo: kazeera/r-seesions
 cover-image: "cover.png"
-description: "R tutorials for beginners!"
+description: "Complete R tutorials for beginners!"
 ---
 
-# Preface
-This book is a crash course for R programming for beginners.
+# Introduction
+This book is a resource for R programming for beginners. Each chapter is a tutorial. I highly recommend cementing your knowledge in programming basics and data types (chapters 3 and 4) as a foundation for any type of downstream analysis in R.
 
-What is programming/coding? It is the process of creating a set of instructions that tell a computer how to perform a task. It can be done using a variety of computer "languages," such as R, Java, and python. 
+```{r, echo=FALSE}
+knitr::include_app("https://kazeera.shinyapps.io/learn-r-shiny/",
+  height = "400px")
+
+```
+
+**Each chapter contains:**
+
+* description of concept
+* examples of concept
+* link to quiz
+* practice problem and solution
+
+**What is programming/coding?** 
+
+It is the process of creating a set of instructions that tell a computer how to perform a task. It can be done using a variety of computer "languages," such as R, Java, and python. 
+
+**Advantages of R?**
+
+Here are some benefits of R programming for both beginners and experts.
+
+* R is **open-source**, free and accessible (no license/subscription required!). In addition, the R community is very active, helpful and build extensive libraries that may suit your needs.
+* Supports **cross-platform** usage (ie. machine-independent), which means it can be used on Windows, Mac OS, etc. the same way.
+* It is an **interpreted language**, meaning you can see the output of your code line-by-line. In other words, it doesn't need a compiler to make executable programs. R is also an object-oriented programming language.
+
+**Why should you learn R?**
+
+R has a comprehensive development environment, which will help you perform statistical computing as well as software development.
+
+1. Delve into **statistical computing and analysis**
+2. Analyze **large data sets** for data science via parallel/distributed computing.
+3. Great for **data cleansing and wrangling**.
+4. Produce **powerful graphics**, that is, high quality visualizations, even interactive graphs!
+5. Compatible with **other languages** such as C, C++, FORTRAN as well as Java, Python.
+6. Use to **interact with databases** such as MySQL.
+7. Perform **machine learning**.
+8. Create **web applications** without any web development knowledge using RShiny.
+
+**Other resources to learn R:**
+
+* Course-like: [link](https://swcarpentry.github.io/r-novice-inflammation/)  
+* Comprehensive tutorial pages: [link](http://www.sthda.com/english/)  
+* Refresher slides: [link](https://support.scinet.utoronto.ca/education/go.php/306/content.php/cid/831/)  
 

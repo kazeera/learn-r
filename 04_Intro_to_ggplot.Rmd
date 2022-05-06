@@ -4,13 +4,13 @@ output: bookdown::gitbook
 documentclass: book
 ---
 # Graphing with ggplot2
-Objective:
-* To learn how to use ggplot2 package for custom visualizations
+> Objective: To learn how to use ggplot2 package for custom visualizations
 
-We will cover:  
-* Initializing a plot using ggplot() function call  
-* geom_ layers and how to save ggplots (gg_save())  
-* Factors  
+We will cover: 
+
+- Initializing a plot using ggplot() function call  
+- geom_ layers and how to save ggplots (gg_save())  
+- Factors  
 
 This tutorial is based upon a lesson by UofT coders: https://uoftcoders.github.io/studyGroup/lessons/r/ggplot2/lesson/. Check out their sessions! 
   

@@ -4,9 +4,10 @@ output: bookdown::gitbook
 documentclass: book
 ---
 # Heatmaps
-Objective: To learn how to draw heatmaps in R using the pheatmap package
+> Objective: To learn how to draw heatmaps in R using the pheatmap package
 
-Summary: 
+We will cover:  
+
 - Data preparation:
     - Numeric matrix/data frame as input
     - Log normalization

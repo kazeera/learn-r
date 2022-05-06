@@ -4,7 +4,7 @@ output: bookdown::gitbook
 documentclass: book
 ---
 # Search and Conditions
-Objective: To learn about control flow (decision making) structures in R, mainly if/else  
+> Objective: To learn about control flow (decision making) structures in R, mainly if/else  
  
 We will cover:  
 - grep and grepl

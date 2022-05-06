@@ -4,11 +4,12 @@ output: bookdown::gitbook
 documentclass: book
 ---
 # Import/Export
-Objective:  
+> Objective:  
 - Learn how to import (read.csv(), read.delim()) and export tabular data (write.csv(), write.delim())
 - Learn how to plot graphs using base R  
    
-We will also cover: 
+We will cover:  
+
 - use data sets provided by R
 - how to create a new directory/folder using dir.create()  
 - open several graphics windows  
@@ -94,9 +95,8 @@ df2 <- read.delim(file = "Data/DNase.txt", header = TRUE, sep = "\t", dec = ".")
 ```
 
 **Working with Excel files**
-
-* xlsx package  
-* readxl package  
+* _openxlsx_ package  
+* _readxl_ package  
  
 Note: install libraries/packages in R using install.packages("package_name"). Load intro environment before using with library(package_name)  
 
@@ -142,7 +142,6 @@ Loading objects
 ```
 
 **Consider using readr package**
-
 * Reading lines from a file: read_lines()  
 * readr functions for writing data: write_tsv(), write_csv()  
 * readr for reading/writing txt|csv files: read_tsv(), read_csv(), etc  
@@ -152,7 +151,6 @@ Loading objects
 - The purpose of base R plots is to analyze our data, not as elegant for publication purposes  
   
 **plot()**
-
 - generic function, meaning it can work with different types of objects  
 - plot() function can be used to plot 2 variables (of equal length)
     plot(x, y, type=...)
