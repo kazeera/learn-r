@@ -262,11 +262,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 - if{}else{}
 - ifelse()</p>
 <p>Recall: logical is a basic data type in R. The values are either TRUE or FALSE. (short-form T or F)</p>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="search-and-conditions.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examples</span></span>
-<span id="cb534-2"><a href="search-and-conditions.html#cb534-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> T<span class="co"># logical value</span></span>
-<span id="cb534-3"><a href="search-and-conditions.html#cb534-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(x) <span class="co"># returns a logical</span></span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="search-and-conditions.html#cb538-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examples</span></span>
+<span id="cb538-2"><a href="search-and-conditions.html#cb538-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> T<span class="co"># logical value</span></span>
+<span id="cb538-3"><a href="search-and-conditions.html#cb538-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(x) <span class="co"># returns a logical</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="search-and-conditions.html#cb536-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F, T) <span class="co">#logical vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="search-and-conditions.html#cb540-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(T, F, T) <span class="co">#logical vector</span></span></code></pre></div>
 <div id="general-expressions" class="section level2" number="11.1">
 <h2><span class="header-section-number">11.1</span> General Expressions</h2>
 <ul>
@@ -279,18 +279,18 @@ grep() = returns a numeric vector of indices of the character strings that conta
 - pattern = regular expression you want to match for
 - x = character vector from which matches should be sought</p>
 <p>Read more: <a href="https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html" class="uri">https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html</a></p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="search-and-conditions.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a character vector with emails</span></span>
-<span id="cb537-2"><a href="search-and-conditions.html#cb537-2" aria-hidden="true" tabindex="-1"></a>emails <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ka@gmail.com&quot;</span>, <span class="st">&quot;edu@who.int&quot;</span>, <span class="st">&quot;me@gmail.com&quot;</span>, <span class="st">&quot;invalid.edu&quot;</span>, <span class="st">&quot;jane@utoronto.ca&quot;</span>, <span class="st">&quot;jane@gmail.com&quot;</span>)</span>
-<span id="cb537-3"><a href="search-and-conditions.html#cb537-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for emails with &quot;gmail.com</span></span>
-<span id="cb537-4"><a href="search-and-conditions.html#cb537-4" aria-hidden="true" tabindex="-1"></a><span class="co"># use grep</span></span>
-<span id="cb537-5"><a href="search-and-conditions.html#cb537-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="at">pattern =</span> <span class="st">&quot;gmail.com&quot;</span>, <span class="at">x =</span> emails)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="search-and-conditions.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a character vector with emails</span></span>
+<span id="cb541-2"><a href="search-and-conditions.html#cb541-2" aria-hidden="true" tabindex="-1"></a>emails <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ka@gmail.com&quot;</span>, <span class="st">&quot;edu@who.int&quot;</span>, <span class="st">&quot;me@gmail.com&quot;</span>, <span class="st">&quot;invalid.edu&quot;</span>, <span class="st">&quot;jane@utoronto.ca&quot;</span>, <span class="st">&quot;jane@gmail.com&quot;</span>)</span>
+<span id="cb541-3"><a href="search-and-conditions.html#cb541-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for emails with &quot;gmail.com</span></span>
+<span id="cb541-4"><a href="search-and-conditions.html#cb541-4" aria-hidden="true" tabindex="-1"></a><span class="co"># use grep</span></span>
+<span id="cb541-5"><a href="search-and-conditions.html#cb541-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span>(<span class="at">pattern =</span> <span class="st">&quot;gmail.com&quot;</span>, <span class="at">x =</span> emails)</span></code></pre></div>
 <pre><code>## [1] 1 3 6</code></pre>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="search-and-conditions.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use grepl</span></span>
-<span id="cb539-2"><a href="search-and-conditions.html#cb539-2" aria-hidden="true" tabindex="-1"></a>is.gmail <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;gmail.com&quot;</span>, <span class="at">x =</span> emails)</span>
-<span id="cb539-3"><a href="search-and-conditions.html#cb539-3" aria-hidden="true" tabindex="-1"></a>is.gmail</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="search-and-conditions.html#cb543-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use grepl</span></span>
+<span id="cb543-2"><a href="search-and-conditions.html#cb543-2" aria-hidden="true" tabindex="-1"></a>is.gmail <span class="ot">&lt;-</span> <span class="fu">grepl</span>(<span class="at">pattern =</span> <span class="st">&quot;gmail.com&quot;</span>, <span class="at">x =</span> emails)</span>
+<span id="cb543-3"><a href="search-and-conditions.html#cb543-3" aria-hidden="true" tabindex="-1"></a>is.gmail</span></code></pre></div>
 <pre><code>## [1]  TRUE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="search-and-conditions.html#cb541-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now you can index the emails vector</span></span>
-<span id="cb541-2"><a href="search-and-conditions.html#cb541-2" aria-hidden="true" tabindex="-1"></a>emails[is.gmail]</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="search-and-conditions.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now you can index the emails vector</span></span>
+<span id="cb545-2"><a href="search-and-conditions.html#cb545-2" aria-hidden="true" tabindex="-1"></a>emails[is.gmail]</span></code></pre></div>
 <pre><code>## [1] &quot;ka@gmail.com&quot;   &quot;me@gmail.com&quot;   &quot;jane@gmail.com&quot;</code></pre>
 </div>
 <div id="conditions" class="section level2" number="11.2">
@@ -307,21 +307,21 @@ grep() = returns a numeric vector of indices of the character strings that conta
 }</code></pre></li>
 </ul>
 <p>The condition, test_expression must return TRUE or FALSE. If it returns TRUE, the block of code (ie. statement) inside the curly brackets will be run.</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="search-and-conditions.html#cb544-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1</span></span>
-<span id="cb544-2"><a href="search-and-conditions.html#cb544-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span></span>
-<span id="cb544-3"><a href="search-and-conditions.html#cb544-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
-<span id="cb544-4"><a href="search-and-conditions.html#cb544-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
-<span id="cb544-5"><a href="search-and-conditions.html#cb544-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
-<span id="cb544-6"><a href="search-and-conditions.html#cb544-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="search-and-conditions.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1</span></span>
+<span id="cb548-2"><a href="search-and-conditions.html#cb548-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb548-3"><a href="search-and-conditions.html#cb548-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
+<span id="cb548-4"><a href="search-and-conditions.html#cb548-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb548-5"><a href="search-and-conditions.html#cb548-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
+<span id="cb548-6"><a href="search-and-conditions.html#cb548-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;X is a negative number.&quot;</code></pre>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="search-and-conditions.html#cb546-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 2</span></span>
-<span id="cb546-2"><a href="search-and-conditions.html#cb546-2" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">400</span></span>
-<span id="cb546-3"><a href="search-and-conditions.html#cb546-3" aria-hidden="true" tabindex="-1"></a>do_log <span class="ot">&lt;-</span> T</span>
-<span id="cb546-4"><a href="search-and-conditions.html#cb546-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If do_log is TRUE, we log the values in the brackets</span></span>
-<span id="cb546-5"><a href="search-and-conditions.html#cb546-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(do_log){</span>
-<span id="cb546-6"><a href="search-and-conditions.html#cb546-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;do_log is TRUE&quot;</span>)</span>
-<span id="cb546-7"><a href="search-and-conditions.html#cb546-7" aria-hidden="true" tabindex="-1"></a>  values <span class="ot">&lt;-</span> <span class="fu">log</span>(values)</span>
-<span id="cb546-8"><a href="search-and-conditions.html#cb546-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="search-and-conditions.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 2</span></span>
+<span id="cb550-2"><a href="search-and-conditions.html#cb550-2" aria-hidden="true" tabindex="-1"></a>values <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">400</span></span>
+<span id="cb550-3"><a href="search-and-conditions.html#cb550-3" aria-hidden="true" tabindex="-1"></a>do_log <span class="ot">&lt;-</span> T</span>
+<span id="cb550-4"><a href="search-and-conditions.html#cb550-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If do_log is TRUE, we log the values in the brackets</span></span>
+<span id="cb550-5"><a href="search-and-conditions.html#cb550-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(do_log){</span>
+<span id="cb550-6"><a href="search-and-conditions.html#cb550-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;do_log is TRUE&quot;</span>)</span>
+<span id="cb550-7"><a href="search-and-conditions.html#cb550-7" aria-hidden="true" tabindex="-1"></a>  values <span class="ot">&lt;-</span> <span class="fu">log</span>(values)</span>
+<span id="cb550-8"><a href="search-and-conditions.html#cb550-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;do_log is TRUE&quot;</code></pre>
 <p>You may pair the if{} statement with an else (optional).
 If the test expression for if is FALSE, the code within else{} will run.</p>
@@ -330,13 +330,13 @@ If the test expression for if is FALSE, the code within else{} will run.</p>
 } else {
   statement2
 }</code></pre>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="search-and-conditions.html#cb549-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span></span>
-<span id="cb549-2"><a href="search-and-conditions.html#cb549-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
-<span id="cb549-3"><a href="search-and-conditions.html#cb549-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
-<span id="cb549-4"><a href="search-and-conditions.html#cb549-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
-<span id="cb549-5"><a href="search-and-conditions.html#cb549-5" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb549-6"><a href="search-and-conditions.html#cb549-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a positive number.&quot;</span>)</span>
-<span id="cb549-7"><a href="search-and-conditions.html#cb549-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="search-and-conditions.html#cb553-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb553-2"><a href="search-and-conditions.html#cb553-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
+<span id="cb553-3"><a href="search-and-conditions.html#cb553-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb553-4"><a href="search-and-conditions.html#cb553-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
+<span id="cb553-5"><a href="search-and-conditions.html#cb553-5" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb553-6"><a href="search-and-conditions.html#cb553-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a positive number.&quot;</span>)</span>
+<span id="cb553-7"><a href="search-and-conditions.html#cb553-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;X is a negative number.&quot;</code></pre>
 <p>Note: you can also have an ifelse ladder
 - It allows you execute a block of code among more than 2 alternatives.</p>
@@ -349,34 +349,34 @@ If the test expression for if is FALSE, the code within else{} will run.</p>
   } else {
     statement4
   }</code></pre>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="search-and-conditions.html#cb552-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb552-2"><a href="search-and-conditions.html#cb552-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
-<span id="cb552-3"><a href="search-and-conditions.html#cb552-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
-<span id="cb552-4"><a href="search-and-conditions.html#cb552-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
-<span id="cb552-5"><a href="search-and-conditions.html#cb552-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb552-6"><a href="search-and-conditions.html#cb552-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a positive number.&quot;</span>)</span>
-<span id="cb552-7"><a href="search-and-conditions.html#cb552-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb552-8"><a href="search-and-conditions.html#cb552-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is 0.&quot;</span>)</span>
-<span id="cb552-9"><a href="search-and-conditions.html#cb552-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="search-and-conditions.html#cb556-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb556-2"><a href="search-and-conditions.html#cb556-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the following as: if x is less than 0, print &quot;x is a negative number&quot;</span></span>
+<span id="cb556-3"><a href="search-and-conditions.html#cb556-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb556-4"><a href="search-and-conditions.html#cb556-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a negative number.&quot;</span>)</span>
+<span id="cb556-5"><a href="search-and-conditions.html#cb556-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb556-6"><a href="search-and-conditions.html#cb556-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is a positive number.&quot;</span>)</span>
+<span id="cb556-7"><a href="search-and-conditions.html#cb556-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb556-8"><a href="search-and-conditions.html#cb556-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;X is 0.&quot;</span>)</span>
+<span id="cb556-9"><a href="search-and-conditions.html#cb556-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;X is a positive number.&quot;</code></pre>
 </div>
 <div id="any-and-all" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> any() and all()</h2>
 <p>Check whether any or all of the elements of a vector are TRUE.</p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="search-and-conditions.html#cb554-1" aria-hidden="true" tabindex="-1"></a><span class="co"># continuing emails example...</span></span>
-<span id="cb554-2"><a href="search-and-conditions.html#cb554-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if any emails are gmail</span></span>
-<span id="cb554-3"><a href="search-and-conditions.html#cb554-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">any</span>(<span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
-<span id="cb554-4"><a href="search-and-conditions.html#cb554-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;There are gmail accounts in the emails vector.&quot;</span>)</span>
-<span id="cb554-5"><a href="search-and-conditions.html#cb554-5" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb554-6"><a href="search-and-conditions.html#cb554-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;There are no gmail accounts.&quot;</span>)</span>
-<span id="cb554-7"><a href="search-and-conditions.html#cb554-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="search-and-conditions.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="co"># continuing emails example...</span></span>
+<span id="cb558-2"><a href="search-and-conditions.html#cb558-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if any emails are gmail</span></span>
+<span id="cb558-3"><a href="search-and-conditions.html#cb558-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">any</span>(<span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
+<span id="cb558-4"><a href="search-and-conditions.html#cb558-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;There are gmail accounts in the emails vector.&quot;</span>)</span>
+<span id="cb558-5"><a href="search-and-conditions.html#cb558-5" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb558-6"><a href="search-and-conditions.html#cb558-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;There are no gmail accounts.&quot;</span>)</span>
+<span id="cb558-7"><a href="search-and-conditions.html#cb558-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;There are gmail accounts in the emails vector.&quot;</code></pre>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="search-and-conditions.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if all of the emails are gmail</span></span>
-<span id="cb556-2"><a href="search-and-conditions.html#cb556-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">all</span>(<span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
-<span id="cb556-3"><a href="search-and-conditions.html#cb556-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;All emails are gmail accounts.&quot;</span>)</span>
-<span id="cb556-4"><a href="search-and-conditions.html#cb556-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb556-5"><a href="search-and-conditions.html#cb556-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Not all emails are gmail accounts.&quot;</span>)</span>
-<span id="cb556-6"><a href="search-and-conditions.html#cb556-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="search-and-conditions.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if all of the emails are gmail</span></span>
+<span id="cb560-2"><a href="search-and-conditions.html#cb560-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">all</span>(<span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
+<span id="cb560-3"><a href="search-and-conditions.html#cb560-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;All emails are gmail accounts.&quot;</span>)</span>
+<span id="cb560-4"><a href="search-and-conditions.html#cb560-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb560-5"><a href="search-and-conditions.html#cb560-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Not all emails are gmail accounts.&quot;</span>)</span>
+<span id="cb560-6"><a href="search-and-conditions.html#cb560-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Not all emails are gmail accounts.&quot;</code></pre>
 </div>
 <div id="operators-1" class="section level2" number="11.4">
@@ -408,50 +408,50 @@ Recall from tutorial 1..</p>
 </li>
 <li><div class="line-block">Element-wise logical OR # will be true if at least one element is true</div></li>
 </ul>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="search-and-conditions.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign logical values to variables</span></span>
-<span id="cb558-2"><a href="search-and-conditions.html#cb558-2" aria-hidden="true" tabindex="-1"></a>im_tall <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb558-3"><a href="search-and-conditions.html#cb558-3" aria-hidden="true" tabindex="-1"></a>im_short <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb558-4"><a href="search-and-conditions.html#cb558-4" aria-hidden="true" tabindex="-1"></a>im_nice <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb558-5"><a href="search-and-conditions.html#cb558-5" aria-hidden="true" tabindex="-1"></a><span class="co"># NOT</span></span>
-<span id="cb558-6"><a href="search-and-conditions.html#cb558-6" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>im_tall <span class="co"># I&#39;m NOT tall = FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="search-and-conditions.html#cb562-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign logical values to variables</span></span>
+<span id="cb562-2"><a href="search-and-conditions.html#cb562-2" aria-hidden="true" tabindex="-1"></a>im_tall <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb562-3"><a href="search-and-conditions.html#cb562-3" aria-hidden="true" tabindex="-1"></a>im_short <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb562-4"><a href="search-and-conditions.html#cb562-4" aria-hidden="true" tabindex="-1"></a>im_nice <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb562-5"><a href="search-and-conditions.html#cb562-5" aria-hidden="true" tabindex="-1"></a><span class="co"># NOT</span></span>
+<span id="cb562-6"><a href="search-and-conditions.html#cb562-6" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>im_tall <span class="co"># I&#39;m NOT tall = FALSE</span></span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="search-and-conditions.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AND </span></span>
-<span id="cb560-2"><a href="search-and-conditions.html#cb560-2" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">&amp;</span> im_short</span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="search-and-conditions.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="co"># AND </span></span>
+<span id="cb564-2"><a href="search-and-conditions.html#cb564-2" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">&amp;</span> im_short</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="search-and-conditions.html#cb562-1" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">&amp;</span> im_tall</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="search-and-conditions.html#cb566-1" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">&amp;</span> im_tall</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="search-and-conditions.html#cb564-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OR</span></span>
-<span id="cb564-2"><a href="search-and-conditions.html#cb564-2" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">|</span> im_short</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="search-and-conditions.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OR</span></span>
+<span id="cb568-2"><a href="search-and-conditions.html#cb568-2" aria-hidden="true" tabindex="-1"></a>im_nice <span class="sc">|</span> im_short</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="search-and-conditions.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="co"># combine using parentheses (not square brackets or braces) </span></span>
-<span id="cb566-2"><a href="search-and-conditions.html#cb566-2" aria-hidden="true" tabindex="-1"></a><span class="co"># like BEDMAS - perform what&#39;s in () brackets first</span></span>
-<span id="cb566-3"><a href="search-and-conditions.html#cb566-3" aria-hidden="true" tabindex="-1"></a>(im_nice <span class="sc">|</span> im_short) <span class="sc">&amp;</span> im_tall</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="search-and-conditions.html#cb570-1" aria-hidden="true" tabindex="-1"></a><span class="co"># combine using parentheses (not square brackets or braces) </span></span>
+<span id="cb570-2"><a href="search-and-conditions.html#cb570-2" aria-hidden="true" tabindex="-1"></a><span class="co"># like BEDMAS - perform what&#39;s in () brackets first</span></span>
+<span id="cb570-3"><a href="search-and-conditions.html#cb570-3" aria-hidden="true" tabindex="-1"></a>(im_nice <span class="sc">|</span> im_short) <span class="sc">&amp;</span> im_tall</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Combine Boolean operators with functions that return logical values.</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="search-and-conditions.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if any of the emails are not gmail using NOT !</span></span>
-<span id="cb568-2"><a href="search-and-conditions.html#cb568-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">any</span>(<span class="sc">!</span> <span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
-<span id="cb568-3"><a href="search-and-conditions.html#cb568-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Some or all emails are not gmail accounts.&quot;</span>)</span>
-<span id="cb568-4"><a href="search-and-conditions.html#cb568-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="search-and-conditions.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if any of the emails are not gmail using NOT !</span></span>
+<span id="cb572-2"><a href="search-and-conditions.html#cb572-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">any</span>(<span class="sc">!</span> <span class="fu">grepl</span>(<span class="st">&quot;gmail.com&quot;</span>, emails))){</span>
+<span id="cb572-3"><a href="search-and-conditions.html#cb572-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;Some or all emails are not gmail accounts.&quot;</span>)</span>
+<span id="cb572-4"><a href="search-and-conditions.html#cb572-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Some or all emails are not gmail accounts.&quot;</code></pre>
 </div>
 <div id="ifelse" class="section level2" number="11.5">
 <h2><span class="header-section-number">11.5</span> ifelse()</h2>
 <p>Say you have an if/else statement where you’re assigning a value to a variable based on a condition.</p>
 <p>Example</p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="search-and-conditions.html#cb570-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb570-2"><a href="search-and-conditions.html#cb570-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
-<span id="cb570-3"><a href="search-and-conditions.html#cb570-3" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;negative&quot;</span></span>
-<span id="cb570-4"><a href="search-and-conditions.html#cb570-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb570-5"><a href="search-and-conditions.html#cb570-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;positive&quot;</span></span>
-<span id="cb570-6"><a href="search-and-conditions.html#cb570-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="search-and-conditions.html#cb574-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb574-2"><a href="search-and-conditions.html#cb574-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>){</span>
+<span id="cb574-3"><a href="search-and-conditions.html#cb574-3" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;negative&quot;</span></span>
+<span id="cb574-4"><a href="search-and-conditions.html#cb574-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb574-5"><a href="search-and-conditions.html#cb574-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="st">&quot;positive&quot;</span></span>
+<span id="cb574-6"><a href="search-and-conditions.html#cb574-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>You can use the ifelse() function in R to shorten this code.
 ifelse(test_expression, x, y)
 where if test_expression is T, x is returned if T, else y is returned
 Read more: <a href="https://www.datamentor.io/r-programming/ifelse-function/" class="uri">https://www.datamentor.io/r-programming/ifelse-function/</a></p>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="search-and-conditions.html#cb571-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">&quot;negative&quot;</span>, <span class="st">&quot;positive&quot;</span>)</span>
-<span id="cb571-2"><a href="search-and-conditions.html#cb571-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb571-3"><a href="search-and-conditions.html#cb571-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If x is between 10 and 30, return x, or else add 30 to x</span></span>
-<span id="cb571-4"><a href="search-and-conditions.html#cb571-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> x <span class="sc">&gt;</span> <span class="dv">10</span>, x, x<span class="sc">+</span><span class="dv">30</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="search-and-conditions.html#cb575-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">&quot;negative&quot;</span>, <span class="st">&quot;positive&quot;</span>)</span>
+<span id="cb575-2"><a href="search-and-conditions.html#cb575-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb575-3"><a href="search-and-conditions.html#cb575-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If x is between 10 and 30, return x, or else add 30 to x</span></span>
+<span id="cb575-4"><a href="search-and-conditions.html#cb575-4" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> x <span class="sc">&gt;</span> <span class="dv">10</span>, x, x<span class="sc">+</span><span class="dv">30</span>)</span></code></pre></div>
 </div>
 <div id="practice-6" class="section level2" number="11.6">
 <h2><span class="header-section-number">11.6</span> Practice</h2>
@@ -463,24 +463,24 @@ Read more: <a href="https://www.datamentor.io/r-programming/ifelse-function/" cl
 <li>Print the values in v that are greater than x to console.</li>
 </ol>
 <p>Solution</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="search-and-conditions.html#cb572-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) </span></span>
-<span id="cb572-2"><a href="search-and-conditions.html#cb572-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb572-3"><a href="search-and-conditions.html#cb572-3" aria-hidden="true" tabindex="-1"></a><span class="co"># b)</span></span>
-<span id="cb572-4"><a href="search-and-conditions.html#cb572-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
-<span id="cb572-5"><a href="search-and-conditions.html#cb572-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is less than 10&quot;</span>)</span>
-<span id="cb572-6"><a href="search-and-conditions.html#cb572-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="search-and-conditions.html#cb576-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a) </span></span>
+<span id="cb576-2"><a href="search-and-conditions.html#cb576-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb576-3"><a href="search-and-conditions.html#cb576-3" aria-hidden="true" tabindex="-1"></a><span class="co"># b)</span></span>
+<span id="cb576-4"><a href="search-and-conditions.html#cb576-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
+<span id="cb576-5"><a href="search-and-conditions.html#cb576-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is less than 10&quot;</span>)</span>
+<span id="cb576-6"><a href="search-and-conditions.html#cb576-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is less than 10&quot;</code></pre>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="search-and-conditions.html#cb574-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c)</span></span>
-<span id="cb574-2"><a href="search-and-conditions.html#cb574-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
-<span id="cb574-3"><a href="search-and-conditions.html#cb574-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is less than 10&quot;</span>)</span>
-<span id="cb574-4"><a href="search-and-conditions.html#cb574-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
-<span id="cb574-5"><a href="search-and-conditions.html#cb574-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is not less than 10&quot;</span>)</span>
-<span id="cb574-6"><a href="search-and-conditions.html#cb574-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="search-and-conditions.html#cb578-1" aria-hidden="true" tabindex="-1"></a><span class="co"># c)</span></span>
+<span id="cb578-2"><a href="search-and-conditions.html#cb578-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(x <span class="sc">&lt;</span> <span class="dv">10</span>){</span>
+<span id="cb578-3"><a href="search-and-conditions.html#cb578-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is less than 10&quot;</span>)</span>
+<span id="cb578-4"><a href="search-and-conditions.html#cb578-4" aria-hidden="true" tabindex="-1"></a>}<span class="cf">else</span>{</span>
+<span id="cb578-5"><a href="search-and-conditions.html#cb578-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;x is not less than 10&quot;</span>)</span>
+<span id="cb578-6"><a href="search-and-conditions.html#cb578-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;x is less than 10&quot;</code></pre>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="search-and-conditions.html#cb576-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d)</span></span>
-<span id="cb576-2"><a href="search-and-conditions.html#cb576-2" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">7</span> <span class="co"># or v &lt;- c(3,52,7,2,31)</span></span>
-<span id="cb576-3"><a href="search-and-conditions.html#cb576-3" aria-hidden="true" tabindex="-1"></a><span class="co"># e)</span></span>
-<span id="cb576-4"><a href="search-and-conditions.html#cb576-4" aria-hidden="true" tabindex="-1"></a>v[v<span class="sc">&gt;</span>x]</span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="search-and-conditions.html#cb580-1" aria-hidden="true" tabindex="-1"></a><span class="co"># d)</span></span>
+<span id="cb580-2"><a href="search-and-conditions.html#cb580-2" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">7</span> <span class="co"># or v &lt;- c(3,52,7,2,31)</span></span>
+<span id="cb580-3"><a href="search-and-conditions.html#cb580-3" aria-hidden="true" tabindex="-1"></a><span class="co"># e)</span></span>
+<span id="cb580-4"><a href="search-and-conditions.html#cb580-4" aria-hidden="true" tabindex="-1"></a>v[v<span class="sc">&gt;</span>x]</span></code></pre></div>
 <pre><code>## [1] 6 7</code></pre>
 
 </div>
