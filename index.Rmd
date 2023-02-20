@@ -1,7 +1,6 @@
 ---
 title: "Learn R"
 author: "By KazeeRa AliaR"
-date: "last revised: May 6, 2022"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
